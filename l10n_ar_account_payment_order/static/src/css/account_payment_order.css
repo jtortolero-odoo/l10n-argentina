@@ -1,0 +1,28 @@
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+div[name="income_line_ids"] input[type="checkbox"], div[name="debt_line_ids"] input[type="checkbox"] {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+}
+
+div[name="income_line_ids"] td.reconcile_bullseye div:before, div[name="debt_line_ids"] td.reconcile_bullseye div:before {
+  text-align: center;
+  position: absolute;
+  background-color: inherit;
+  font-family: FontAwesome;
+  content:"\f140";
+  display: inline-block;
+}
+
+div[name="income_line_ids"] div.o_checkbox, div[name="debt_line_ids"] div.o_checkbox {
+  text-align: center;
+  display: block !important;
+  font-size: 1.5em;
+}
+
+.fa.slow-spin {
+  -webkit-animation: fa-spin 6s infinite linear;
+  animation: fa-spin 6s infinite linear;
+}

@@ -1,0 +1,687 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* l10n_ar_perceptions
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-18 16:13+0000\n"
+"PO-Revision-Date: 2020-06-18 16:13+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_perception__code
+msgid "AFIP Code"
+msgstr "Codigo AFIP"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_concept__account_ids
+msgid "Accounts"
+msgstr "Cuentas"
+
+#. module: l10n_ar_perceptions
+#: model_terms:ir.ui.view,arch_db:l10n_ar_perceptions.view_perception_concept_form
+msgid "Accounts Associated"
+msgstr "Cuentas asociadas"
+
+#. module: l10n_ar_perceptions
+#: model:ir.actions.act_window,name:l10n_ar_perceptions.action_perception_activity_tree
+#: model:ir.ui.menu,name:l10n_ar_perceptions.perception_perception_activities_menu
+msgid "Activities"
+msgstr "Actividades"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_tax_application__activity_id
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_res_partner_perception__activity_id
+msgid "Activity"
+msgstr "Actividad"
+
+#. module: l10n_ar_perceptions
+#: selection:perception.perception,applicable_state:0
+msgid "Always"
+msgstr "Siempre"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_perception__always_apply_padron
+msgid "Always Apply from Padron"
+msgstr "Siempre aplicar desde el padron"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_perception__applicable_state
+msgid "Applicable State"
+msgstr "Aplicable en Provincia"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_perception__applicable_location
+msgid "Application Address"
+msgstr "Aplicable en direccion"
+
+#. module: l10n_ar_perceptions
+#: model_terms:ir.ui.view,arch_db:l10n_ar_perceptions.view_account_position_perception_form
+msgid "Applied Perceptions"
+msgstr "Percepciones aplicadas"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_tax_application__calculation_base
+msgid "Calculation Base"
+msgstr "Calculo de base"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_perception__check_sit_iibb
+msgid "Check IIBB Situation"
+msgstr "Chequeo de situacion de IIBB"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,help:l10n_ar_perceptions.field_perception_concept__no_subject
+msgid "Check this if Perception should not be applied for this Concept"
+msgstr "Tilde esto si la percepcion no debe ser aplicada a este concepto"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,help:l10n_ar_perceptions.field_perception_tax_application__exclude_tax_allowance
+msgid "Check this if Tax Allowance should be excluded from calculated Base"
+msgstr ""
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_activity__code
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_concept__code
+msgid "Code"
+msgstr "Código"
+
+#. module: l10n_ar_perceptions
+#: code:addons/l10n_ar_perceptions/models/perception.py:139
+#, python-format
+msgid "Company Configuration Error!\n"
+""
+msgstr "Error en la configuración de la compañia!"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_tax_application__concept_id
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_tax_line__concept_id
+#: model_terms:ir.ui.view,arch_db:l10n_ar_perceptions.view_invoice_perception_concept_form
+#: model_terms:ir.ui.view,arch_db:l10n_ar_perceptions.view_invoice_supplier_perception_form_inherit
+#: model_terms:ir.ui.view,arch_db:l10n_ar_perceptions.view_perception_tax_line_concept_search
+msgid "Concept"
+msgstr "Concepto"
+
+#. module: l10n_ar_perceptions
+#: model:ir.actions.act_window,name:l10n_ar_perceptions.action_perception_concept_tree
+#: model:ir.ui.menu,name:l10n_ar_perceptions.perception_perception_concepts_menu
+msgid "Concepts"
+msgstr "Conceptos"
+
+#. module: l10n_ar_perceptions
+#: model_terms:ir.ui.view,arch_db:l10n_ar_perceptions.view_perception_perception_form
+msgid "Configuration"
+msgstr "Configuración"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model,name:l10n_ar_perceptions.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_activity__create_uid
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_concept__create_uid
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_tax_application__create_uid
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_vat_tax__create_uid
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_res_partner_perception__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_activity__create_date
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_concept__create_date
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_tax_application__create_date
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_vat_tax__create_date
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_res_partner_perception__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_res_partner__perception_ids
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_res_users__perception_ids
+msgid "Defined Perceptions"
+msgstr "Percepciones definidas"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_activity__name
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_concept__name
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_tax_application__name
+msgid "Description"
+msgstr "Descripción"
+
+#. module: l10n_ar_perceptions
+#: selection:perception.perception,applicable_state:0
+msgid "Destination"
+msgstr "Destino"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_activity__display_name
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_concept__display_name
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_tax_application__display_name
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_vat_tax__display_name
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_res_partner_perception__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_tax_application__exclude_tax_allowance
+msgid "Exclude Tax Allowance"
+msgstr ""
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_res_partner_perception__exclusion_certificate
+msgid "Exclusion Certificate"
+msgstr "Certificado de exclusion"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model,name:l10n_ar_perceptions.model_account_fiscal_position
+msgid "Fiscal Position"
+msgstr "Posición fiscal"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_res_partner_perception__ex_date_from
+msgid "From date"
+msgstr "Desde"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_perception__general_resolution
+msgid "GR Number"
+msgstr "GR numero"
+
+#. module: l10n_ar_perceptions
+#: model_terms:ir.ui.view,arch_db:l10n_ar_perceptions.view_perception_perception_form
+msgid "General Resolution Associated"
+msgstr "Resolucion general asociada"
+
+#. module: l10n_ar_perceptions
+#: selection:perception.activity,type:0
+#: selection:perception.concept,type:0
+#: selection:perception.tax.application,type:0
+msgid "Gross Income"
+msgstr "Ingresos Brutos"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_perception__gi_application_ids
+#: model_terms:ir.ui.view,arch_db:l10n_ar_perceptions.view_perception_perception_form
+msgid "Gross Income Tax Application"
+msgstr ""
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,help:l10n_ar_perceptions.field_res_partner__perception_ids
+#: model:ir.model.fields,help:l10n_ar_perceptions.field_res_users__perception_ids
+msgid "Here you have to configure perception exceptions for this partner with this Fiscal Position"
+msgstr "Aquí debe configurar las excepciones de percepción para este socio con esta Posición Fiscal"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_activity__id
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_concept__id
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_tax_application__id
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_vat_tax__id
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_res_partner_perception__id
+msgid "ID"
+msgstr ""
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,help:l10n_ar_perceptions.field_perception_perception__check_sit_iibb
+msgid "If checked, when IIBB situation is Multilateral, this perception is always applicable"
+msgstr ""
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,help:l10n_ar_perceptions.field_perception_perception__always_apply_padron
+msgid "If checked, when the partner has a perception exception and it was generated from a padron, this perception will be applied"
+msgstr ""
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,help:l10n_ar_perceptions.field_perception_perception__applicable_state
+msgid "Indicates if this Perception is applicable when:\n"
+"* State/Province is equals to source address\n"
+"* State/Province is equals to destination address\n"
+"* Always"
+msgstr ""
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,help:l10n_ar_perceptions.field_perception_perception__applicable_location
+msgid "Indicates whether the Perception is applicable when:\n"
+"* The Invoicing Source/Destination address matches the State/Province\n"
+"* The Shipping Source/Destination address matches the State/Province"
+msgstr ""
+
+#. module: l10n_ar_perceptions
+#: model:ir.model,name:l10n_ar_perceptions.model_account_invoice
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model,name:l10n_ar_perceptions.model_account_invoice_line
+msgid "Invoice Line"
+msgstr "Linea de Factura"
+
+#. module: l10n_ar_perceptions
+#: selection:perception.tax.application,calculation_base:0
+msgid "Invoice Net Taxed"
+msgstr "Neto Gravado"
+
+#. module: l10n_ar_perceptions
+#: selection:perception.tax.application,calculation_base:0
+msgid "Invoice Net Untaxed"
+msgstr "Neto No Gravado"
+
+#. module: l10n_ar_perceptions
+#: selection:perception.tax.application,calculation_base:0
+msgid "Invoice Subtotal"
+msgstr "Subtotal"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model,name:l10n_ar_perceptions.model_account_invoice_tax
+msgid "Invoice Tax"
+msgstr "Impuesto de factura"
+
+#. module: l10n_ar_perceptions
+#: selection:perception.tax.application,calculation_base:0
+msgid "Invoice Total"
+msgstr "Total de Factura"
+
+#. module: l10n_ar_perceptions
+#: code:addons/l10n_ar_perceptions/models/perception.py:54
+#: selection:perception.perception,applicable_location:0
+#, python-format
+msgid "Invoicing Address"
+msgstr "Dirección de facturación"
+
+#. module: l10n_ar_perceptions
+#: model_terms:ir.ui.view,arch_db:l10n_ar_perceptions.view_perception_perception_form
+msgid "Jurisdiction Information"
+msgstr "Información de jurisdicción"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_activity____last_update
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_concept____last_update
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_tax_application____last_update
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_vat_tax____last_update
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_res_partner_perception____last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_activity__write_uid
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_concept__write_uid
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_tax_application__write_uid
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_vat_tax__write_uid
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_res_partner_perception__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_activity__write_date
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_concept__write_date
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_tax_application__write_date
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_vat_tax__write_date
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_res_partner_perception__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_tax_line__manual
+msgid "Manual"
+msgstr ""
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_concept__no_subject
+msgid "No Subject"
+msgstr ""
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_activity__notes
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_concept__notes
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_perception__notes
+#: model_terms:ir.ui.view,arch_db:l10n_ar_perceptions.view_perception_activity_form
+#: model_terms:ir.ui.view,arch_db:l10n_ar_perceptions.view_perception_concept_form
+#: model_terms:ir.ui.view,arch_db:l10n_ar_perceptions.view_perception_perception_form
+msgid "Notes"
+msgstr "Notas"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_res_partner__nro_insc_iibb
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_res_users__nro_insc_iibb
+msgid "Number of IIBB Registration"
+msgstr "Número de registro IIBB"
+
+#. module: l10n_ar_perceptions
+#: selection:perception.activity,type:0
+#: selection:perception.concept,type:0
+msgid "Other"
+msgstr "Otro"
+
+#. module: l10n_ar_perceptions
+#: model_terms:ir.ui.view,arch_db:l10n_ar_perceptions.view_perception_perception_form
+msgid "Other Info"
+msgstr "Otra Información"
+
+#. module: l10n_ar_perceptions
+#: model_terms:ir.ui.view,arch_db:l10n_ar_perceptions.view_perception_perception_form
+msgid "Other Information"
+msgstr "Otra información"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_res_partner_perception__partner_id
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: l10n_ar_perceptions
+#: code:addons/l10n_ar_perceptions/models/perception.py:169
+#, python-format
+msgid "Partner has no Delivery State configured. To compute Perception, is needed to know Delivery State. Please, configure a Partner Address."
+msgstr ""
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_tax_application__percent
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_res_partner_perception__percent
+msgid "Percent"
+msgstr "Porcentaje"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,help:l10n_ar_perceptions.field_perception_tax_application__percent
+msgid "Percent to Apply if the Partner is inscripted in the Tax"
+msgstr ""
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_res_partner_perception__excluded_percent
+msgid "Percentage of Exclusion"
+msgstr "Porcentaje de exclusión"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_tax_application__perception_id
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_res_partner_perception__perception_id
+#: model_terms:ir.ui.view,arch_db:l10n_ar_perceptions.view_account_position_perception_form
+#: model_terms:ir.ui.view,arch_db:l10n_ar_perceptions.view_perception_perception_form
+msgid "Perception"
+msgstr "Percepción"
+
+#. module: l10n_ar_perceptions
+#: model_terms:ir.ui.view,arch_db:l10n_ar_perceptions.view_perception_activity_tree
+msgid "Perception Activities"
+msgstr ""
+
+#. module: l10n_ar_perceptions
+#: model_terms:ir.ui.view,arch_db:l10n_ar_perceptions.view_perception_activity_form
+msgid "Perception Activity"
+msgstr ""
+
+#. module: l10n_ar_perceptions
+#: model_terms:ir.ui.view,arch_db:l10n_ar_perceptions.view_perception_concept_form
+msgid "Perception Concept"
+msgstr ""
+
+#. module: l10n_ar_perceptions
+#: model:ir.model,name:l10n_ar_perceptions.model_perception_concept
+#: model_terms:ir.ui.view,arch_db:l10n_ar_perceptions.view_perception_concept_tree
+msgid "Perception Concepts"
+msgstr "Conceptos de Percepción"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model,name:l10n_ar_perceptions.model_perception_perception
+msgid "Perception Configuration"
+msgstr "Configuración de la percepción"
+
+#. module: l10n_ar_perceptions
+#: code:addons/l10n_ar_perceptions/models/invoice.py:157
+#, python-format
+msgid "Perception Configuration Error!\n"
+"Excluded percent configured has to be between 0.0 and 1.0"
+msgstr ""
+
+#. module: l10n_ar_perceptions
+#: model:ir.model,name:l10n_ar_perceptions.model_res_partner_perception
+msgid "Perception Defined in Partner"
+msgstr "Percepción definida en la empresa"
+
+#. module: l10n_ar_perceptions
+#: code:addons/l10n_ar_perceptions/models/perception.py:237
+#: code:addons/l10n_ar_perceptions/models/perception.py:245
+#, python-format
+msgid "Perception Error!\n"
+""
+msgstr "Error de percepción!\n"
+
+#. module: l10n_ar_perceptions
+#: code:addons/l10n_ar_perceptions/models/perception.py:96
+#, python-format
+msgid "Perception Error!\n"
+"Accont %s[%s] must have an associated concept for %s. Please configure it!"
+msgstr ""
+
+#. module: l10n_ar_perceptions
+#: model:ir.model,name:l10n_ar_perceptions.model_perception_activity
+msgid "Perception Gross Income Activity"
+msgstr "Actividad de Percepción de II BB"
+
+#. module: l10n_ar_perceptions
+#: model_terms:ir.ui.view,arch_db:l10n_ar_perceptions.view_perception_perception_form
+msgid "Perception Name"
+msgstr ""
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_vat_tax__application_id
+msgid "Perception Tax Application"
+msgstr ""
+
+#. module: l10n_ar_perceptions
+#: model:ir.model,name:l10n_ar_perceptions.model_perception_tax_line
+msgid "Perception Tax Line"
+msgstr "Línea de impuesto de la percepción"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,help:l10n_ar_perceptions.field_perception_tax_application__tax_minimum
+msgid "Perception is performed when the amount thereof exceeds this value."
+msgstr ""
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,help:l10n_ar_perceptions.field_perception_tax_application__tax_allowance
+msgid "Perception will be calculated over this amount."
+msgstr ""
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_account_fiscal_position__perception_ids
+#: model_terms:ir.ui.view,arch_db:l10n_ar_perceptions.view_partner_perception_form
+#: model_terms:ir.ui.view,arch_db:l10n_ar_perceptions.view_perception_perception_form
+msgid "Perceptions"
+msgstr ""
+
+#. module: l10n_ar_perceptions
+#: model_terms:ir.ui.view,arch_db:l10n_ar_perceptions.view_partner_perception_form
+msgid "Perceptions to Apply"
+msgstr ""
+
+#. module: l10n_ar_perceptions
+#: selection:perception.activity,type:0
+#: selection:perception.concept,type:0
+#: selection:perception.tax.application,type:0
+msgid "Profit"
+msgstr "Ganancias"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_perception__profit_application_ids
+#: model_terms:ir.ui.view,arch_db:l10n_ar_perceptions.view_perception_perception_form
+msgid "Profit Tax Application"
+msgstr ""
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_vat_tax__rate
+msgid "Rate"
+msgstr "Tasa"
+
+#. module: l10n_ar_perceptions
+#: selection:perception.tax.application,calculation_base:0
+msgid "Rate Proportional VAT"
+msgstr "Tasa Proporcional al IVA"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,help:l10n_ar_perceptions.field_perception_vat_tax__rate
+msgid "Rate from 1.0 to 0.0. This is the proportion of percent applied to base amount of this tax."
+msgstr ""
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_tax_application__reg_code
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_tax_line__reg_code
+#: model_terms:ir.ui.view,arch_db:l10n_ar_perceptions.view_perception_tax_line_concept_search
+msgid "Reg. Code"
+msgstr "Reg. codigo"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model,name:l10n_ar_perceptions.model_sale_order
+msgid "Sale Order"
+msgstr "Pedido de venta"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model,name:l10n_ar_perceptions.model_sale_advance_payment_inv
+msgid "Sales Advance Payment Invoice"
+msgstr "Ventas. Anticipo pago factura"
+
+#. module: l10n_ar_perceptions
+#: code:addons/l10n_ar_perceptions/models/perception.py:55
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_account_invoice__address_shipping_id
+#: selection:perception.perception,applicable_location:0
+#, python-format
+msgid "Shipping Address"
+msgstr "Dirección de envío"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_tax_application__sit_iibb
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_res_partner_perception__sit_iibb
+msgid "Situation of IIBB"
+msgstr "Situacion de IIBB"
+
+#. module: l10n_ar_perceptions
+#: selection:perception.perception,applicable_state:0
+msgid "Source"
+msgstr "Origen"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_tax_application__tax_allowance
+msgid "Tax Allowance"
+msgstr ""
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_tax_line__tax_app_id
+#: model_terms:ir.ui.view,arch_db:l10n_ar_perceptions.view_perception_perception_form
+msgid "Tax Application"
+msgstr "Aplicación del impuesto"
+
+#. module: l10n_ar_perceptions
+#: model_terms:ir.ui.view,arch_db:l10n_ar_perceptions.view_perception_perception_form
+msgid "Tax Information"
+msgstr ""
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_tax_application__tax_minimum
+msgid "Tax Minimum"
+msgstr "Impuesto minimo"
+
+#. module: l10n_ar_perceptions
+#: sql_constraint:perception.tax.application:0
+msgid "The tuple of Concept, Activity must be unique per Perception !"
+msgstr "La tupla de concepto, actividad debe ser unica por percepcion!"
+
+#. module: l10n_ar_perceptions
+#: code:addons/l10n_ar_perceptions/models/perception.py:246
+#, python-format
+msgid "There is more than one Perception Application (%s) configured that corresponds to\n"
+"Activity: %s \n"
+"Concept: %s\n"
+" for the Account %s"
+msgstr ""
+
+#. module: l10n_ar_perceptions
+#: code:addons/l10n_ar_perceptions/models/perception.py:140
+#, python-format
+msgid "There is no State/Province configured for this Company"
+msgstr "La compañia no tiene una provincia configurada"
+
+#. module: l10n_ar_perceptions
+#: code:addons/l10n_ar_perceptions/models/perception.py:238
+#, python-format
+msgid "There is no configured a Perception Application (%s) that corresponds to\n"
+"Activity: %s \n"
+"Concept: %s\n"
+" for the Account %s"
+msgstr ""
+
+#. module: l10n_ar_perceptions
+#: sql_constraint:res.partner.perception:0
+msgid "There must be only one perception of this type configured for the partner"
+msgstr ""
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,help:l10n_ar_perceptions.field_account_fiscal_position__perception_ids
+msgid "These are the perceptions that will be applied to Suppliers belonging to this Fiscal Position. Exceptions to this have to be loaded at partner form."
+msgstr ""
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_res_partner_perception__ex_date_to
+msgid "To date"
+msgstr "Hasta"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model,name:l10n_ar_perceptions.model_stock_picking
+msgid "Transfer"
+msgstr "Albarán"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_activity__type
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_concept__type
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_tax_application__type
+msgid "Type"
+msgstr "Tipo"
+
+#. module: l10n_ar_perceptions
+#: model_terms:ir.ui.view,arch_db:l10n_ar_perceptions.view_perception_perception_form
+msgid "Usability Configuration"
+msgstr ""
+
+#. module: l10n_ar_perceptions
+#: selection:perception.activity,type:0
+#: selection:perception.concept,type:0
+#: selection:perception.tax.application,type:0
+msgid "VAT"
+msgstr "IVA"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_vat_tax__tax_id
+msgid "VAT Tax"
+msgstr ""
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_perception__vat_application_ids
+#: model_terms:ir.ui.view,arch_db:l10n_ar_perceptions.view_perception_perception_form
+msgid "VAT Tax Application"
+msgstr ""
+
+#. module: l10n_ar_perceptions
+#: model:ir.model.fields,field_description:l10n_ar_perceptions.field_perception_tax_application__vat_tax_ids
+#: model_terms:ir.ui.view,arch_db:l10n_ar_perceptions.view_perception_perception_form
+msgid "VAT Taxes for Calculation"
+msgstr ""
+
+#. module: l10n_ar_perceptions
+#: model:ir.model,name:l10n_ar_perceptions.model_perception_vat_tax
+msgid "VAT Taxes for Perception Calculation"
+msgstr "Impuestos para el cálculo de la percepción"
+
+#. module: l10n_ar_perceptions
+#: code:addons/l10n_ar_perceptions/models/perception.py:168
+#, python-format
+msgid "Warning!\n"
+""
+msgstr "Alerta!"
+
+#. module: l10n_ar_perceptions
+#: model:ir.model,name:l10n_ar_perceptions.model_perception_tax_application
+msgid "perception.tax.application"
+msgstr "Aplicación de Impuesto Percepción"

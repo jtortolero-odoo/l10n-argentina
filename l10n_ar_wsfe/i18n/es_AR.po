@@ -1,0 +1,1157 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* l10n_ar_wsfe
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-09 13:26+0000\n"
+"PO-Revision-Date: 2020-03-09 13:26+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_tax_codes__tax_id
+msgid "Account Tax"
+msgstr "Cuenta de impuestos"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_request_detail__name
+msgid "Additional Notes"
+msgstr "Notas Adicionales"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_sinchronize_voucher__amount_exempt
+msgid "Amount Exempt"
+msgstr "Importe Exento"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_request_detail__amount_total
+msgid "Amount Total"
+msgstr "Importe total"
+
+#. module: l10n_ar_wsfe
+#: selection:wsfe.request,result:0
+#: selection:wsfe.request.detail,result:0
+#: selection:wsfex.request.detail,result:0
+msgid "Approved"
+msgstr "Aprobado"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_account_invoice__associated_inv_ids
+msgid "Associated Inv"
+msgstr "Factura Asociada"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.wsfe_account_invoice_form
+msgid "Associated Invoices"
+msgstr "Facturas Asociadas"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_account_invoice__aut_cae
+msgid "Autorizar"
+msgstr "Autorizar"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_request_detail__cae
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_sinchronize_voucher__cae
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_request_detail__cae
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.wsfe_account_invoice_form
+msgid "CAE"
+msgstr "CAE"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,help:l10n_ar_wsfe.field_account_invoice__cae
+msgid "CAE (Codigo de Autorizacion Electronico assigned by AFIP.)"
+msgstr "CAE (Codigo de Autorizacion Electronico asignado por AFIP.)"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_account_invoice__cae_due_date
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_request_detail__cae_duedate
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_sinchronize_voucher__cae_due_date
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_request_detail__cae_duedate
+msgid "CAE Due Date"
+msgstr "Vencimiento CAE"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_account_invoice__cae
+msgid "CAE/CAI"
+msgstr "CAE/CAI"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.cai_account_supplier_invoice_form
+msgid "CAI"
+msgstr "CAI"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfe_massive_sinchronize
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfe_sinchronize_voucher
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,help:l10n_ar_wsfe.field_wsfe_tax_codes__exempt_operations
+msgid "Check it if this VAT Tax corresponds to vat tax exempts operations, such as to sell books, milk, etc. The taxes with this checked, will be reported to AFIP as  exempt operations (base amount) without VAT applied on this"
+msgstr "Compruebe si este impuesto sobre el IVA corresponde a las operaciones exentas de impuesto de IVA, tales como vender libros, leche, etc. Los impuestos con este chequeado, serán reportados a la AFIP como operaciones exentas (monto base) sin IVA aplicado en este"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_tax_codes__code
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_voucher_type__code
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_currency_codes__code
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_dst_country_codes__code
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_export_type_codes__code
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_incoterms_codes__code
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_lang_codes__code
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_shipping_permission__name
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_uom_codes__code
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_voucher_type_codes__code
+msgid "Code"
+msgstr "Código"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_config__company_id
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_config__company_id
+msgid "Company Name"
+msgstr "Nombre de la Empresa"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_request_detail__concept
+msgid "Concept"
+msgstr "Concepto"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_sinchronize_voucher__config_id
+msgid "Config"
+msgstr "Configuración"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfe_config_form
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfe_config_tree
+msgid "Config Electronic Invoice"
+msgstr "Configuración Factura Electrónica"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfex_config_form
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfex_config_tree
+msgid "Config WSFEX"
+msgstr "Configuración WSFEX"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfe_voucher_type_form
+msgid "Configuration Voucher Types"
+msgstr "Configuración Tipos de Voucher"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model,name:l10n_ar_wsfe.model_wsfe_config
+msgid "Configuration for WSFE"
+msgstr "Configuración para WSFE"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model,name:l10n_ar_wsfe.model_wsfex_config
+msgid "Configuration for WSFEX"
+msgstr "Configuración para WSFEX"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model,name:l10n_ar_wsfe.model_account_invoice_confirm
+msgid "Confirm the selected invoices"
+msgstr "Confirmar las facturas seleccionadas"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_config__country_ids
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfex_config_form
+msgid "Countries"
+msgstr "Países"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_config__create_uid
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_massive_sinchronize__create_uid
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_request__create_uid
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_request_detail__create_uid
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_sinchronize_voucher__create_uid
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_tax_codes__create_uid
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_voucher_type__create_uid
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_config__create_uid
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_currency_codes__create_uid
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_dst_country_codes__create_uid
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_export_type_codes__create_uid
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_incoterms_codes__create_uid
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_lang_codes__create_uid
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_request_detail__create_uid
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_shipping_permission__create_uid
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_uom_codes__create_uid
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_voucher_type_codes__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_config__create_date
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_massive_sinchronize__create_date
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_request__create_date
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_request_detail__create_date
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_sinchronize_voucher__create_date
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_tax_codes__create_date
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_voucher_type__create_date
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_config__create_date
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_currency_codes__create_date
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_dst_country_codes__create_date
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_export_type_codes__create_date
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_incoterms_codes__create_date
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_lang_codes__create_date
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_request_detail__create_date
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_shipping_permission__create_date
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_uom_codes__create_date
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_voucher_type_codes__create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_config__cuit
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_config__cuit
+msgid "Cuit"
+msgstr "Cuit"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_config__currency_ids
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfex_config_form
+msgid "Currencies"
+msgstr "Monedas"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_request_detail__currency
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_request_detail__currency_rate
+msgid "Currency Rate"
+msgstr "Taza de Cambio"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_config__dst_cuit_ids
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfex_config_form
+msgid "DST CUIT"
+msgstr "DST CUIT"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model,name:l10n_ar_wsfe.model_dst_cuit_codes
+msgid "DST CUIT Codes"
+msgstr "Países CUIT"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_sinchronize_voucher__date_invoice
+msgid "Date Invoice"
+msgstr "Fecha Factura"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_sinchronize_voucher__date_process
+msgid "Date Processed"
+msgstr "Fecha Procesada"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_voucher_type__denomination_id
+msgid "Denomination"
+msgstr "Denominación"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_request__name
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_tax_codes__name
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_currency_codes__name
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_dst_country_codes__name
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_export_type_codes__name
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_incoterms_codes__name
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_lang_codes__name
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_uom_codes__name
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_voucher_type_codes__name
+msgid "Desc"
+msgstr "Descripción"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_account_invoice__dst_country_id
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_shipping_permission__dst_country_id
+msgid "Dest Country"
+msgstr "País de Destino"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_request_detail__detail
+msgid "Detail"
+msgstr "Detalle"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_request__detail_ids
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfe_request_form
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.wsfe_account_invoice_form
+msgid "Details"
+msgstr "Detalles"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_config__display_name
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_massive_sinchronize__display_name
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_request__display_name
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_request_detail__display_name
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_sinchronize_voucher__display_name
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_tax_codes__display_name
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_voucher_type__display_name
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_config__display_name
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_currency_codes__display_name
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_dst_country_codes__display_name
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_export_type_codes__display_name
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_incoterms_codes__display_name
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_lang_codes__display_name
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_request_detail__display_name
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_shipping_permission__display_name
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_uom_codes__display_name
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_voucher_type_codes__display_name
+msgid "Display Name"
+msgstr "Nombre para Mostrar"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_request_detail__docnum
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_sinchronize_voucher__document_number
+msgid "Document Number"
+msgstr "Número de Documento"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_request_detail__doctype
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_sinchronize_voucher__document_type
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_voucher_type__document_type
+msgid "Document Type"
+msgstr "Tipo de Documento"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_tax_codes__to_date
+msgid "Effect Until"
+msgstr "Válido Hasta"
+
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_tax_codes__from_date
+msgid "Effective From"
+msgstr "Válido Desde"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_request_detail__error
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.wsfe_account_invoice_form
+msgid "Error"
+msgstr "Error"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_request__errors
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_request_detail__errors
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfe_request_form
+msgid "Errors"
+msgstr "Errores"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_request_detail__event
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.wsfe_account_invoice_form
+msgid "Event"
+msgstr "Evento"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_tax_codes__exempt_operations
+msgid "Exempt Operations"
+msgstr "Operaciones Exentas"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfe_config_form
+msgid "Exempt Operations Taxes Mapping"
+msgstr "Mapeo de impuestos de operaciones exentas"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.wsfe_account_invoice_form
+msgid "Export Invoice"
+msgstr "Factura de Exportación"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_account_invoice__export_type_id
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_config__export_type_ids
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfex_config_form
+msgid "Export Type"
+msgstr "Tipo de Exportación"
+
+#. module: l10n_ar_wsfe
+#: selection:wsfe.voucher_type,document_type:0
+msgid "Factura"
+msgstr "Factura"
+
+#. module: l10n_ar_wsfe
+#: selection:wsfe.voucher_type,voucher_model:0
+msgid "Factura/NC/ND"
+msgstr "Factura/NC/ND"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,help:l10n_ar_wsfe.field_account_invoice__cae_due_date
+msgid "Fecha de vencimiento del CAE"
+msgstr "Fecha de vencimiento del CAE"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_tax_codes__from_afip
+msgid "From AFIP"
+msgstr "De AFIP"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfex_config_form
+msgid "Get Countries"
+msgstr "Obtener Países"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfex_config_form
+msgid "Get Currencies"
+msgstr "Obtener Monedas"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfex_config_form
+msgid "Get DST CUIT"
+msgstr "Obtener DST CUIT"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfex_config_form
+msgid "Get Export Types"
+msgstr "Obtener Tipos de Exportación"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfex_config_form
+msgid "Get Incoterms"
+msgstr "Obtener Incoterms"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfex_config_form
+msgid "Get Languages"
+msgstr "Obtener Idiomas"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfex_config_form
+msgid "Get Units of Measure"
+msgstr "Obtener Unidades de Medida"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfex_config_form
+msgid "Get Voucher Type"
+msgstr "Obtener Tipo de Voucher"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfe_request_form
+msgid "Header"
+msgstr "Encabezado"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.wsfe_account_invoice_form
+msgid "History Requests"
+msgstr "Historial de Solicitudes"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_config__homologation
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_config__homologation
+msgid "Homologation"
+msgstr "Homologación"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_config__id
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_massive_sinchronize__id
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_request__id
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_request_detail__id
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_sinchronize_voucher__id
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_tax_codes__id
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_voucher_type__id
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_config__id
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_currency_codes__id
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_dst_country_codes__id
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_export_type_codes__id
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_incoterms_codes__id
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_lang_codes__id
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_request_detail__id
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_shipping_permission__id
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_uom_codes__id
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_voucher_type_codes__id
+msgid "ID"
+msgstr "ID"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,help:l10n_ar_wsfe.field_wsfex_config__homologation
+msgid "If true, there will be some validations that are         disabled, for example, invoice number correlativeness"
+msgstr ""Si es verdadero, habrá algunas validaciones que están deshabilitadas, por ejemplo, correlación de número de factura"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,help:l10n_ar_wsfe.field_wsfe_config__homologation
+msgid "If true, there will be some validations that are disabled, for example, invoice number correlativeness"
+msgstr "Si es verdadero, habrá algunas validaciones que están deshabilitadas, por ejemplo, correlación de número de factura"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,help:l10n_ar_wsfe.field_wsfex_request_detail__name
+msgid "If you want to write down some detail about this request"
+msgstr "Si desea anotar algunos detalles sobre esta solicitud"
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_account_invoice__incoterm_id
+msgid "Incoterm"
+msgstr "Incoterm"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model,name:l10n_ar_wsfe.model_account_incoterms
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_config__incoterms_ids
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfex_config_form
+msgid "Incoterms"
+msgstr "Incoterms"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_sinchronize_voucher__infook
+msgid "Info OK"
+msgstr "Info OK"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,help:l10n_ar_wsfe.field_wsfe_voucher_type__code
+msgid "Internal Code assigned by AFIP for voucher type"
+msgstr "Código Interno asignado por AFIP para el tipo de voucher"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,help:l10n_ar_wsfe.field_account_invoice__incoterm_id
+msgid "International Commercial Terms are a series of predefined commercial terms used in international transactions."
+msgstr "Los términos de comercio internacional son una serie de condiciones comerciales usadas en las transacciones internacionales."
+
+#. module: l10n_ar_wsfe
+#: model:ir.model,name:l10n_ar_wsfe.model_account_invoice
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_sinchronize_voucher__invoice_id
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_shipping_permission__invoice_id
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfe_config_form
+msgid "Invoice Date Difference from Today"
+msgstr "Cantidad de días desde Hoy hasta la Fecha de Facturación"
+
+# module: l10n_ar_wsfe
+#: model:ir.model,name:l10n_ar_wsfe.model_account_invoice_line
+msgid "Invoice Line"
+msgstr "Linea de factura"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfe_sinchronize_voucher
+msgid "Invoice Relationship"
+msgstr "Relación de Factura"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model,name:l10n_ar_wsfe.model_account_invoice_tax
+msgid "Invoice Tax"
+msgstr "Impuesto de factura"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_config__lang_ids
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfex_config_form
+msgid "Languages"
+msgstr "Idiomas"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_config____last_update
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_massive_sinchronize____last_update
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_request____last_update
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_request_detail____last_update
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_sinchronize_voucher____last_update
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_tax_codes____last_update
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_voucher_type____last_update
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_config____last_update
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_currency_codes____last_update
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_dst_country_codes____last_update
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_export_type_codes____last_update
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_incoterms_codes____last_update
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_lang_codes____last_update
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_request_detail____last_update
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_shipping_permission____last_update
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_uom_codes____last_update
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_voucher_type_codes____last_update
+msgid "Last Modified on"
+msgstr "Última Modificación en"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_config__write_uid
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_massive_sinchronize__write_uid
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_request__write_uid
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_request_detail__write_uid
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_sinchronize_voucher__write_uid
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_tax_codes__write_uid
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_voucher_type__write_uid
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_config__write_uid
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_currency_codes__write_uid
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_dst_country_codes__write_uid
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_export_type_codes__write_uid
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_incoterms_codes__write_uid
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_lang_codes__write_uid
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_request_detail__write_uid
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_shipping_permission__write_uid
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_uom_codes__write_uid
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_voucher_type_codes__write_uid
+msgid "Last Updated by"
+msgstr "Última Actualización por"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_config__write_date
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_massive_sinchronize__write_date
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_request__write_date
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_request_detail__write_date
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_sinchronize_voucher__write_date
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_tax_codes__write_date
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_voucher_type__write_date
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_config__write_date
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_currency_codes__write_date
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_dst_country_codes__write_date
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_export_type_codes__write_date
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_incoterms_codes__write_date
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_lang_codes__write_date
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_request_detail__write_date
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_shipping_permission__write_date
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_uom_codes__write_date
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_voucher_type_codes__write_date
+msgid "Last Updated on"
+msgstr "Última Actualización el"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfe_request_form
+msgid "Main Information"
+msgstr "Información Principal"
+
+#. module: l10n_ar_wsfe
+#: model:ir.ui.menu,name:l10n_ar_wsfe.wsfe_massive_sinchronize
+msgid "Massive Sinchronize"
+msgstr "Sincronización Masiva"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_config__name
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_voucher_type__name
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_config__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: l10n_ar_wsfe
+#: selection:wsfex.request.detail,reprocess:0
+msgid "No"
+msgstr "No"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_sinchronize_voucher__amount_no_taxed
+msgid "No Taxed"
+msgstr "Sin Impuestos"
+
+#. module: l10n_ar_wsfe
+#: selection:wsfe.voucher_type,document_type:0
+msgid "Nota de Credito"
+msgstr "Nota de Crédito"
+
+#. module: l10n_ar_wsfe
+#: selection:wsfe.voucher_type,document_type:0
+msgid "Nota de Debito"
+msgstr "Nota de Débito"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_sinchronize_voucher__voucher_number
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_request_detail__voucher_number
+msgid "Number"
+msgstr "Número"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_request__nregs
+msgid "Number of Records"
+msgstr "Cantidad de Registros"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_request_detail__observations
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfe_request_form
+msgid "Observations"
+msgstr "Observaciones"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_dst_country_codes__country_id
+msgid "OpenERP Country"
+msgstr "OpenERP Paises"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_currency_codes__currency_id
+msgid "OpenERP Currency"
+msgstr "OpenERP Monedas"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_incoterms_codes__incoterms_id
+msgid "OpenERP Incoterm"
+msgstr "OpenERP Incoterm"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_lang_codes__lang_id
+msgid "OpenERP Language"
+msgstr "OpenERP Idioma"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_uom_codes__uom_id
+msgid "OpenERP UoM"
+msgstr "OpenERP UoM"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_request_detail__voucher_type_id
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_voucher_type_codes__voucher_type_id
+msgid "OpenERP Voucher Type"
+msgstr "Tipo de Voucher OpenERP"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfe_request_form
+msgid "Other Information"
+msgstr "Otra Información"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_massive_sinchronize__pos_id
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_request__pos_ar
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_sinchronize_voucher__pos_id
+msgid "POS"
+msgstr "POS"
+
+#. module: l10n_ar_wsfe
+#: selection:wsfe.request,result:0
+msgid "Partial"
+msgstr "Parcial"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,help:l10n_ar_wsfe.field_account_invoice__aut_cae
+msgid "Pedido de autorizacion a la AFIP"
+msgstr "Pedido de autorizacion a la AFIP"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfe_config_form
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfex_config_form
+msgid "Points Of Sale"
+msgstr "Puntos de Venta"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_config__point_of_sale_ids
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_config__point_of_sale_ids
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfe_config_form
+msgid "Points of Sale"
+msgstr "Puntos de Venta"
+
+#. module: l10n_ar_wsfe
+#: selection:wsfe.request.detail,concept:0
+msgid "Products"
+msgstr "Productos"
+
+#. module: l10n_ar_wsfe
+#: selection:wsfe.request.detail,concept:0
+msgid "Products&Services"
+msgstr "Prouctos&Servicios"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfe_sinchronize_voucher
+msgid "Query Information"
+msgstr "Información de Consulta"
+
+#. module: l10n_ar_wsfe
+#: selection:wsfe.voucher_type,voucher_model:0
+msgid "Recibo"
+msgstr "Recibo"
+
+#. module: l10n_ar_wsfe
+#: selection:wsfe.request,result:0
+#: selection:wsfe.request.detail,result:0
+#: selection:wsfex.request.detail,result:0
+msgid "Rejected"
+msgstr "Rechazado"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfe_sinchronize_voucher
+msgid "Relate"
+msgstr "Relacionar"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_request__reprocess
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_request_detail__reprocess
+msgid "Reprocess"
+msgstr "Reprocesasr"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_request_detail__request_id
+msgid "Request"
+msgstr "Solicitud"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_request__date_request
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_request_detail__date
+msgid "Request Date"
+msgstr "Fecha de Solicitud"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfe_request_form
+msgid "Request Details"
+msgstr "Pedir Detalles"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_request_detail__request_id
+msgid "Request ID"
+msgstr "Solicitud de ID"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.wsfe_account_invoice_form
+msgid "Requests"
+msgstr "Solicitudes"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.wsfe_account_invoice_form
+msgid "Residual Amount"
+msgstr "Importe Residual"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_request__result
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_request_detail__result
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_request_detail__result
+msgid "Result"
+msgstr "Resutlado"
+
+#. module: l10n_ar_wsfe
+#: selection:wsfe.request.detail,concept:0
+msgid "Services"
+msgstr "Servicios"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_config__services_date_difference
+msgid "Services and Products"
+msgstr "Servicios y Productos"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.wsfe_account_invoice_form
+msgid "Shipping Permission"
+msgstr "Permiso de Envío"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_account_invoice__shipping_perm_ids
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.wsfe_account_invoice_form
+msgid "Shipping Permissions"
+msgstr "Permisos de Envío"
+
+#. module: l10n_ar_wsfe
+#: selection:wsfex.request.detail,reprocess:0
+msgid "Si"
+msgstr "Si"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfe_massive_sinchronize
+msgid "Sichronize"
+msgstr "Sincronizar"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_sinchronize_voucher__amount_tax
+msgid "Tax"
+msgstr "Impuesto"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model,name:l10n_ar_wsfe.model_wsfe_tax_codes
+msgid "Tax Codes"
+msgstr "Códigos de Impuesto"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_sinchronize_voucher__amount_taxed
+msgid "Taxed"
+msgstr "Gravado"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_config__vat_tax_ids
+msgid "Taxes"
+msgstr "Impuestos"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_config__exempt_operations_tax_ids
+msgid "Taxes of Exempt Operations"
+msgstr "Impuestos de Operaciones Exentas"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,help:l10n_ar_wsfe.field_wsfe_config__cuit
+#: model:ir.model.fields,help:l10n_ar_wsfe.field_wsfex_config__cuit
+msgid "The Tax Identification Number. Complete it if the contact is subjected to government taxes. Used in some legal statements."
+msgstr "El número de identificación de impuesto. Complételo si el contacto está sujeto a los impuestos del gobierno. Utilizado en algunas declaraciones legales."
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_config__wsaa_ticket_id
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_config__wsaa_ticket_id
+msgid "Ticket Access"
+msgstr "Acceso a Ticket"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_sinchronize_voucher__amount_total
+msgid "Total"
+msgstr "Total"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.wsfe_account_invoice_form
+msgid "Total Amount"
+msgstr "Importe total"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_config__url
+msgid "URL for WSFE"
+msgstr "URL para WSFE"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_config__url
+msgid "URL for WSFEX"
+msgstr "URL para WSFEX"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_config__uom_ids
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfex_config_form
+msgid "Units of Measure"
+msgstr "Unidades de medida"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.wsfe_account_invoice_form
+msgid "Untaxed Amount"
+msgstr "Base Imponible"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfe_config_form
+msgid "Update VAT Taxes"
+msgstr "Actualizar IVA Impuestos"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfe_config_form
+msgid "VAT Taxes"
+msgstr "IVA Impuestos"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfe_config_form
+msgid "Validations"
+msgstr "Validaciones"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfe_config_form
+msgid "Vat Taxes Mapping"
+msgstr "Impuesto de IVA"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_request_detail__name
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_request_detail__invoice_id
+msgid "Voucher"
+msgstr "Comprobante"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_request_detail__voucher_date
+msgid "Voucher Date"
+msgstr "Fecha de Voucher"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfe_sinchronize_voucher
+msgid "Voucher Information"
+msgstr "Información de voucher"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_voucher_type__voucher_model
+msgid "Voucher Model"
+msgstr "Modelo de Voucher"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_request_detail__voucher_number
+msgid "Voucher Number"
+msgstr "Número de Voucher"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_massive_sinchronize__voucher_type
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_request__voucher_type
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_sinchronize_voucher__voucher_type
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_config__voucher_type_ids
+msgid "Voucher Type"
+msgstr "Tipo de Voucher"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model,name:l10n_ar_wsfe.model_wsfe_voucher_type
+msgid "Voucher Type for Electronic Invoice"
+msgstr "Tipo de Voucher para Factura Electrónica"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,help:l10n_ar_wsfe.field_wsfe_voucher_type__name
+msgid "Voucher Type, eg.: Factura A, Nota de Credito B, etc."
+msgstr "Voucher Type, eg.: Factura A, Nota de Credito B, etc."
+
+#. module: l10n_ar_wsfe
+#: model:ir.actions.act_window,name:l10n_ar_wsfe.action_wsfe_voucher_type_tree
+#: model:ir.ui.menu,name:l10n_ar_wsfe.voucher_type_menu
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfe_voucher_type_form
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfe_voucher_type_tree
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfex_config_form
+msgid "Voucher Types"
+msgstr "Tipos de Voucher""
+
+#. module: l10n_ar_wsfe
+#: model:ir.actions.act_window,name:l10n_ar_wsfe.action_wsfe_config
+msgid "WSFE Config"
+msgstr "Configuración de WSFE"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfe_tax_codes__wsfe_config_id
+#: model:ir.ui.menu,name:l10n_ar_wsfe.wsfe_config_menu
+msgid "WSFE Configuration"
+msgstr "Configuración de WSFE"
+
+#. module: l10n_ar_wsfe
+#: model:ir.actions.act_window,name:l10n_ar_wsfe.action_wsfe_massive_sinchronize
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfe_massive_sinchronize
+msgid "WSFE Massive Sinchronize"
+msgstr "Sincronización Masiva de WSFE"
+
+#. module: l10n_ar_wsfe
+#: model:ir.actions.act_window,name:l10n_ar_wsfe.action_wsfe_request_tree
+#: model:ir.model,name:l10n_ar_wsfe.model_wsfe_request
+#: model:ir.ui.menu,name:l10n_ar_wsfe.wsfe_request_menu
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfe_request_form
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfe_request_tree
+msgid "WSFE Request"
+msgstr "Solicitud de WSFE"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model,name:l10n_ar_wsfe.model_wsfe_request_detail
+msgid "WSFE Request Detail"
+msgstr "Detalle de Solicitud WSFE"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.wsfe_account_invoice_form
+msgid "WSFE Request Details"
+msgstr "Detalles de Solicitud de WSFE"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.wsfe_account_invoice_form
+msgid "WSFE Requests"
+msgstr "Solicitud de WSFE"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model,name:l10n_ar_wsfe.model_wsfe_sinchronize_voucher
+msgid "WSFE Sinchroniza Voucher"
+msgstr "Sincroniza Voucher WSFE"
+
+#. module: l10n_ar_wsfe
+#: model:ir.actions.act_window,name:l10n_ar_wsfe.action_wsfe_sinchronize_voucher
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfe_sinchronize_voucher
+msgid "WSFE Sinchronize Voucher"
+msgstr "Sincronizar Voucher WSFE"
+
+#. module: l10n_ar_wsfe
+#: model:ir.actions.act_window,name:l10n_ar_wsfe.action_wsfex_config
+msgid "WSFEX Config"
+msgstr "Configuración de WSFEX"
+
+#. module: l10n_ar_wsfe
+#: model:ir.ui.menu,name:l10n_ar_wsfe.wsfex_config_menu
+msgid "WSFEX Configuration"
+msgstr "Configuración de WSFEX"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfex_config_form
+msgid "WSFEX Countries"
+msgstr "Países de WSFEX"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfex_config_form
+msgid "WSFEX Currencies"
+msgstr "Monedas de WSFEX"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model,name:l10n_ar_wsfe.model_wsfex_currency_codes
+msgid "WSFEX Currency Codes"
+msgstr "Código de Moneda WSFEX"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfex_config_form
+msgid "WSFEX DST CUIT"
+msgstr "WSFEX DST CUIT"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model,name:l10n_ar_wsfe.model_wsfex_dst_country_codes
+msgid "WSFEX Dest Country Codes"
+msgstr "Códigos de Paìs WSFEX Dest"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model,name:l10n_ar_wsfe.model_wsfex_export_type_codes
+msgid "WSFEX Export Type Codes"
+msgstr "Códigos de Tipo de Exportación WSFEX"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfex_config_form
+msgid "WSFEX Export Types"
+msgstr "Tipos de Exportaciòn de WSFEX"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfex_config_form
+msgid "WSFEX Incoterms"
+msgstr "Inconterms de WSFEX"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model,name:l10n_ar_wsfe.model_wsfex_incoterms_codes
+msgid "WSFEX Incoterms Codes"
+msgstr "Códigos Incoterm de WSFEX"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfex_config_form
+msgid "WSFEX Langs"
+msgstr "Idiomas de WSFEX"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model,name:l10n_ar_wsfe.model_wsfex_lang_codes
+msgid "WSFEX Language Codes"
+msgstr "Código de Idioma de WSFEX"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model,name:l10n_ar_wsfe.model_wsfex_request_detail
+msgid "WSFEX Request Detail"
+msgstr "Detalle de Solicitud WSFEX"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model,name:l10n_ar_wsfe.model_wsfex_shipping_permission
+msgid "WSFEX Shipping Permission"
+msgstr "Permiso de Envio de WSFEX"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model,name:l10n_ar_wsfe.model_wsfex_uom_codes
+msgid "WSFEX UoM Codes"
+msgstr "Códigos UoM de WSFEX"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfex_config_form
+msgid "WSFEX UoMs"
+msgstr "WSFEX UoMs"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfex_config_form
+msgid "WSFEX Voucher Type"
+msgstr "Tipo de Voucher de WSFEX"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model,name:l10n_ar_wsfe.model_wsfex_voucher_type_codes
+msgid "WSFEX Voucher Type Codes"
+msgstr "Códigos de Tipo de Voucher de WSFEX"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_account_invoice__wsfe_request_ids
+msgid "Wsfe Request"
+msgstr "Solicitud WSFEX"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_dst_cuit_codes__wsfex_config_id
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_currency_codes__wsfex_config_id
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_dst_country_codes__wsfex_config_id
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_export_type_codes__wsfex_config_id
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_incoterms_codes__wsfex_config_id
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_lang_codes__wsfex_config_id
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_uom_codes__wsfex_config_id
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_wsfex_voucher_type_codes__wsfex_config_id
+msgid "Wsfex Config"
+msgstr "Consiguración WSFEX"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model.fields,field_description:l10n_ar_wsfe.field_account_invoice__wsfex_request_ids
+msgid "Wsfex Request"
+msgstr "Solicitud WSFEX"
+
+#. module: l10n_ar_wsfe
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfe_massive_sinchronize
+#: model_terms:ir.ui.view,arch_db:l10n_ar_wsfe.view_wsfe_sinchronize_voucher
+msgid "or"
+msgstr "o"
+
+#. module: l10n_ar_wsfe
+#: model:ir.model,name:l10n_ar_wsfe.model_wsfe_massive_sinchronize
+msgid "wsfe.massive.sinchronize"
+msgstr "wsfe.massive.sinchronize"
