@@ -75,7 +75,7 @@ class DatePeriod(models.Model):
         'account.fiscal.year',
         string='Fiscal Year',
         required=True,
-        select=True
+        index=True
     )
 
     company_id = fields.Many2one(
