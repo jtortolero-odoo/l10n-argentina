@@ -10,3 +10,4 @@ class ResCity(models.Model):
     _inherit = 'res.city'
 
     afip_code = fields.Char(string='AFIP Code', size=16)
+    zone_percentage = fields.Float(string = 'IVA Zone percentage', help = 'Porcentaje IVA crédito fiscal para contribuciones patronales.')

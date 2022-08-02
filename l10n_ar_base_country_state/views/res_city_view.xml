@@ -25,6 +25,7 @@
                         <field name="name"/>
                         <field name="zipcode"/>
                         <field name="afip_code"/>
+                        <field name="zone_percentage" widget = "percentage"/>                        
                         <field name="country_id" options="{'no_open': True}"/>
                         <field name="state_id" domain="[('country_id', '=?', country_id)]" 
                             options="{'no_open': True}"/>
