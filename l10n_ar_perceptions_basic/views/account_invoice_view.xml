@@ -4,23 +4,17 @@
         <field name="name">account.invoice.perception.form.inherit</field>
         <field name="model">account.invoice</field>
         <field name="type">form</field>
-        <field name="inherit_id" ref="account.invoice_form"/>
+        <field name="inherit_id" ref="account.invoice_form" />
         <field name="arch" type="xml">
             <xpath expr="//notebook/page[@name='taxes']" position="attributes">
                 <attribute name="string">Taxes/Perceptions</attribute>
             </xpath>
             <xpath expr="//notebook/page[@name='taxes']/field[@name='tax_line_ids']" position="after">
-                <separator string="Applied Perceptions"/>
+                <separator string="Applied Perceptions" />
                 <field name="perception_ids" nolabel="1" colspan="4" context="{'default_partner_id': partner_id}">
                     <tree string="Perception Lines">
-<<<<<<< HEAD
-=======
-                        <field name="name" />
-                        <field name="account_id" />
-                        <field name="partner_id" invisible="1"/>
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
                         <field name="date" />
-                        <field name="perception_id" string="Perception Type"/>
+                        <field name="perception_id" string="Perception Type" />
                         <field name="base" />
                         <field name="amount" />
                         <field name="state_id" />
@@ -31,11 +25,11 @@
                         </h1>
                         <group>
                             <group string="Information" name="info">
-                                <field name="name"/>
-                                <field name="partner_id" invisible="1"/>
+                                <field name="name" />
+                                <field name="partner_id" invisible="1" />
                                 <field name="state_id" />
                                 <field name="date" />
-                                <label string="Keep date empty if the date is the same as the invoice." class="oe_grey"/>
+                                <label string="Keep date empty if the date is the same as the invoice." class="oe_grey" />
                             </group>
                             <group string="Amounts" name="amount">
                                 <field name="base" />
@@ -53,17 +47,17 @@
         <field name="name">account.invoice.perception.form.inherit</field>
         <field name="model">account.invoice</field>
         <field name="type">form</field>
-        <field name="inherit_id" ref="account.invoice_supplier_form"/>
+        <field name="inherit_id" ref="account.invoice_supplier_form" />
         <field name="arch" type="xml">
             <xpath expr="//notebook/page[@name='taxes']" position="attributes">
                 <attribute name="string">Taxes/Perceptions</attribute>
             </xpath>
             <xpath expr="//notebook/page[@name='taxes']/field[@name='tax_line_ids']" position="after">
-                <separator string="Supported Perceptions"/>
+                <separator string="Supported Perceptions" />
                 <field name="perception_ids" nolabel="1" colspan="4" context="{'default_partner_id': partner_id}">
                     <tree string="Perception Lines">
                         <field name="date" />
-                        <field name="perception_id" string="Perception Type"/>
+                        <field name="perception_id" string="Perception Type" />
                         <field name="base" />
                         <field name="amount" />
                         <field name="state_id" />
@@ -74,11 +68,11 @@
                         </h1>
                         <group>
                             <group string="Information" name="info">
-                                <field name="name"/>
-                                <field name="partner_id" invisible="1"/>
+                                <field name="name" />
+                                <field name="partner_id" invisible="1" />
                                 <field name="state_id" />
                                 <field name="date" />
-                                <label string="Keep date empty if the date is the same as the invoice." class="oe_grey"/>
+                                <label string="Keep date empty if the date is the same as the invoice." class="oe_grey" />
                             </group>
                             <group string="Amounts" name="amount">
                                 <field name="base" />

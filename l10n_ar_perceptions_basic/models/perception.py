@@ -22,86 +22,68 @@ class PerceptionPerception(models.Model):
     objects with data like amount, certificate number, etc.
     """
 
-<<<<<<< HEAD
-=======
-    @api.model
-    def _get_company(self):
-        return self.env.user.company_id
-
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
     name = fields.Char(
-        string='Perception',
+        string="Perception",
         required=True,
         size=64,
     )
     tax_id = fields.Many2one(
-        'account.tax',
-        string='Tax',
+        "account.tax",
+        string="Tax",
         required=True,
         help="Tax configuration for this perception",
     )
-    type_tax_use = fields.Selection([
-            ('sale', 'Sales'),
-            ('purchase', 'Purchases'),
-            ('none', 'None'),
+    type_tax_use = fields.Selection(
+        [
+            ("sale", "Sales"),
+            ("purchase", "Purchases"),
+            ("none", "None"),
         ],
-        related='tax_id.type_tax_use',
-        string='Tax Application',
+        related="tax_id.type_tax_use",
+        string="Tax Application",
         readonly=True,
     )
     state_id = fields.Many2one(
-        'res.country.state',
-        string='State/Province',
+        "res.country.state",
+        string="State/Province",
     )
-    type = fields.Selection([
-            ('vat', 'VAT'),
-            ('gross_income', 'Gross Income'),
-            ('profit', 'Profit'),
-            ('other', 'Other'),
+    type = fields.Selection(
+        [
+            ("vat", "VAT"),
+            ("gross_income", "Gross Income"),
+            ("profit", "Profit"),
+            ("other", "Other"),
         ],
-        default='vat',
+        default="vat",
     )
-    jurisdiccion = fields.Selection([
-            ('nacional', 'Nacional'),
-            ('provincial', 'Provincial'),
-            ('municipal', 'Municipal'),
+    jurisdiccion = fields.Selection(
+        [
+            ("nacional", "Nacional"),
+            ("provincial", "Provincial"),
+            ("municipal", "Municipal"),
         ],
-        default='nacional',
+        default="nacional",
     )
-    active = fields.Boolean('Active', default=True)
-<<<<<<< HEAD
-=======
-    company_id = fields.Many2one(
-        comodel_name='res.company',
-        string='Company',
-        default=lambda self: self._get_company(),
-        readonly=True,
-    )
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
+    active = fields.Boolean("Active", default=True)
 
     @api.multi
     def unlink(self):
-        field_obj = self.env['ir.model.fields']
-        fields = field_obj.search([
-            ('relation', '=', 'perception.perception')
-        ])
-        msg = ('Can not delete the record %s '
-               'because is used in %s on %s.')
+        field_obj = self.env["ir.model.fields"]
+        fields = field_obj.search([("relation", "=", "perception.perception")])
+        msg = "Can not delete the record %s " "because is used in %s on %s."
         for perception in self:
             for field in fields:
                 model_obj = self.env[field.model]
-                if field.ttype == 'one2many':
+                if field.ttype == "one2many":
                     if not perception[field.relation_field]:
                         continue
-                elif field.ttype == 'many2many':
+                elif field.ttype == "many2many":
                     if field.relation_table:
                         cr = self.env.cr
-                        select = 'SELECT * FROM'
-                        where = 'WHERE perception_id = %(perception)s'
-                        query = ' '.join([select, field.relation_table, where])
-                        data = {
-                            'perception': perception.id
-                        }
+                        select = "SELECT * FROM"
+                        where = "WHERE perception_id = %(perception)s"
+                        query = " ".join([select, field.relation_table, where])
+                        data = {"perception": perception.id}
                         cr.execute(query, data)
                         res = cr.fetchall()
                         if not res:
@@ -109,13 +91,17 @@ class PerceptionPerception(models.Model):
                     else:
                         continue
                 else:
-                    res = model_obj.search([
-                        (field.name, '=', perception.id)
-                    ])
+                    res = model_obj.search([(field.name, "=", perception.id)])
                     if not res:
                         continue
-                raise UserError(_(msg % (
-                    perception.name, field.model_id.name,
-                    field.field_description
-                )))
+                raise UserError(
+                    _(
+                        msg
+                        % (
+                            perception.name,
+                            field.model_id.name,
+                            field.field_description,
+                        )
+                    )
+                )
         return super(PerceptionPerception, self).unlink()
