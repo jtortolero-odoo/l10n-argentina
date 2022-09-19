@@ -9,6 +9,7 @@
             <field name="arch" type="xml">
                 <form string="Create checkbooks" version="7.0">
                     <group col="4">
+<<<<<<< HEAD
                         <field name="bank_account_id" domain="[('company_id','=',company_id)]"/>
                         <field name="checkbook_num"/>
                         <field name="start_num"/>
@@ -17,6 +18,17 @@
                     </group>
                     <group col="4">
                         <field name="company_id" groups="base.group_multi_company"/>
+=======
+                        <field name="bank_account_id" domain="[('partner_id','=',company_id)]"/>
+                        <field name="checkbook_num"/>
+                        <field name="start_num" attrs="{'required':[('checkbook_type', '!=', 'echeq')]}"/>
+                        <field name="end_num" attrs="{'required':[('checkbook_type', '!=', 'echeq')]}"/>
+                        <field name="type" required="1"/>
+                        <field name="checkbook_type" required="1"/>
+                    </group>
+                    <group col="4">
+                        <field name="company_id" groups="base.group_multi_company" readonly="True" />
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
                     </group>
                     <footer>
                         <button name="create_checkbook" string="Create" type="object" class="oe_highlight"/>
@@ -38,7 +50,11 @@
 
         <menuitem id="menu_wizard_create_check"
             action="wizard_create_check_action"
+<<<<<<< HEAD
             sequence="20"
+=======
+            sequence="30"
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
             name="Create Checkbook"
             parent="l10n_ar_account_check.menu_treasury_configuration"
             groups="treasury_user"/>

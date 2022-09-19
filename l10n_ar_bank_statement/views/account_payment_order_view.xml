@@ -4,7 +4,11 @@
     <record id="view_account_payment_order_form_inherit_add_st_button_customer" model="ir.ui.view">
         <field name="name">account.payment.order.form.inherit.add_st_button_customer</field>
         <field name="model">account.payment.order</field>
+<<<<<<< HEAD
         <field name="inherit_id" ref="l10n_ar_account_payment_order.view_payment_order_receipt_form"/>
+=======
+        <field name="inherit_id" ref="l10n_ar_account_payment_order.account_payment_order_view_form_receipt"/>
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
             <xpath expr="/form/sheet/h1" position="before">
@@ -20,7 +24,11 @@
     <record id="view_account_payment_order_form_inherit_add_st_button_supplier" model="ir.ui.view">
         <field name="name">account.payment.order.form.inherit.add_st_button_supplier</field>
         <field name="model">account.payment.order</field>
+<<<<<<< HEAD
         <field name="inherit_id" ref="l10n_ar_account_payment_order.view_vendor_payment_order_form"/>
+=======
+        <field name="inherit_id" ref="l10n_ar_account_payment_order.account_payment_order_view_form_vendor"/>
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         <field name="priority" eval="10"/>
         <field name="arch" type="xml">
             <xpath expr="/form/sheet/h1" position="before">

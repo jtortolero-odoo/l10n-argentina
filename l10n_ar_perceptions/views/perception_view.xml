@@ -33,6 +33,12 @@
                                     'required': [('applicable_state', 'in', ['source', 'dest'])]}"/>
                             </group>
                             <group string="Usability Configuration">
+<<<<<<< HEAD
+=======
+                                <field name="company_id"
+                                    groups="base.group_multi_company"
+                                    options="{'no_create': True}"/>
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
                                 <field name="check_sit_iibb" attrs="{'invisible':[('jurisdiccion','!=','provincial')]}"/>
                                 <field name="always_apply_padron"/>
                             </group>
@@ -174,6 +180,12 @@
                         <group>
                             <field name="code"/>
                             <field name="type"/>
+<<<<<<< HEAD
+=======
+                            <field name="company_id"
+                                groups="base.group_multi_company"
+                                options="{'no_create': True}"/>
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
                         </group>
                         <group>
                             <field name="name" select="1"/>
@@ -229,6 +241,12 @@
                     <field name="code" select="1"/>
                     <field name="type" select="1"/>
                     <field name="name" select="1"/>
+<<<<<<< HEAD
+=======
+                    <field name="company_id"
+                        groups="base.group_multi_company"
+                        options="{'no_create': True}"/>
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
                     <separator string="Notes" colspan="4"/>
                     <field name="notes" colspan="4" nolabel="1"/>
                 </form>
@@ -244,6 +262,12 @@
                     <field name="code"/>
                     <field name="type"/>
                     <field name="name"/>
+<<<<<<< HEAD
+=======
+                    <field name="company_id"
+                        groups="base.group_multi_company"
+                        options="{'no_create': True}"/>
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
                 </tree>
             </field>
         </record>

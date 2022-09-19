@@ -71,8 +71,16 @@ class retention_retention(models.Model):
 
     @api.model
     def _get_concepts_from_account(self, retention, account):
+<<<<<<< HEAD
         concepts = account.retention_concept_ids.filtered(
             lambda c: c.type == retention.type)
+=======
+        company = self._get_company()
+        concepts = account.retention_concept_ids.filtered(
+            lambda c: c.type == retention.type
+            and (c.company_id.id == company.id or not c.company_id)
+        )
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         if not concepts:
             raise ValidationError(
                 _("Retention Error\n") +
@@ -174,7 +182,11 @@ class retention_retention(models.Model):
 
     def _compute_base_retention(
             self, move_line, factor_to_pay, factor_unrec, prev_ret_ids,
+<<<<<<< HEAD
             line_type, sit_iibb, logging_messages=[], activity=FO()):
+=======
+            line_type, sit_iibb, logging_messages=[], activity=None):
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         tax_app_obj = self.env['retention.tax.application']
         retention = self
 
@@ -215,8 +227,17 @@ class retention_retention(models.Model):
                 # Buscamos las taxapps que concuerden
                 tapp_domain = [
                     ('retention_id', '=', retention.id),
+<<<<<<< HEAD
                     ('concept_id', 'in', concepts.ids),
                     ('activity_id', '=', activity and activity.id)]
+=======
+                    ('concept_id', 'in', concepts.ids),]
+
+                if activity:
+                    tapp_domain.append(
+                    ('activity_id', '=', activity and activity.id))
+
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
                 iibb_domain = []
                 if retention.type == 'gross_income':
                     iibb_domain.append(
@@ -356,6 +377,13 @@ class RetentionConcept(models.Model):
     _name = "retention.concept"
     _description = "Retention Profit Concepts"
 
+<<<<<<< HEAD
+=======
+    @api.model
+    def _get_company(self):
+        return self.env.user.company_id
+
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
     name = fields.Char('Description', size=256, required=True)
     code = fields.Char('Code', size=32)
     type = fields.Selection([('vat', 'VAT'),
@@ -371,6 +399,15 @@ class RetentionConcept(models.Model):
         column1='concept_id', column2='account_id',
         string='Accounts')
     notes = fields.Text('Notes')
+<<<<<<< HEAD
+=======
+    company_id = fields.Many2one(
+        comodel_name='res.company',
+        string='Company',
+        default=lambda self: self._get_company(),
+        readonly=True,
+    )
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
 
 class AccountAccount(models.Model):
@@ -388,6 +425,13 @@ class RetentionActivity(models.Model):
     _name = "retention.activity"
     _description = "Retention Gross Income Activity"
 
+<<<<<<< HEAD
+=======
+    @api.model
+    def _get_company(self):
+        return self.env.user.company_id
+
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
     name = fields.Char('Description', size=256, required=True)
     code = fields.Char('Code', size=32)
     type = fields.Selection([('vat', 'VAT'),
@@ -395,10 +439,23 @@ class RetentionActivity(models.Model):
                              ('profit', 'Profit'),
                              ('other', 'Other')], 'Type', required=True)
     notes = fields.Text('Notes')
+<<<<<<< HEAD
+=======
+    company_id = fields.Many2one(
+        comodel_name='res.company',
+        string='Company',
+        default=lambda self: self._get_company(),
+        readonly=True,
+    )
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
 
 class RetentionTaxApplication(models.Model):
     _name = "retention.tax.application"
+<<<<<<< HEAD
+=======
+    _description = "Retention configuration for activity or concept"
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
     name = fields.Char('Description', size=128)
     reg_code = fields.Integer('Reg. Code')
@@ -495,7 +552,12 @@ class RetentionTaxApplication(models.Model):
         # Obtenemos las fechas de mes calendario
         # al que corresponde este voucher
 
+<<<<<<< HEAD
         dt = datetime.strptime(date, DSDF)
+=======
+        # dt = datetime.strptime(date, DSDF)
+        dt = datetime.strptime(str(date),DSDF)
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         date_start = (dt + relatived(day=1)).strftime(DSDF)
         date_finish = (dt + relatived(day=31)).strftime(DSDF)
         return date_start, date_finish

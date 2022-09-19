@@ -38,9 +38,14 @@ class AccountPayment(models.Model):
         """
         Show invoices name concatenated.
         """
+<<<<<<< HEAD
 
         invoices = self.mapped("invoice_ids")
         return ', '.join(name or '' for _id, name in invoices.name_get())
+=======
+        invoices = self.mapped("invoice_ids")
+        return ', '.join(inv.internal_number or '' for inv in invoices)
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
     def _prepare_statement_line_data(self):
         # Si el voucher no tiene partner, ponemos el de la compania
@@ -86,6 +91,10 @@ class AccountPayment(models.Model):
         return self.env['account.bank.statement.line'].create(st_line_values)
 
     def create_statement_line(self, data, journal):
+<<<<<<< HEAD
+=======
+        # 'data' can be an account.issued.check or an account.payment
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         st_line_values = data._prepare_statement_line_data()
 
         if journal.type == "cash":
@@ -119,10 +128,17 @@ class AccountPayment(models.Model):
             return True
 
         for st in lines:
+<<<<<<< HEAD
             if st.statement_id.state == 'confirm':
                 if raise_error:
                     err = _(
                         """You can't cancel a Payment with confirmed Bank Statements
+=======
+            if st.statement_id.state == 'confirm' or st.state == 'confirm':
+                if raise_error:
+                    err = _(
+                        """You can't cancel a Payment with confirmed Bank Statements Line
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
                         HINT: Click on the 'Bank Statements' button your left.
                         """

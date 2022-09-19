@@ -4,20 +4,37 @@
 
         <record id="view_partner_perception_form" model="ir.ui.view">
             <field name="name">res.partner.perception.form.inherit</field>
+<<<<<<< HEAD
             <field name="model">res.partner.perception</field>
             <field name="type">form</field>
             <field name="priority">2</field>
             <field name="inherit_id" ref="account.view_partner_property_form" />
             <field name="arch" type="xml">
+=======
+            <field name="model">res.partner</field>
+            <field name="type">form</field>
+            <field name="priority">2</field>
+            <field name="inherit_id" ref="account.view_partner_property_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='vat']" position="after">
+                    <field name="nro_insc_iibb"/>
+                </xpath>
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
                 <page name="accounting_disabled" position="after">
                     <page string="Perceptions">
                         <group colspan="4" col="4">
                             <group colspan="4">
                                 <field colspan="2" name="perception_ids" nolabel="1">
                                     <tree string="Perceptions to Apply" editable="bottom">
+<<<<<<< HEAD
                                         <field name="perception_id" domain="[('type_tax_use','=','sale')]" />
                                         <field name="activity_id" />
                                         <field name="percent" />
+=======
+                                        <field name="perception_id" domain="[('type_tax_use','=','sale')]"/>
+                                        <field name="activity_id"/>
+                                        <field name="percent"/>
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
                                         <field name="excluded_percent" />
                                         <field name="ex_date_from" />
                                         <field name="ex_date_to" />
@@ -29,18 +46,25 @@
                         </group>
                     </page>
                 </page>
+<<<<<<< HEAD
                 <group name="accounting_entries" position="after">
                     <group>
                         <field name="nro_insc_iibb" />
                     </group>
                 </group>
+=======
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
             </field>
         </record>
 
         <record id="view_account_position_perception_form" model="ir.ui.view">
             <field name="name">account.fiscal.position.perception.form</field>
             <field name="model">account.fiscal.position</field>
+<<<<<<< HEAD
             <field name="inherit_id" ref="account.view_account_position_form" />
+=======
+            <field name="inherit_id" ref="account.view_account_position_form"/>
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
             <field name="arch" type="xml">
                 <page name="tax_mapping" position="after">
                     <page name="applied_perceptions" string="Applied Perceptions">

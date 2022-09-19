@@ -72,6 +72,22 @@
                                     </form>
                                 </field>
                             </page>
+<<<<<<< HEAD
+=======
+
+                            <page string="Optionals">
+                                <field name="optional_ids" nolabel="1">
+                                    <tree string="Vat Taxes Mapping" readonly="1">
+                                        <field name="code"/>
+                                        <field name="name"/>
+                                        <field name="to_date"/>
+                                        <field name="from_date"/>
+                                        <field name="from_afip" readonly="True"/>
+                                    </tree>
+                                </field>
+                            </page>
+
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
                             <page string="Validations">
                               <group col="6" string="Invoice Date Difference from Today">
                                 <field name="services_date_difference"/>
@@ -302,6 +318,7 @@
             <field name="model">wsfe.voucher_type</field>
             <field name="type">form</field>
             <field name="arch" type="xml">
+<<<<<<< HEAD
                 <form string="Voucher Types" version="7.0">
                     <sheet>
                         <h1>
@@ -316,6 +333,17 @@
                                 <field name="document_type"  />
                             </group>
                             <field name="denomination_id" />
+=======
+                <form string="Voucher Types">
+                    <sheet>
+                        <group>
+                            <field name="name" />
+                            <field name="code" select="1"/>
+                            <field name="voucher_model" select="1"/>
+                            <field name="fiscal_type_id" select="1" options="{'no_create': True, 'no_create_edit':True}"/>
+                            <field name="document_type"  attrs="{'invisible': [('voucher_model','!=','invoice')]}"/>
+                            <field name="denomination_id" options="{'no_create': True, 'no_create_edit':True}"/>
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
                         </group>
                     </sheet>
                 </form>

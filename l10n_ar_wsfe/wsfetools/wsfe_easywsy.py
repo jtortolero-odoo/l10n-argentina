@@ -49,6 +49,10 @@ class WSFE(AfipWS):
             if (first_number and nn == first_number) or len(invoices) == 1:
                 inv_data['first_of_lot'] = True
             details_array.append(inv_data)
+<<<<<<< HEAD
+=======
+        import pprint; pprint.pprint(data)
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         return data
 
     def parse_invoice(self, invoice, number=False, invoices=False):
@@ -114,16 +118,69 @@ class WSFE(AfipWS):
         }
 
         detail.update(iva_values)
+<<<<<<< HEAD
 
+=======
+        detail = invoice.hook_add_taxes(invoice, detail)
+        env = invoice.env
+        wsfcred_type = env.ref('l10n_ar_wsfe.fiscal_type_fcred')
+        is_not_anulation_fcred = invoice.fiscal_type_id == wsfcred_type and invoice.optional_ids.filtered(lambda x: x.optional_id.code == '22' and x.value.strip().lower() == 'n')
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         if concept in [2, 3]:
             detail.update({
                 'FchServDesde': formatted_date_invoice,
                 'FchServHasta': formatted_date_invoice,
+<<<<<<< HEAD
                 'FchVtoPago': date_due,
             })
         if not hasattr(self.data, 'sent_invoices'):
             self.data.sent_invoices = {}
         self.data.sent_invoices[invoice] = detail
+=======
+            })
+            if not is_not_anulation_fcred:
+                detail['FchVtoPago'] = date_due
+            # elif invoice.fiscal_type_id == wsfcred_type and invoice.type == 'out_invoice' and not invoice.is_debit_note:
+            #     detail['FchVtoPago'] = date_due
+        if invoice.fiscal_type_id == wsfcred_type and invoice.type == 'out_invoice' and not invoice.is_debit_note:
+            detail['FchVtoPago'] = date_due
+        #cbtes asoc
+
+        # Associated Comps
+        CbtesAsoc = []
+        voucher_type_obj = invoice.env['wsfe.voucher_type']
+        for associated_inv in invoice.associated_inv_ids:
+            tipo_cbte = voucher_type_obj.get_voucher_type(associated_inv)
+            pos, number = associated_inv.internal_number.split('-')
+            cbte_fch = associated_inv.date_invoice.strftime('%Y%m%d')
+            CbteAsoc = {
+                'Tipo': tipo_cbte,
+                'PtoVta': int(pos),
+                'Nro': int(number),
+                'Cuit': invoice.company_id.partner_id.vat,
+                'CbteFch': cbte_fch,
+                'invoice': associated_inv,
+                'Concepto': False
+            }
+            CbtesAsoc.append(CbteAsoc)
+        if CbtesAsoc:
+            detail['CbtesAsoc'] = {'CbteAsoc': CbtesAsoc}
+
+
+        voucher_type_obj = env['wsfe.voucher_type']
+
+        #optionals
+        detail['Opcionales'] = {'Opcional':
+                invoice.optional_ids and invoice.optional_ids.mapped(
+                lambda o: {'Id': int(o.optional_id.code), 'Valor': o.value.strip()}) or []
+        }
+
+        if not hasattr(self.data, 'sent_invoices'):
+            self.data.sent_invoices = {}
+        self.data.sent_invoices[invoice] = detail
+        _logger.info('Data to send afip is below:')
+        _logger.info(detail)
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         return detail
 
     def get_vat_array(self, invoice, retry=False):
@@ -136,7 +193,11 @@ class WSFE(AfipWS):
         if not_found_tax:
             err = _("Taxes `%s` are not configured in WSFE!") % \
                 (", ").join(not_found_tax.mapped('tax_id.name'))
+<<<<<<< HEAD
             raise ValidationError(_("Error!\n") + err)
+=======
+            _logger.warning(_("Expected Error!\n") + err)
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
         # Procesamos las taxes
 
@@ -174,7 +235,11 @@ class WSFE(AfipWS):
         exempt_operation_amount = invoice.amount_exempt
         no_taxed_amount = invoice.amount_no_taxed
 
+<<<<<<< HEAD
         base_amount = vat_base_amount + tribute_base_amount
+=======
+        base_amount = vat_base_amount
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         tax_amount = tribute_tax_amount + vat_tax_amount
 
         total_amount = round(base_amount + no_taxed_amount +
@@ -191,7 +256,11 @@ class WSFE(AfipWS):
             'ImpOpEx': exempt_operation_amount,
             'ImpTotal': total_amount,
             'ImpTotConc': no_taxed_amount,
+<<<<<<< HEAD
             'ImpTrib': tribute_tax_amount + tribute_base_amount,
+=======
+            'ImpTrib': tribute_tax_amount,
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
             'Iva': {
                 'AlicIva': vat_array,
             },
@@ -286,7 +355,11 @@ class WSFE(AfipWS):
             if res['Comprobantes'][0]['Observaciones']:
                 msg += '\nObservaciones: ' + '\n'.join(
                     res['Comprobantes'][0]['Observaciones'])
+<<<<<<< HEAD
                 msg = msg.encode('latin1').decode('utf8')
+=======
+                # msg = msg.encode('latin1').decode('utf8')
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
             if invoice._context.get('raise-exception', True):
                 raise UserError(_('AFIP Web Service Error\n' +
@@ -386,8 +459,14 @@ class WSFE(AfipWS):
                 'result': comp['Resultado'],
                 'currency': comp['MonId'],
                 'currency_rate': comp['MonCotiz'],
+<<<<<<< HEAD
                 'observations': '\n'.join(comp['Observaciones']).encode(
                 'latin1').decode('utf8'),
+=======
+                # 'observations': '\n'.join(comp['Observaciones']).encode(
+                # 'latin1').decode('utf8'),
+                'observations': '\n'.join(comp['Observaciones']),
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
             }
 
             req_details.append((0, 0, det))
@@ -437,8 +516,14 @@ class WSFE(AfipWS):
                                     self.auth._element_name)
             for k, v in self.auth.attrs.items():
                 setattr(auth_instance, k, v)
+<<<<<<< HEAD
         _logger.debug(self.data.FECAESolicitar)
         response = self.request('FECAESolicitar')
+=======
+        _logger.info(self.data.FECAESolicitar)
+        response = self.request('FECAESolicitar')
+        _logger.info(response)
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         approved = self.parse_invoices_response(response)
         return approved
 
@@ -605,8 +690,17 @@ class WSFE(AfipWS):
     def validate_service_payment_date(val, invoice, Concepto):
         if Concepto not in [2, 3]:
             return True
+<<<<<<< HEAD
         datetime.strptime(val, AFIP_DATE_FORMAT)
         inv_date = invoice.date_invoice or fields.Date.context_today(invoice)
+=======
+        # No checks if invoice is of mipyme.fcred
+        if invoice.fiscal_type_id == invoice.env.ref('l10n_ar_wsfe.fiscal_type_fcred'):
+            return True
+        datetime.strptime(val, AFIP_DATE_FORMAT)
+        inv_date = invoice.date_invoice or fields.Date.context_today(invoice)
+        inv_date = inv_date.strftime(AFIP_DATE_FORMAT)
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         if val >= inv_date.replace('-', ''):
             return True
         return False
@@ -652,3 +746,18 @@ class WSFE(AfipWS):
             if isinstance(val, float):
                 return True
         return False
+<<<<<<< HEAD
+=======
+
+    @wsapi.check(['Tipo', 'Nro'])
+    def validate_cmps_tipo(val, Tipo):
+        return True
+
+    @wsapi.check(['Valor'])
+    def validate_cmps_valor(val, Valor):
+        return True
+
+    @wsapi.check(['Alic', 'Desc'])
+    def validate_tributos(val, Alic):
+        return True
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4

@@ -11,6 +11,21 @@ from odoo.addons.l10n_ar_wsfe.wsfetools.wsfe_easywsy import WSFE
 from odoo.exceptions import UserError
 
 
+<<<<<<< HEAD
+=======
+class WsfeOptionals(models.Model):
+    _name = "wsfe.optionals"
+    _description = "WSFE Optionals"
+
+    code = fields.Char('Code', required=False, size=4)
+    name = fields.Char('Desc', required=True, size=64)
+    to_date = fields.Date('Effect Until')
+    from_date = fields.Date('Effective From')
+    from_afip = fields.Boolean('From AFIP')
+    wsfe_config_id = fields.Many2one('wsfe.config', 'WSFE Configuration')
+
+
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 class WsfeTaxCodes(models.Model):
     _name = "wsfe.tax.codes"
     _description = "Tax Codes"
@@ -58,6 +73,10 @@ class WsfeConfig(models.Model):
         'Services and Products', default=10)
     products_date_difference = fields.Integer(
         'Products', default=5)
+<<<<<<< HEAD
+=======
+    optional_ids = fields.One2many('wsfe.optionals', 'wsfe_config_id', 'Optionals', domain=[('from_afip', '=', True)])
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
     _defaults = {
         'company_id': lambda self, cr, uid, context=None:
@@ -272,6 +291,11 @@ class WsfeConfig(models.Model):
             raise UserError(
                 _("Please configure the company VAT before get Taxes!"))
         wsfe_tax_model = self.env['wsfe.tax.codes']
+<<<<<<< HEAD
+=======
+        wsfe_optionals_obj = self.env['wsfe.optionals']
+
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         ws = self.ws_auth()
         data = {
             'FEParamGetTiposIva': {
@@ -298,7 +322,14 @@ class WsfeConfig(models.Model):
             }
 
             # Si no existe el impuesto en la DB, lo creamos de acuerdo a AFIP
+<<<<<<< HEAD
             tax = wsfe_tax_model.search([('code', '=', tax.Id)])
+=======
+            tax = wsfe_tax_model.search([
+                ('code', '=', tax.Id),
+                ('wsfe_config_id', '=', self.id),
+            ])
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
             if not tax:
                 wsfe_tax_model.create(vals)
 
@@ -306,6 +337,50 @@ class WsfeConfig(models.Model):
             else:
                 tax.write(vals)
 
+<<<<<<< HEAD
+=======
+        # now optionals
+        ws = self.ws_auth()
+        data = {
+            'FEParamGetTiposOpcional': {
+            }
+        }
+        ws.add(data, no_check="all")
+        response = ws.request('FEParamGetTiposOpcional')
+        err = self.check_errors(response, raise_exception=False)
+        if err:
+            raise UserError(_("Error reading Taxes!\n") + err)
+        for r in response[0][0]:
+            res_c = wsfe_optionals_obj.search([
+                ('code', '=', r.Id),
+                ('wsfe_config_id', '=', self.id),
+            ])
+
+            #~ Si tengo no los codigos de esos Opcionales en la db, los creo
+            if not len(res_c):
+                fd = datetime.strptime(r.FchDesde, '%Y%m%d')
+                try:
+                    td = datetime.strptime(r.FchHasta, '%Y%m%d')
+                except ValueError:
+                    td = False
+
+                wsfe_optionals_obj.create({
+                    'code': r.Id, 'name': r.Desc, 'to_date': td,
+                    'from_date': fd, 'wsfe_config_id': self.id, 'from_afip': True})
+            #~ Si los codigos estan en la db los modifico
+            else:
+                fd = datetime.strptime(r.FchDesde, '%Y%m%d')
+                #'NULL' ?? viene asi de fe_param_get_tipos_iva():
+                try:
+                    td = datetime.strptime(r.FchHasta, '%Y%m%d')
+                except ValueError:
+                    td = False
+
+                res_c.write({
+                    'code': r.Id, 'name': r.Desc, 'to_date': td,
+                    'from_date': fd, 'wsfe_config_id': self.id, 'from_afip': True})
+
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         return True
 
     @api.multi
@@ -531,9 +606,26 @@ class WsfeVoucherType(models.Model):
     ], 'Document Type', index=True, required=True, readonly=False)
     denomination_id = fields.Many2one('invoice.denomination',
                                       'Denomination', required=False)
+<<<<<<< HEAD
 
     @api.model
     def get_voucher_type(self, voucher):
+=======
+    fiscal_type_id = fields.Many2one('account.invoice.fiscal.type', 'Fiscal type')
+
+    @api.multi
+    def name_get(self):
+        result = []
+        for rec in self:
+            name = rec.name
+            if rec.code:
+                name = ' - '.join([rec.code, name])
+            result.append((rec.id, name))
+        return result
+
+    @api.model
+    def get_voucher_type(self, voucher, get_types=False):
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         voucher.ensure_one()
         # Chequeamos el modelo
         voucher_model = None
@@ -544,6 +636,10 @@ class WsfeVoucherType(models.Model):
 
             denomination_id = voucher.denomination_id.id
             type = voucher.type
+<<<<<<< HEAD
+=======
+            fiscal_type_id = voucher.fiscal_type_id.id
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
             if type.startswith("in"):
                 type = "out_%s" % type[3:]
             if type == 'out_invoice':
@@ -556,19 +652,36 @@ class WsfeVoucherType(models.Model):
                 ('denomination_id', '=', denomination_id)
             ])
 
+<<<<<<< HEAD
+=======
+            if fiscal_type_id:
+                res = res.filtered(lambda x: x.fiscal_type_id.id == fiscal_type_id)
+
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
             if not len(res):
                 raise UserError(
                     _("Voucher type error!\n") +
                     _("There is no voucher type that corresponds " +
                       "to this object"))
 
+<<<<<<< HEAD
             if len(res) > 1:
+=======
+            if len(res) > 1 and not get_types:
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
                 raise UserError(
                     _("Voucher type error!\n") +
                     _("There is more than one voucher type that " +
                       "corresponds to this object"))
 
+<<<<<<< HEAD
             return res.code
+=======
+            if not get_types:
+                return res.code
+            else:
+                return res
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
         elif model == 'account_voucher':
             voucher_model = 'voucher'

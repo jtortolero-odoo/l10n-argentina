@@ -2,9 +2,27 @@
 <odoo>
     <data>
 
+<<<<<<< HEAD
         <menuitem id="retention_retention_concepts_menu" name="Concepts" parent="l10n_ar_retentions_basic.retention_root_menu" sequence="20" action="action_retention_concept_tree" />
         <menuitem id="retention_retention_activities_menu" name="Activities" parent="l10n_ar_retentions_basic.retention_root_menu" sequence="25" action="action_retention_activity_tree" />
         <menuitem id="retention_retention_scales_menu" name="Scales" parent="l10n_ar_retentions_basic.retention_root_menu" sequence="30" action="action_retention_scale_tree" />
+=======
+        <menuitem id="retention_retention_concepts_menu"
+            name="Concepts"
+            parent="l10n_ar_retentions_basic.retention_root_menu"
+            sequence="20"
+            action="action_retention_concept_tree"/>
+        <menuitem id="retention_retention_activities_menu"
+            name="Activities"
+            parent="l10n_ar_retentions_basic.retention_root_menu"
+            sequence="25"
+            action="action_retention_activity_tree"/>
+        <menuitem id="retention_retention_scales_menu"
+            name="Scales"
+            parent="l10n_ar_retentions_basic.retention_root_menu"
+            sequence="30"
+            action="action_retention_scale_tree"/>
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
     </data>
 </odoo>

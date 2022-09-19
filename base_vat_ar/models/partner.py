@@ -119,14 +119,24 @@ class ResPartner(models.Model):
                 except ValueError:
                     vat_country, vat_number = partner.vat[:2].lower(), \
                         partner.vat[2:].replace(' ', '')
+<<<<<<< HEAD
             if not self.document_type_id:
+=======
+            if not partner.document_type_id:
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
                 return True
             if partner.document_type_id and \
                     not partner.document_type_id.sudo().verification_required:
                 return True
+<<<<<<< HEAD
             if not hasattr(self, 'check_vat_' + vat_country):
                 return True
             check = getattr(self, 'check_vat_' + vat_country)
+=======
+            if not hasattr(partner, 'check_vat_' + vat_country):
+                return True
+            check = getattr(partner, 'check_vat_' + vat_country)
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
             if not check(vat_number):
                 raise ValidationError(
                     _('The Vat does not seems to be correct.'))

@@ -37,11 +37,17 @@ class AccountTax(models.Model):
 
 @api.multi
 def post(self, invoice=False):
+<<<<<<< HEAD
     invoice = self._context.get('invoice', False)
+=======
+    if self._context.get('invoice'):
+        invoice = self._context.get('invoice', False)
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
     self._post_validate()
     for move in self:
         move.line_ids.create_analytic_lines()
         if move.name == '/':
+<<<<<<< HEAD
             new_name = False
             journal = move.journal_id
             if journal.sequence_id:
@@ -67,6 +73,21 @@ def post(self, invoice=False):
             if new_name:
                 move.name = new_name
 
+=======
+            if invoice:
+                new_name = invoice.internal_number
+            else:
+                journal = move.journal_id
+                if journal.sequence_id:
+                    sequence = journal.sequence_id
+                    new_name = sequence.with_context(
+                        ir_sequence_date=move.date).next_by_id()
+                else:
+                    err = _('Please define a sequence on the journal.')
+                    raise UserError(err)
+            if new_name:
+                move.name = new_name
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
     return self.write({'state': 'posted'})
 
 

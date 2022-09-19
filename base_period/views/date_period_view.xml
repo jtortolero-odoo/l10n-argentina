@@ -47,6 +47,10 @@
         <record id="date_period_view_tree" model="ir.ui.view">
             <field name="name">date.period.tree</field>
             <field name="model">date.period</field>
+<<<<<<< HEAD
+=======
+<!--            <field name="domain_force">[('company_id', '=', 'company_id.id' )] </field>-->
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
             <field name="arch" type="xml">
                 <tree string="Period">
                     <field name="name"/>

@@ -25,6 +25,15 @@ class RetentionTaxLine(models.Model):
         string='Payment Order',
         ondelete='cascade',
     )
+<<<<<<< HEAD
+=======
+
+    currency_id = fields.Many2one(related= 'payment_order_id.currency_id')
+
+    currency_rate = fields.Float(related= 'payment_order_id.payment_rate')
+
+
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
     voucher_number = fields.Char(
         string='Reference',
         size=64,
@@ -43,6 +52,21 @@ class RetentionTaxLine(models.Model):
     amount = fields.Float(
         digits=dp.get_precision('Account'),
     )
+<<<<<<< HEAD
+=======
+
+    base_currency = fields.Float(
+        digits=dp.get_precision('Account'),
+        compute='_compute_base_currency',
+        string='Base Currency',
+    )
+    amount_currency = fields.Float(
+        digits=dp.get_precision('Account'),
+        compute='_compute_amount_currency',
+        string='Amount Currency',
+    )
+
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
     retention_id = fields.Many2one(
         comodel_name='retention.retention',
         string='Retention Configuration',
@@ -84,6 +108,11 @@ class RetentionTaxLine(models.Model):
         string="State/Province",
     )
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
     @api.onchange('retention_id')
     def _onchange_retention(self):
         retention = self.retention_id
@@ -96,6 +125,19 @@ class RetentionTaxLine(models.Model):
             else:
                 self.state_id = False
 
+<<<<<<< HEAD
+=======
+    @api.depends('amount', 'currency_rate')
+    def _compute_amount_currency(self):
+        for rec in self:
+            rec.amount_currency = rec.amount / rec.currency_rate
+
+    @api.depends('base', 'currency_rate')
+    def _compute_base_currency(self):
+        for rec in self:
+            rec.base_currency = rec.base / rec.currency_rate
+
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
     @api.multi
     def create_voucher_move_line(self):
         # Params
@@ -114,7 +156,11 @@ class RetentionTaxLine(models.Model):
             retention_vals['date'] = voucher.date
 
         company_currency = voucher.company_id.currency_id.id
+<<<<<<< HEAD
         current_currency = voucher.currency_id.id
+=======
+        current_currency = self.currency_id.id
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
         tax_amount_in_company_currency = \
             voucher._convert_paid_amount_in_company_currency(retention.amount)
@@ -151,7 +197,11 @@ class RetentionTaxLine(models.Model):
             'currency_id': company_currency !=
             current_currency and current_currency or False,
             'amount_currency': company_currency !=
+<<<<<<< HEAD
             current_currency and sign * retention.amount or 0.0,
+=======
+            current_currency and sign * retention.amount_currency or 0.0,
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
             'date': voucher.date,
             'date_maturity': voucher.date_due,
         }

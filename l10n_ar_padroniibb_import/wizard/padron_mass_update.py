@@ -5,6 +5,12 @@
 
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
+<<<<<<< HEAD
+=======
+import logging
+
+_logger = logging.getLogger(__name__)
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
 
 class PadronMassUpdate(models.TransientModel):
@@ -15,7 +21,11 @@ class PadronMassUpdate(models.TransientModel):
     agip = fields.Boolean('Update AGIP')
 
     @api.model
+<<<<<<< HEAD
     def _update_retention_arba(self, retention_id):
+=======
+    def _update_retention_arba(self, retention):
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         cr = self.env.cr
         query = """
         WITH padron AS (
@@ -61,7 +71,11 @@ class PadronMassUpdate(models.TransientModel):
         WHERE umode != 'NONE';
         """
 
+<<<<<<< HEAD
         params = (retention_id, )
+=======
+        params = (retention.id, )
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         cr.execute(query, params)
 
         for res in cr.fetchall():
@@ -95,26 +109,49 @@ class PadronMassUpdate(models.TransientModel):
                     partner_id,
                     percent,
                     retention_id,
+<<<<<<< HEAD
                     from_padron
+=======
+                    from_padron,
+                    company_id
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
                 ) VALUES (
                     %(partner_id)s,
                     %(percent)s,
                     %(retention_id)s,
+<<<<<<< HEAD
                     True
+=======
+                    True,
+                    %(company_id)s
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
                 )"""
                 q_params = {
                     'percent': res[1],
                     'partner_id': res[0],
+<<<<<<< HEAD
                     'retention_id': retention_id,
+=======
+                    'retention_id': retention.id,
+                    'company_id': retention.company_id.id,
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
                 }
                 self._cr.execute(q, q_params)
             else:
                 e_title = _('Query Error\n')
+<<<<<<< HEAD
                 e_msg = _('Unexpected result: %s' % res)
                 raise ValidationError(e_title + e_msg)
 
     @api.model
     def _update_perception_arba(self, perception_id):
+=======
+                e_msg = _('Unexpected result: %s' % str(res))
+                raise ValidationError(e_title + e_msg)
+
+    @api.model
+    def _update_perception_arba(self, perception):
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         multilateral_record = self.env.ref(
             'l10n_ar_point_of_sale.iibb_situation_multilateral')
         local_record = self.env.ref(
@@ -164,7 +201,11 @@ class PadronMassUpdate(models.TransientModel):
         WHERE umode != 'NONE';
         """
 
+<<<<<<< HEAD
         params = (perception_id, )
+=======
+        params = (perception.id, )
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         cr.execute(query, params)
 
         for res in cr.fetchall():
@@ -185,29 +226,55 @@ class PadronMassUpdate(models.TransientModel):
                     percent,
                     perception_id,
                     from_padron,
+<<<<<<< HEAD
                     sit_iibb
+=======
+                    sit_iibb,
+                    company_id
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
                 ) VALUES (
                     %(partner_id)s,
                     %(percent)s,
                     %(perception_id)s,
                     True,
+<<<<<<< HEAD
                     %(sit_iibb)s
+=======
+                    %(sit_iibb)s,
+                    %(company_id)s
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
                 )"""
                 q_params = {
                     'percent': res[1],
                     'partner_id': res[0],
+<<<<<<< HEAD
                     'perception_id': perception_id,
+=======
+                    'perception_id': perception.id,
+                    'company_id': perception.company_id.id,
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
                     'sit_iibb': multilateral_record.id if res[2]
                     else local_record.id,
                 }
                 self._cr.execute(q, q_params)
             else:
+<<<<<<< HEAD
                 e_title = _('Query Error\n')
                 e_msg = _('Unexpected result: %s' % res)
                 raise ValidationError(e_title + e_msg)
 
     @api.model
     def _update_retention_agip(self, retention_id):
+=======
+                #e_title = _('Query Error\n')
+                #e_msg = _('Unexpected result: %s' % str(res))
+                _logger.error('ERROR with register %s' % str(res))
+                # print('error')
+                # raise ValidationError(e_title + e_msg)
+
+    @api.model
+    def _update_retention_agip(self, retention):
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         cr = self.env.cr
         query = """
         WITH padron AS (
@@ -253,7 +320,11 @@ class PadronMassUpdate(models.TransientModel):
         z WHERE umode != 'NONE';
         """
 
+<<<<<<< HEAD
         params = (retention_id, )
+=======
+        params = (retention.id, )
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         cr.execute(query, params)
 
         for res in cr.fetchall():
@@ -287,16 +358,27 @@ class PadronMassUpdate(models.TransientModel):
                     partner_id,
                     percent,
                     retention_id,
+<<<<<<< HEAD
                     from_padron
+=======
+                    from_padron,
+                    company_id
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
                 ) VALUES (
                     %(partner_id)s,
                     %(percent)s,
                     %(retention_id)s,
+<<<<<<< HEAD
                     True
+=======
+                    True,
+                    %(company_id)s
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
                 )"""
                 q_params = {
                     'percent': res[1],
                     'partner_id': res[0],
+<<<<<<< HEAD
                     'retention_id': retention_id,
                 }
                 self._cr.execute(q, q_params)
@@ -307,6 +389,20 @@ class PadronMassUpdate(models.TransientModel):
 
     @api.model
     def _update_perception_agip(self, perception_id):
+=======
+                    'retention_id': retention.id,
+                    'company_id': retention.company_id.id,
+                }
+                self._cr.execute(q, q_params)
+            else:
+                # e_title = _('Query Error\n')
+                # e_msg = _('Unexpected result: %s' % str(res))
+                # raise ValidationError(e_title + e_msg)
+                _logger.error('ERROR with register %s' % str(res))
+
+    @api.model
+    def _update_perception_agip(self, perception):
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         cr = self.env.cr
         query = """
         WITH padron AS (
@@ -352,7 +448,11 @@ class PadronMassUpdate(models.TransientModel):
         WHERE umode != 'NONE';
         """
 
+<<<<<<< HEAD
         params = (perception_id, )
+=======
+        params = (perception.id, )
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         cr.execute(query, params)
 
         for res in cr.fetchall():
@@ -386,22 +486,41 @@ class PadronMassUpdate(models.TransientModel):
                     partner_id,
                     percent,
                     perception_id,
+<<<<<<< HEAD
                     from_padron
+=======
+                    from_padron,
+                    company_id
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
                 ) VALUES (
                     %(partner_id)s,
                     %(percent)s,
                     %(perception_id)s,
+<<<<<<< HEAD
                     True
+=======
+                    True,
+                    %(company_id)s
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
                 )"""
                 q_params = {
                     'percent': res[1],
                     'partner_id': res[0],
+<<<<<<< HEAD
                     'perception_id': perception_id,
+=======
+                    'perception_id': perception.id,
+                    'company_id': perception.company_id.id,
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
                 }
                 self._cr.execute(q, q_params)
             else:
                 e_title = _('Query Error\n')
+<<<<<<< HEAD
                 e_msg = _('Unexpected result: %s' % res)
+=======
+                e_msg = _('Unexpected result: %s' % str(res))
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
                 raise ValidationError(e_title + e_msg)
 
     @api.multi
@@ -416,7 +535,11 @@ class PadronMassUpdate(models.TransientModel):
                     _("Perception Error!\n") +
                     _("There is no perception configured to update " +
                       "from Padron ARBA"))
+<<<<<<< HEAD
             self._update_perception_arba(percep_arba[0].id)
+=======
+            self._update_perception_arba(percep_arba[0])
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
             # Actualizamos Retenciones
             retent_arba = retention_obj._get_retention_from_arba()
             if not retent_arba:
@@ -424,7 +547,11 @@ class PadronMassUpdate(models.TransientModel):
                     _("Retention Error!\n") +
                     _("There is no retention configured to update " +
                       "from Padron ARBA"))
+<<<<<<< HEAD
             self._update_retention_arba(retent_arba[0].id)
+=======
+            self._update_retention_arba(retent_arba[0])
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         if self.agip:
             # Actualizamos Percepciones
             percep_agip = perception_obj._get_perception_from_agip()
@@ -433,7 +560,11 @@ class PadronMassUpdate(models.TransientModel):
                     _("Perception Error!\n") +
                     _("There is no perception configured to update " +
                       "from Padron AGIP"))
+<<<<<<< HEAD
             self._update_perception_agip(percep_agip[0].id)
+=======
+            self._update_perception_agip(percep_agip[0])
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
             # Actualizamos Retenciones
             retent_agip = retention_obj._get_retention_from_agip()
             if not retent_agip:
@@ -441,6 +572,10 @@ class PadronMassUpdate(models.TransientModel):
                     _("Retention Error!\n") +
                     _("There is no retention configured to update " +
                       "from Padron AGIP"))
+<<<<<<< HEAD
             self._update_retention_agip(retent_agip[0].id)
+=======
+            self._update_retention_agip(retent_agip[0])
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
         return True

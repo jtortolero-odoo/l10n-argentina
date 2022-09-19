@@ -16,7 +16,11 @@ class PerceptionPerception(models.Model):
 
     @api.model
     def _get_perception_from_arba(self):
+<<<<<<< HEAD
         ret = self.search([('from_register_ARBA', '=', True)])
+=======
+        ret = self.search([('from_register_ARBA', '=', True), ('company_id', '=', self.env.user.company_id.id)])
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         if len(ret) > 1:
             raise ValidationError(
                 _('Perceptions Improperly Configured\n') +
@@ -29,7 +33,11 @@ class PerceptionPerception(models.Model):
 
     @api.model
     def _get_perception_from_agip(self):
+<<<<<<< HEAD
         ret = self.search([('from_register_AGIP', '=', True)])
+=======
+        ret = self.search([('from_register_AGIP', '=', True), ('company_id', '=', self.env.user.company_id.id)])
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         if len(ret) > 1:
             raise ValidationError(
                 _('Perceptions Improperly Configured\n') +

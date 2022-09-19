@@ -44,11 +44,24 @@ class AccountPaymentOrder(models.Model):
         ret = super(AccountPaymentOrder, self).proforma_voucher()
 
         for payment_order in self:
+<<<<<<< HEAD
             for line in payment_order.payment_mode_line_ids:
                 journal = line.payment_mode_id or payment_order.journal_id
                 if not journal.detach_statement_lines():
                     continue
 
+=======
+            for line in payment_order.payment_mode_line_ids:  # transfers
+                journal = line.payment_mode_id or payment_order.journal_id
+                if not journal.detach_statement_lines():
+                    continue
+                self.create_statement_line(line, journal)
+
+            for line in payment_order.issued_check_ids:  # issued checks
+                journal = line.journal_id or payment_order.journal_id
+                if not journal.detach_statement_lines():
+                    continue
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
                 self.create_statement_line(line, journal)
         return ret
 
@@ -114,8 +127,13 @@ class AccountPaymentModeLine(models.Model):
         """
 
         invoices = self.mapped("payment_order_id").mapped(
+<<<<<<< HEAD
             "line_ids").mapped("invoice_id")
         return ', '.join(name or '' for _id, name in invoices.name_get())
+=======
+            "line_ids").mapped("invoice_id").filtered(lambda x: x.type in ('out_invoice', 'in_invoice'))
+        return ', '.join(inv.internal_number or '' for inv in invoices)
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
     def _prepare_statement_line_data(self):
         payment_order = self.payment_order_id
@@ -148,5 +166,13 @@ class AccountPaymentModeLine(models.Model):
             'line_type': line_type,
             'amount': amount,
             'state': 'open',
+<<<<<<< HEAD
         }
+=======
+            'currency_id': journal.currency_id.id or payment_order.journal_id.currency_id.id,
+        }
+        statement_currency = journal.currency_id or self.env.user.company_id.currency_id
+        if statement_currency.id == st_line_data['currency_id']:
+            st_line_data['currency_id'] = False
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         return st_line_data

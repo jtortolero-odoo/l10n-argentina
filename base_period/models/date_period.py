@@ -17,7 +17,10 @@ class DatePeriod(models.Model):
     _order = "date_from desc"
     _description = 'Date Period (L10N AR)'
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
     @api.model
     def _get_company(self):
         return self.env.user.company_id
@@ -75,7 +78,11 @@ class DatePeriod(models.Model):
         'account.fiscal.year',
         string='Fiscal Year',
         required=True,
+<<<<<<< HEAD
         index=True
+=======
+        select=True
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
     )
 
     company_id = fields.Many2one(

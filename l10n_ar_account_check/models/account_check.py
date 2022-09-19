@@ -6,6 +6,10 @@
 import time
 
 from odoo import _, api, fields, models
+<<<<<<< HEAD
+=======
+from odoo.addons import decimal_precision as dp
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 from odoo.exceptions import UserError, ValidationError
 
 
@@ -45,7 +49,12 @@ class AccountCheckConfig(models.Model):
         domain=[('internal_type', 'not in', ('receivable', 'payable'))],
         required=True)
     company_id = fields.Many2one(
+<<<<<<< HEAD
         comodel_name='res.company', string='Company', required=True)
+=======
+        comodel_name='res.company', string='Company', required=True,
+        default=lambda self: self.env.user.company_id.id)
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
 
 class AccountIssuedCheck(models.Model):
@@ -62,6 +71,11 @@ class AccountIssuedCheck(models.Model):
     payment_date = fields.Date(
         string='Payment Date', help="Only if this check is post dated")
     reject_date = fields.Date(string='Reject Date')
+<<<<<<< HEAD
+=======
+    return_date = fields.Date(string='Return Date')
+    reason_id = fields.Many2one(comodel_name='reason.rejected.check', string='Reason')
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
     receiving_partner_id = fields.Many2one(
         comodel_name='res.partner', string='Receiving Entity',
         required=False, readonly=True)
@@ -74,10 +88,20 @@ class AccountIssuedCheck(models.Model):
         ('72', '72 hs')], string='Clearing', default='24')
     account_bank_id = fields.Many2one(
         comodel_name='res.partner.bank', string='Bank Account')
+<<<<<<< HEAD
+=======
+    journal_id = fields.Many2one(comodel_name='account.journal', string='Payment journal',
+                                 compute='_compute_journal_id', store=True)
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
     payment_order_id = fields.Many2one(
         comodel_name='account.payment.order', string='Voucher')
     payment_move_id = fields.Many2one(
         comodel_name='account.move', string='Payment Account Move')
+<<<<<<< HEAD
+=======
+    invoice_id = fields.Many2one(comodel_name='account.invoice',
+                                 help='Automatic relationship when the voucher is created from a proposal.')
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
     clearance_move_id = fields.Many2one(
         comodel_name='account.move', string='Clearance Account Move')
     accredited = fields.Boolean(
@@ -85,6 +109,13 @@ class AccountIssuedCheck(models.Model):
     origin = fields.Char(string='Origin', size=64)
     crossed = fields.Boolean(string='Crossed')
     not_order = fields.Boolean(string='Not Order')
+<<<<<<< HEAD
+=======
+    replaced = fields.Boolean(string='Replaced', help='Auto-marked when a returned check is replaced.', readonly=True)
+    replacement_payment_order_id = fields.Many2one(
+        comodel_name='account.payment.order', string='Replacement Voucher',
+        help='Payment order whose check was returned and replaced by this one.')
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
     note = fields.Text(string="Note")
 
     type = fields.Selection([
@@ -103,9 +134,40 @@ class AccountIssuedCheck(models.Model):
          ('waiting', 'Waiting Accreditation'),
          ('issued', 'Issued'),
          ('cancel', 'Cancelled'),
+<<<<<<< HEAD
          ('rejected', 'Rejected')],
         string='State',
         default='draft')
+=======
+         ('rejected', 'Rejected'),
+         ('returned', 'Returned')],
+        string='State',
+        default='draft')
+    currency_id = fields.Many2one(
+        related='payment_order_id.currency_id',
+    )
+    currency_rate = fields.Float(
+        related='payment_order_id.payment_rate',
+    )
+    amount_currency = fields.Float(
+        digits=dp.get_precision('Account'),
+        compute='_compute_amount_currency',
+        string='Amount Currency',
+    )
+
+    @api.depends('account_bank_id')
+    def _compute_journal_id(self):
+        for rec in self:
+            if rec.account_bank_id:
+                journal = self.env['account.journal'].search([('bank_account_id', '=', rec.account_bank_id.id)])
+                rec.journal_id = journal.id
+
+    @api.depends('amount', 'currency_rate')
+    def _compute_amount_currency(self):
+        for rec in self:
+            if rec.currency_rate:
+                rec.amount_currency = rec.amount / rec.currency_rate
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
     @api.depends('clearance_move_id')
     def _compute_accredit_state(self):
@@ -115,6 +177,42 @@ class AccountIssuedCheck(models.Model):
             else:
                 check.accredited = False
 
+<<<<<<< HEAD
+=======
+    def _build_invoices_info(self, lines):
+        """ Copied from l10n_ar_bank_statement/models/account_payment.py"""
+        invoices = lines.mapped("invoice_id")
+        return ', '.join(inv.internal_number or '' for inv in invoices)
+
+    def _prepare_statement_line_data(self):
+        payment = self.payment_order_id
+        partner = payment.partner_id
+        journal = self.journal_id
+
+        # HardCodes
+        line_type = "payment"
+        account = journal.default_debit_account_id
+
+        invoices_info = self._build_invoices_info(payment.debt_line_ids)
+
+        st_line_values = {
+            'ref': invoices_info,
+            'name': 'Cheque Propio: ' + self.number,
+            'date': self.payment_date or payment.date_due or fields.Date.context_today(self),
+            'invoice_id': self.invoice_id.id,
+            'journal_id': journal.id,
+            'company_id': self.company_id.id,
+            'payment_order_id': payment.id,
+            'partner_id': partner.id,
+            'account_id': account.id,
+            'line_type': line_type,
+            'amount': self.amount * -1,
+            'state': 'open',
+        }
+
+        return st_line_values
+
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
     @api.model
     def create_voucher_move_line(self):
         voucher = self.payment_order_id
@@ -134,7 +232,11 @@ class AccountIssuedCheck(models.Model):
             account_id = config.deferred_account_id.id
             date_maturity = self.payment_date
         else:
+<<<<<<< HEAD
             account_id = self.account_bank_id.account_id.id
+=======
+            account_id = self.account_bank_id.account_id.id or self.journal_id.default_debit_account_id.id
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
             date_maturity = voucher.date_due
 
         if not account_id:
@@ -146,7 +248,11 @@ class AccountIssuedCheck(models.Model):
         # TODO: Chequear que funcione bien en
         # multicurrency estas dos lineas de abajo
         company_currency = voucher.company_id.currency_id.id
+<<<<<<< HEAD
         current_currency = voucher.currency_id.id
+=======
+        current_currency = self.currency_id.id
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         amount_in_company_currency = voucher.\
             _convert_paid_amount_in_company_currency(self.amount)
 
@@ -163,7 +269,11 @@ class AccountIssuedCheck(models.Model):
             credit = 0.0
         sign = debit - credit < 0 and -1 or 1
 
+<<<<<<< HEAD
         # Creamos la linea contable perteneciente al cheque
+=======
+        # Creamos la línea contable perteneciente al cheque
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         if self.number:
             reference = _('Issued Check %s') % (self.number or '/')
         else:
@@ -181,9 +291,16 @@ class AccountIssuedCheck(models.Model):
             'currency_id': company_currency !=
             current_currency and current_currency or False,
             'amount_currency': company_currency !=
+<<<<<<< HEAD
             current_currency and sign * self.amount or 0.0,
             'date': voucher.date,
             'date_maturity': date_maturity,
+=======
+            current_currency and sign * self.amount_currency or 0.0,
+            'date': voucher.date,
+            'date_maturity': date_maturity,
+            'issued_check_id': self.id,
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         }
 
         return move_line
@@ -211,6 +328,10 @@ class AccountIssuedCheck(models.Model):
 
         for check in self:
             company = self.env.user.company_id
+<<<<<<< HEAD
+=======
+            company_check_id = check.company_id.id
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
             check_conf_obj = self.env['account.check.config']
             def_check_account = check_conf_obj.search([
                 ('company_id', '=', company.id)]).deferred_account_id
@@ -224,6 +345,10 @@ class AccountIssuedCheck(models.Model):
 
             period_obj = self.env['date.period']
             current_period = period_obj.search([
+<<<<<<< HEAD
+=======
+                ('company_id', '=', company_check_id),
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
                 ('date_from', '<=', current_date),
                 ('date_to', '>=', current_date)])
 
@@ -252,6 +377,7 @@ class AccountIssuedCheck(models.Model):
             clearance_move_line = move_line_obj.with_context(
                 {'check_move_validity': False}).create(check_move_line_vals)
 
+<<<<<<< HEAD
             # Creamos la línea contable que refiere
             # a la acreditación por parte del banco
             bank_move_line_vals = {
@@ -267,6 +393,25 @@ class AccountIssuedCheck(models.Model):
             move_line_obj.with_context(
                 {'check_move_validity': False}
                 ).create(bank_move_line_vals)
+=======
+            if check.checkbook_id:
+                # Creamos la línea contable que refiere
+                # a la acreditación por parte del banco
+                # solo si tiene referenciada una chequera (checkbook_id)
+                bank_move_line_vals = {
+                    'journal_id': def_check_journal.id,
+                    'period_id': current_period.id,
+                    'date': current_date,
+                    'name': name_ref,
+                    'account_id': check.checkbook_id.bank_account_id.account_id.id,
+                    'credit': check.amount,
+                    'move_id': move_id.id,
+                }
+
+                move_line_obj.with_context(
+                    {'check_move_validity': False}
+                    ).create(bank_move_line_vals)
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
             # move_lines_to_reconcile = []
             # payment_move_line = move_line_obj.search([
@@ -321,6 +466,16 @@ class AccountIssuedCheck(models.Model):
         })
         return True
 
+<<<<<<< HEAD
+=======
+    def return_check(self):
+        for check in self:
+            check.write({
+                'state': 'returned',
+            })
+            return True
+
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
 class AccountThirdCheck(models.Model):
     """
@@ -421,6 +576,26 @@ class AccountThirdCheck(models.Model):
         comodel_name='account.journal',
         string='Deposit Journal',
         readonly=True, compute='_compute_deposit_journal_id')
+<<<<<<< HEAD
+=======
+    currency_id = fields.Many2one(
+        related='source_payment_order_id.currency_id',
+    )
+    currency_rate = fields.Float(
+        related='source_payment_order_id.payment_rate',
+    )
+    amount_currency = fields.Float(
+        digits=dp.get_precision('Account'),
+        compute='_compute_amount_currency',
+        string='Amount Currency',
+    )
+
+    @api.depends('amount', 'currency_rate')
+    def _compute_amount_currency(self):
+        for rec in self:
+            if rec.currency_rate:
+                rec.amount_currency = rec.amount / rec.currency_rate
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
     @api.depends('deposit_move_id')
     def _compute_deposit_journal_id(self):
@@ -444,7 +619,11 @@ class AccountThirdCheck(models.Model):
         # TODO: Chequear que funcione bien en
         # multicurrency estas dos lineas de abajo
         company_currency = voucher.company_id.currency_id.id
+<<<<<<< HEAD
         current_currency = voucher.currency_id.id
+=======
+        current_currency = self.currency_id.id
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
         amount_in_company_currency = voucher.\
             _convert_paid_amount_in_company_currency(
@@ -475,7 +654,11 @@ class AccountThirdCheck(models.Model):
             'currency_id': company_currency !=
             current_currency and current_currency or False,
             'amount_currency': company_currency !=
+<<<<<<< HEAD
             current_currency and sign * self.amount or 0.0,
+=======
+            current_currency and sign * self.amount_currency or 0.0,
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
             'date': voucher.date,
             'date_maturity': self.payment_date or self.issue_date,
         }

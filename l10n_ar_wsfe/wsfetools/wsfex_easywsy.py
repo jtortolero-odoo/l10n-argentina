@@ -21,11 +21,19 @@ class WSFEX(AfipWS):
 
     @property
     def voucher_type_str(self):
+<<<<<<< HEAD
         return 'homo' in self.ws_url and 'Cbte_Tipo' or 'Tipo_cbte'
 
     @property
     def voucher_asoc_str(self):
         return 'homo' in self.ws_url and 'Cbte_tipo' or 'CBte_tipo'
+=======
+        return 'homo' in self.ws_url and 'Cbte_Tipo' or 'Cbte_Tipo'
+
+    @property
+    def voucher_asoc_str(self):
+        return 'homo' in self.ws_url and 'Cbte_tipo' or 'Cbte_tipo'
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
     @property
     def voucher_resp_str(self):
@@ -65,7 +73,11 @@ class WSFEX(AfipWS):
         else:
             cbte_nro = cbte_nro + 1
 
+<<<<<<< HEAD
         date_invoice = datetime.strptime(inv.date_invoice, '%Y-%m-%d')
+=======
+        date_invoice = inv.date_invoice
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         formatted_date_invoice = date_invoice.strftime('%Y%m%d')
 
         cuit_pais = inv.dst_cuit_id and int(inv.dst_cuit_id.code) or 0
@@ -115,6 +127,10 @@ class WSFEX(AfipWS):
                 self.voucher_asoc_str: tipo_cbte,
                 'Cbte_punto_vta': int(pos),
                 'Cbte_nro': int(number),
+<<<<<<< HEAD
+=======
+                'Cbte_cuit': cuit_pais,
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
             }
             if 'homo' in self.ws_url:
                 Cmp_asoc.update({
@@ -124,6 +140,7 @@ class WSFEX(AfipWS):
             Cmps_asoc.append(Cmp_asoc)
 
         # TODO: Agregar permisos
+<<<<<<< HEAD
         if inv.export_type_id.code == 1:
             shipping_perm = 'S' and inv.shipping_perm_ids or 'N'
         else:
@@ -132,6 +149,22 @@ class WSFEX(AfipWS):
         Cmp = {
             self.voucher_type_str: inv._get_voucher_type(),
             'Punto_vta': inv._get_pos(),
+=======
+#        if inv.export_type_id.code == 1:
+#            shipping_perm = 'S' and inv.shipping_perm_ids or 'N'
+#        else:
+#            shipping_perm = 'S' and inv.shipping_perm_ids or ''
+
+        tipo_cbte = inv._get_voucher_type() # voucher_type_obj.get_voucher_type(cr, uid, inv, context=context)
+        if tipo_cbte in ('20', '21') or (tipo_cbte == '19' and inv.export_type_id.code in (2,4)):
+            shipping_perm = ''
+        else:
+            shipping_perm = 'S' and inv.shipping_perm_ids or 'N'
+
+        Cmp = {
+            self.voucher_type_str: inv._get_voucher_type(),
+            'Punto_vta': int(inv._get_pos().name),
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
             'invoice_id': inv.id,
             'Id': Id,
             'Fecha_cbte': formatted_date_invoice,
@@ -159,6 +192,12 @@ class WSFEX(AfipWS):
             Cmp['Incoterms'] = inv.incoterm_id.code
             Cmp['Incoterms_Ds'] = inv.incoterm_id.name
 
+<<<<<<< HEAD
+=======
+        if (tipo_cbte == '19' and inv.export_type_id.code in (2,4)):
+            Cmp['Fecha_pago'] = inv.date_due.strftime('%Y%m%d')
+
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         if Cmps_asoc:
             Cmp['Cmps_asoc'] = {
                 'Cmp_asoc': Cmps_asoc,
@@ -249,7 +288,10 @@ class WSFEX(AfipWS):
         response = self.last_request['parse_result']
         res = response.FEXResultAuth
         inv = list(self.data.sent_invoices.keys())[0]
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         voucher_type = voucher_type_obj.search(
             [('code', '=', res[self.voucher_resp_str])])
         voucher_type_name = voucher_type.name

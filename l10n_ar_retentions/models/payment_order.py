@@ -107,7 +107,13 @@ class AccountPaymentOrder(models.Model):
                           self.partner_id.account_fiscal_position_id.name))
             tapp_domain = [
                 ('retention_id', '=', advance_ret.retention_id.id),
+<<<<<<< HEAD
                 ('concept_id', '=', advance_ret.concept_id.id)]
+=======
+                ('concept_id', '=', advance_ret.concept_id.id),
+                ('company_id', '=', self.company_id.id),
+            ]
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
             taxapp = tax_app_obj.search(tapp_domain)
             if not taxapp:
                 raise ValidationError(
@@ -138,7 +144,11 @@ class AccountPaymentOrder(models.Model):
                 advance_ret, taxapp, ret_vals, base, amount)
             create_vals.append(retention_line_vals)
             new_ret_amount += amount
+<<<<<<< HEAD
             _logger.info("Retentions to create: %s" % pf(retention_line_vals))
+=======
+            _logger.info("Retentions to create 2: %s" % pf(retention_line_vals))
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         if create_vals:
             self.retention_ids = [(0, 0, val) for val in create_vals]
         return new_ret_amount
@@ -349,10 +359,21 @@ class AccountPaymentOrder(models.Model):
             AND pol.payment_order_id=po.id
         JOIN account_move mv ON mv.id=ml.move_id
         WHERE r.id=%(ret_id)s AND po.state='posted'
+<<<<<<< HEAD
         """
 
         q_params = {
             'ret_id': retention.id,
+=======
+            AND (r.company_id = %(company_id)s OR r.company_id IS NULL)
+        """
+
+        company = self._get_default_company()
+
+        q_params = {
+            'ret_id': retention.id,
+            'company_id': company.id,
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         }
         if move_line:
             q_params['move_line_id'] = move_line.id
@@ -393,9 +414,16 @@ class AccountPaymentOrder(models.Model):
                 continue
             if any(self.debt_line_ids.mapped('amount') +
                    self.income_line_ids.mapped('amount')):
+<<<<<<< HEAD
                 vals = po.calculate_retentions()
 
                 _logger.info("Retentions to create: %s" % pf(vals))
+=======
+                po.retention_ids = False
+                vals = po.calculate_retentions()
+
+                _logger.info("Retentions to create 1: %s" % pf(vals))
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
                 po.retention_ids = [(0, 0, val) for val in vals]
             else:
                 if not po.amount:

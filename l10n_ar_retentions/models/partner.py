@@ -9,7 +9,10 @@ from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 from odoo.tools import DEFAULT_SERVER_DATE_FORMAT as DSDF
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 class res_partner_retention(models.Model):
     _name = "res.partner.retention"
     _description = "Retention Defined in Partner"
@@ -28,6 +31,15 @@ class res_partner_retention(models.Model):
     partner_id = fields.Many2one('res.partner', 'Partner')
     sit_iibb = fields.Many2one(
         comodel_name='iibb.situation', string='Situation of IIBB')
+<<<<<<< HEAD
+=======
+    company_id = fields.Many2one(
+        comodel_name='res.company',
+        related='retention_id.company_id',
+        string='Company',
+        store=True,
+    )
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
     _sql_constraints = [
         ('retention_partner_unique',
@@ -53,6 +65,10 @@ class res_partner_retention(models.Model):
 
 class ResPartnerAdvanceRetention(models.Model):
     _name = "res.partner.advance.retention"
+<<<<<<< HEAD
+=======
+    _description = "Retention advanced defined in Partner"
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
     retention_id = fields.Many2one(
         comodel_name='retention.retention',
@@ -63,19 +79,47 @@ class ResPartnerAdvanceRetention(models.Model):
     partner_id = fields.Many2one(
         comodel_name='res.partner',
         string="Partner")
+<<<<<<< HEAD
+=======
+    company_id = fields.Many2one(
+        comodel_name='res.company',
+        related='retention_id.company_id',
+        string='Company',
+        store=True,
+    )
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
 
 class res_partner(models.Model):
     _name = "res.partner"
     _inherit = "res.partner"
 
+<<<<<<< HEAD
     retention_ids = fields.One2many(
         'res.partner.retention', 'partner_id', 'Retentions Exceptions',
+=======
+    @api.model
+    def _get_retentions_domain(self):
+        company = self.env.user.company_id
+        return [
+            '|',
+            ('company_id', '=', False),
+            ('company_id', '=', company.id),
+        ]
+
+    retention_ids = fields.One2many(
+        'res.partner.retention', 'partner_id', 'Retentions Exceptions',
+        domain=lambda self: self._get_retentions_domain(),
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         help="Here you have to configure retention exceptions for this " +
         "partner with this Fiscal Position")
     advance_retention_ids = fields.One2many(
         comodel_name='res.partner.advance.retention',
         inverse_name='partner_id',
+<<<<<<< HEAD
+=======
+        domain=lambda self: self._get_retentions_domain(),
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         string="Advance Payment Concept")
 
     def _get_retentions_to_apply(self, operation_date):
@@ -101,6 +145,7 @@ class res_partner(models.Model):
         partner_retentions = {}
         for p_ret in self.retention_ids:
             excluded_percent = p_ret.excluded_percent
+<<<<<<< HEAD
             ddate = dt.strftime(operation_date, DSDF)
             tzd = fields.Datetime.context_timestamp(self, ddate)
             # Chequeamos que la retencion este en un periodo valido
@@ -109,6 +154,25 @@ class res_partner(models.Model):
                     (not p_ret.ex_date_from and tzd <= p_ret.ex_date_to) or \
                     (p_ret.ex_date_from <= tzd <= p_ret.ex_date_to):
                 excluded_percent = False
+=======
+            # ~ ddate = dt.strftime(operation_date, DSDF)
+            ddate = dt.strftime(operation_date, "%Y-%m-%d %H:%M:%S")
+            # ~ tzd = fields.Datetime.context_timestamp(self, ddate)
+            # Chequeamos que la retencion este en un periodo valido
+            if excluded_percent:
+                if p_ret.ex_date_from and p_ret.ex_date_to:
+                    # Exclusion applies if we are into the boundaries
+                    if not (p_ret.ex_date_from <= operation_date <= p_ret.ex_date_to):
+                        excluded_percent = False
+                elif p_ret.ex_date_from:
+                    # Exclusion applies only if we are latter than date_from
+                    if not (p_ret.ex_date_from <= operation_date):
+                        excluded_percent = False
+                elif p_ret.ex_date_to:
+                    # Exclusion applies only if we are before than ex_date_to
+                    if not (operation_date <= p_ret.ex_date_to):
+                        excluded_percent = False
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
             retention = {
                 'retention': p_ret.retention_id,
@@ -132,9 +196,25 @@ class res_partner(models.Model):
 class account_fiscal_position(models.Model):
     _inherit = 'account.fiscal.position'
 
+<<<<<<< HEAD
     retention_ids = fields.Many2many(
         'retention.retention', 'fiscal_position_retention_rel',
         'position_id', 'retention_id', 'Retentions',
+=======
+    @api.model
+    def _get_retentions_domain(self):
+        company = self.env.user.company_id
+        return [
+            '|',
+            ('company_id', '=', False),
+            ('company_id', '=', company.id),
+        ]
+
+    retention_ids = fields.Many2many(
+        'retention.retention', 'fiscal_position_retention_rel',
+        'position_id', 'retention_id', 'Retentions',
+        domain=lambda self: self._get_retentions_domain(),
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         help="These are the retentions that will be applied to Suppliers " +
         "belonging to this Fiscal Position. Exceptions to this have to be " +
         "loaded at partner form.")

@@ -23,6 +23,12 @@
                         <field name="tax_id" select="1"/>
                         <field name="jurisdiccion" select="1"/>
                         <field name="type_tax_use" select="1"/>
+<<<<<<< HEAD
+=======
+                        <field name="company_id"
+                            groups="base.group_multi_company"
+                            options="{'no_create': True}"/>
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
                         <field name="type" select="1"/>
                         <field name="state_id" select="1"
                             attrs="{'invisible':[('jurisdiccion','!=','provincial')], 'required':[('jurisdiccion','=','provincial')]}"/>

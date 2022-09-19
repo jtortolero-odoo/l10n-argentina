@@ -126,7 +126,11 @@ class AccountInvoice(models.Model):
         },
     )
 
+<<<<<<< HEAD
     @api.multi
+=======
+    @api.onchange('partner_id', 'company_id')
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
     def _onchange_partner_id(self):
         # If partner changes set the partner_id for existent perceptions
         res = super(AccountInvoice, self)._onchange_partner_id()
@@ -175,6 +179,10 @@ class AccountInvoice(models.Model):
             'is_exempt': False,
             'account_analytic_id': tax.get('analytic', False),
             'account_id': tax['account_id'],
+<<<<<<< HEAD
+=======
+            'analytic_tag_ids': False,
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         }
         return vals
 

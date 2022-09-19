@@ -11,7 +11,12 @@
                 <field name="date_invoice" position="replace">
                     <label for="date_invoice" string="Date"/>
                     <div>
+<<<<<<< HEAD
                         <field name="date_invoice" class="oe_inline" nolabel="1"/><span attrs="{'invisible': [('period_id', '=', False)]}" > - </span>
+=======
+                        <field name="date_invoice" class="oe_inline" nolabel="1"/>
+                        <span attrs="{'invisible': [('period_id', '=', False)]}">-</span>
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
                         <field name="period_id" nolabel="1" class="oe_inline"/>
                     </div>
                 </field>
@@ -26,10 +31,24 @@
                 <field name="date_invoice" position="replace">
                     <label for="date_invoice" string="Date"/>
                     <div>
+<<<<<<< HEAD
                         <field name="date_invoice" class="oe_inline" nolabel="1"/><span attrs="{'invisible': [('period_id', '=', False)]}" > - </span>
                         <field name="period_id" nolabel="1" class="oe_inline"/>
                     </div>
                 </field>
+=======
+                        <field name="date_invoice" class="oe_inline" nolabel="1"/>
+                        <span attrs="{'invisible': [('period_id', '=', False)]}">-</span>
+                        <field name="period_id" nolabel="1" class="oe_inline"/>
+                    </div>
+                </field>
+                <xpath expr="//field[@name='date']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//field[@name='date_due']" position="before">
+                    <field name="date"/>
+                </xpath>
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
             </field>
         </record>
 

@@ -32,7 +32,11 @@
     "data": [
         'data/ir_sequence_data.xml',
         'wizard/pos_box_view.xml',
+<<<<<<< HEAD
         'views/bank_statement_line_view.xml',
+=======
+        #'views/bank_statement_line_view.xml',
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         'wizard/account_add_bank_statement_view.xml',
         'wizard/account_import_bank_statement_line_view.xml',
         'views/pos_box_concept_view.xml',

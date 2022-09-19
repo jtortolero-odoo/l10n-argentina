@@ -4,7 +4,11 @@
 ##############################################################################
 
 from odoo import _, api, fields, models
+<<<<<<< HEAD
 from odoo.exceptions import ValidationError
+=======
+from odoo.exceptions import ValidationError, UserError
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
 
 class AccountPaymentOrder(models.Model):
@@ -85,6 +89,28 @@ class AccountPaymentOrder(models.Model):
             voucher.issued_check_ids.unlink()
             super(AccountPaymentOrder, voucher).unlink()
 
+<<<<<<< HEAD
+=======
+    def _update_returned_check(self):
+        debt_lines = self.debt_line_ids.filtered('amount')
+        checks = debt_lines.mapped('move_line_id').mapped('issued_check_id')
+        returned_checks = checks.filtered(lambda x: x.state == 'returned')
+        if not debt_lines or not returned_checks:
+            return
+
+        replacement = 0
+        for dline in debt_lines:
+            for check in returned_checks:
+                if dline.amount == check.amount:
+                    check.replaced = True
+                    check.replacement_payment_order_id = self.id
+                    replacement += 1
+
+        if replacement == 0:
+            raise UserError('To replace returned checks, please create a new check for each returned check'
+                            ' in the same amounts.')
+
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
     @api.multi
     def create_move_line_hook(self, move_id, move_lines):
         move_lines = super(AccountPaymentOrder, self).\
@@ -139,6 +165,12 @@ class AccountPaymentOrder(models.Model):
                     vals['issue_date'] = self.date
                 check.write(vals)
 
+<<<<<<< HEAD
+=======
+                # if the payment is by check, check if it's a replacement for a returned check
+                self._update_returned_check()
+
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         return move_lines
 
     @api.multi

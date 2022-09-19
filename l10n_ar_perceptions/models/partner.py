@@ -39,6 +39,15 @@ class ResPartnerPerception(models.Model):
     partner_id = fields.Many2one('res.partner', 'Partner')
     sit_iibb = fields.Many2one(comodel_name='iibb.situation',
                                string='Situation of IIBB')
+<<<<<<< HEAD
+=======
+    company_id = fields.Many2one(
+        comodel_name='res.company',
+        related='perception_id.company_id',
+        string='Company',
+        store=True,
+    )
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
     _sql_constraints = [('perception_partner_unique',
                          'unique(partner_id, perception_id)',
@@ -56,10 +65,28 @@ class ResPartner(models.Model):
     _name = "res.partner"
     _inherit = "res.partner"
 
+<<<<<<< HEAD
     perception_ids = fields.One2many(
         'res.partner.perception', 'partner_id', 'Defined Perceptions',
         help="Here you have to configure perception exceptions for this " +
         "partner with this Fiscal Position")
+=======
+    @api.model
+    def _get_perceptions_domain(self):
+        company = self.env.user.company_id
+        return [
+            '|',
+            ('company_id', '=', False),
+            ('company_id', '=', company.id),
+        ]
+
+    perception_ids = fields.One2many(
+        'res.partner.perception', 'partner_id', 'Defined Perceptions',
+        domain=lambda self: self._get_perceptions_domain(),
+        help="Here you have to configure perception exceptions for this " +
+        "partner with this Fiscal Position",
+    )
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
     nro_insc_iibb = fields.Char('Number of IIBB Registration', size=15)
 
     def _get_perceptions_to_apply(self):
@@ -67,7 +94,11 @@ class ResPartner(models.Model):
         # Buscamos las percepciones a aplicar segun la posicion fiscal
         # partner = self.browse(cr, uid, partner_id, context)
         perceptions = {}
+<<<<<<< HEAD
         for perc in self.property_account_position.perception_ids:
+=======
+        for perc in self.property_account_position_id.perception_ids:
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
             perception = {
                 'perception': perc,
                 'activity_id': False,
@@ -106,9 +137,25 @@ class ResPartner(models.Model):
 class AccountFiscalPosition(models.Model):
     _inherit = 'account.fiscal.position'
 
+<<<<<<< HEAD
     perception_ids = fields.Many2many(
         'perception.perception', 'fiscal_position_perception_rel',
         'position_id', 'perception_id', 'Perceptions',
+=======
+    @api.model
+    def _get_perceptions_domain(self):
+        company = self.env.user.company_id
+        return [
+            '|',
+            ('company_id', '=', False),
+            ('company_id', '=', company.id),
+        ]
+
+    perception_ids = fields.Many2many(
+        'perception.perception', 'fiscal_position_perception_rel',
+        'position_id', 'perception_id', 'Perceptions',
+        domain=lambda self: self._get_perceptions_domain(),
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         help="These are the perceptions that will be applied to Suppliers " +
         "belonging to this Fiscal Position. Exceptions to this have to be " +
         "loaded at partner form.")

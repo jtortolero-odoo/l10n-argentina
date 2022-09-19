@@ -22,9 +22,14 @@
 								attrs="{'readonly': [('state', 'not in', ('draft',))]}"/>
 							<field name="currency_id" invisible="1"/>
 							<field name="journal_id"
+<<<<<<< HEAD
 								widget="selection"
 								domain="[('company_id','=',company_id)]"
 								string="Journal"
+=======
+								string="Journal"
+								options="{'no_quick_create': True, 'no_create': True, 'no_create_edit': True}"
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 								attrs="{'readonly': [('state', 'not in', ('draft',))]}"/>
 							<field name="other_payment" invisible="1"/>
 							<field name="amount" class="oe_inline"

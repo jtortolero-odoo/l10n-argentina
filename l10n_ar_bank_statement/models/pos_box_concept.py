@@ -48,6 +48,13 @@ class PoSBoxConcept(models.Model):
         required=True,
     )
 
+<<<<<<< HEAD
+=======
+    @api.model
+    def create(self, vals):
+        self.env['ir.rule'].clear_cache()
+        return super(PoSBoxConcept, self).create(vals)
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
 class PoSBoxConceptAllowed(models.Model):
     _name = 'pos.box.concept.allowed'

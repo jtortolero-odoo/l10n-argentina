@@ -19,14 +19,21 @@ msgstr ""
 "X-Generator: Gtranslator 2.91.7\n"
 
 #. module: l10n_ar_account_payment_order
+<<<<<<< HEAD
 #: code:addons/l10n_ar_account_payment_order/models/account_payment_order.py:557
+=======
+#: code:addons/l10n_ar_account_payment_order/models/account_payment_order.py:675
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #, python-format
 msgid " and no income lines"
 msgstr " y sin líneas de ingreso"
 
 #. module: l10n_ar_account_payment_order
 #: model:ir.model.fields,field_description:l10n_ar_account_payment_order.field_account_payment_order__account_id
+<<<<<<< HEAD
 #: model:ir.model.fields,field_description:l10n_ar_account_payment_order.field_account_payment_order_line__account_id
+=======
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 msgid "Account"
 msgstr "Cuenta"
 
@@ -41,7 +48,18 @@ msgid "Action Needed"
 msgstr "Acción Necesaria"
 
 #. module: l10n_ar_account_payment_order
+<<<<<<< HEAD
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_payment_order.account_payment_order_view_form_receipt
+=======
+#: model:ir.model,name:l10n_ar_account_payment_order.model_account_advance_payment
+#: model:ir.model,name:l10n_ar_account_payment_order.model_advance_payment
+msgid "Advance payment"
+msgstr "Anticipo"
+
+#. module: l10n_ar_account_payment_order
+#: model_terms:ir.ui.view,arch_db:l10n_ar_account_payment_order.account_payment_order_view_form_receipt
+#: model_terms:ir.ui.view,arch_db:l10n_ar_account_payment_order.account_payment_order_view_form_vendor
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 msgid "Allocation"
 msgstr "Importe"
 
@@ -98,6 +116,14 @@ msgid "Cash"
 msgstr "Efectivo"
 
 #. module: l10n_ar_account_payment_order
+<<<<<<< HEAD
+=======
+#: model_terms:ir.ui.view,arch_db:l10n_ar_account_payment_order.account_payment_order_view_filter_vendor_pay
+msgid "Checks"
+msgstr "Cheques"
+
+#. module: l10n_ar_account_payment_order
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: model_terms:ir.actions.act_window,help:l10n_ar_account_payment_order.account_payment_order_action_vendor
 msgid "Click to create a new supplier payment."
 msgstr "Click para crear un nuevo pago a proveedores."
@@ -108,6 +134,10 @@ msgid "Click to register a new payment."
 msgstr "Click para registrar un nuevo pago."
 
 #. module: l10n_ar_account_payment_order
+<<<<<<< HEAD
+=======
+#: model:ir.model.fields,field_description:l10n_ar_account_payment_order.field_account_bank_statement_import_journal_creation__code
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: model:ir.model.fields,field_description:l10n_ar_account_payment_order.field_account_journal__code
 msgid "Code"
 msgstr "Código"
@@ -129,7 +159,11 @@ msgid "Computed as the difference between the amount stated in the voucher and t
 msgstr "Calculado en base a la diferencia entre el monto de la orden de pago y la sumatoria de las líneas a pagar."
 
 #. module: l10n_ar_account_payment_order
+<<<<<<< HEAD
 #: code:addons/l10n_ar_account_payment_order/models/account_payment_order.py:610
+=======
+#: code:addons/l10n_ar_account_payment_order/models/account_payment_order.py:728
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #, python-format
 msgid "Configuration Error !\n"
 "Please activate the sequence of selected journal !"
@@ -171,6 +205,10 @@ msgstr "Créditos"
 #: model:ir.model.fields,field_description:l10n_ar_account_payment_order.field_account_payment_mode_line__currency_id
 #: model:ir.model.fields,field_description:l10n_ar_account_payment_order.field_account_payment_order__currency_id
 #: model:ir.model.fields,field_description:l10n_ar_account_payment_order.field_account_payment_order_line__currency_id
+<<<<<<< HEAD
+=======
+#: model:ir.model.fields,field_description:l10n_ar_account_payment_order.field_account_payment_order_line__original_currency_id
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 msgid "Currency"
 msgstr "Moneda"
 
@@ -219,7 +257,10 @@ msgstr ""
 
 #. module: l10n_ar_account_payment_order
 #: model:ir.model.fields,field_description:l10n_ar_account_payment_order.field_account_payment_mode_line__name
+<<<<<<< HEAD
 #: model:ir.model.fields,field_description:l10n_ar_account_payment_order.field_account_payment_order_line__name
+=======
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 msgid "Description"
 msgstr "Descripción"
 
@@ -236,11 +277,14 @@ msgid "Display Name"
 msgstr "Mostrar Nombre"
 
 #. module: l10n_ar_account_payment_order
+<<<<<<< HEAD
 #: model:ir.model.fields,field_description:l10n_ar_account_payment_order.field_account_payment_order_line__type
 msgid "Dr/Cr"
 msgstr "Dr/Cr"
 
 #. module: l10n_ar_account_payment_order
+=======
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: selection:account.payment.order,state:0
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_payment_order.account_payment_order_view_filter_receipt
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_payment_order.account_payment_order_view_filter_vendor_pay
@@ -273,7 +317,11 @@ msgstr ""
 "                recibos de venta."
 
 #. module: l10n_ar_account_payment_order
+<<<<<<< HEAD
 #: code:addons/l10n_ar_account_payment_order/models/account_payment_order.py:549
+=======
+#: code:addons/l10n_ar_account_payment_order/models/account_payment_order.py:667
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #, python-format
 msgid "Error!\n"
 " Cannot validate a voucher with negative amount.\n"
@@ -283,7 +331,11 @@ msgstr "Error!\n"
 " Por favor, compruebe que el importe de la diferencia no sea negativo."
 
 #. module: l10n_ar_account_payment_order
+<<<<<<< HEAD
 #: code:addons/l10n_ar_account_payment_order/models/account_payment_order.py:616
+=======
+#: code:addons/l10n_ar_account_payment_order/models/account_payment_order.py:734
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #, python-format
 msgid "Error!\n"
 "Please define a sequence on the journal."
@@ -291,7 +343,11 @@ msgstr "Error!\n"
 "Por favor, defina la secuencia del diario."
 
 #. module: l10n_ar_account_payment_order
+<<<<<<< HEAD
 #: code:addons/l10n_ar_account_payment_order/models/account_payment_order.py:355
+=======
+#: code:addons/l10n_ar_account_payment_order/models/account_payment_order.py:461
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #, python-format
 msgid "Error!\n"
 "The Partner must be set to gather accounting information."
@@ -299,7 +355,11 @@ msgstr "Error!\n"
 "El contacto debe haber sido ingresado para obtener este tipo de información contable."
 
 #. module: l10n_ar_account_payment_order
+<<<<<<< HEAD
 #: code:addons/l10n_ar_account_payment_order/models/account_payment_order.py:1209
+=======
+#: code:addons/l10n_ar_account_payment_order/models/account_payment_order.py:1372
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #, python-format
 msgid "Error!\n"
 "The amount assigned to an invoice must not excede the unreconciled amount, nor be negative."
@@ -307,7 +367,11 @@ msgstr "Error!\n"
 "El monto de pago asignado a una factura no puede exceder el balance de dicha factura, ni ser negativo."
 
 #. module: l10n_ar_account_payment_order
+<<<<<<< HEAD
 #: code:addons/l10n_ar_account_payment_order/models/account_payment_order.py:347
+=======
+#: code:addons/l10n_ar_account_payment_order/models/account_payment_order.py:453
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #, python-format
 msgid "Error!\n"
 "You can't unlink a posted payment order.\n"
@@ -366,14 +430,23 @@ msgid "General"
 msgstr "General"
 
 #. module: l10n_ar_account_payment_order
+<<<<<<< HEAD
 #: code:addons/l10n_ar_account_payment_order/models/account_payment_order.py:818
 #: code:addons/l10n_ar_account_payment_order/models/account_payment_order.py:829
+=======
+#: code:addons/l10n_ar_account_payment_order/models/account_payment_order.py:928
+#: code:addons/l10n_ar_account_payment_order/models/account_payment_order.py:939
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #, python-format
 msgid "Go to the configuration panel"
 msgstr "Ir al panel de configuración"
 
 #. module: l10n_ar_account_payment_order
+<<<<<<< HEAD
 #: code:addons/l10n_ar_account_payment_order/models/account_payment_order.py:237
+=======
+#: code:addons/l10n_ar_account_payment_order/models/account_payment_order.py:335
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #, python-format
 msgid "Go to the journal configuration"
 msgstr "Ir a la configuración de diario"
@@ -496,6 +569,14 @@ msgid "Memo"
 msgstr "Circular"
 
 #. module: l10n_ar_account_payment_order
+<<<<<<< HEAD
+=======
+#: model:ir.model.fields,field_description:l10n_ar_account_payment_order.field_account_payment_order__message
+msgid "Message"
+msgstr "Mensaje"
+
+#. module: l10n_ar_account_payment_order
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: model:ir.model.fields,field_description:l10n_ar_account_payment_order.field_account_payment_order__message_has_error
 msgid "Message Delivery error"
 msgstr "Error de Envío de Mensaje"
@@ -585,7 +666,10 @@ msgstr "Monto pagado en la moneda de la compania"
 
 #. module: l10n_ar_account_payment_order
 #: model:ir.model.fields,field_description:l10n_ar_account_payment_order.field_account_payment_order__partner_id
+<<<<<<< HEAD
 #: model:ir.model.fields,field_description:l10n_ar_account_payment_order.field_account_payment_order_line__partner_id
+=======
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 msgid "Partner"
 msgstr "Empresa"
 
@@ -646,7 +730,10 @@ msgstr "Opciones de pago"
 
 #. module: l10n_ar_account_payment_order
 #: model:ir.model.fields,field_description:l10n_ar_account_payment_order.field_account_payment_mode_line__payment_order_id
+<<<<<<< HEAD
 #: model:ir.model.fields,field_description:l10n_ar_account_payment_order.field_account_payment_order_line__payment_order_id
+=======
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_payment_order.account_payment_order_view_form_vendor
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_payment_order.account_payment_order_view_tree_receipt
 msgid "Payment Order"
@@ -719,6 +806,10 @@ msgid "Prioridad"
 msgstr "Prioridad"
 
 #. module: l10n_ar_account_payment_order
+<<<<<<< HEAD
+=======
+#: model:ir.model.fields,field_description:l10n_ar_account_payment_order.field_account_bank_statement_import_journal_creation__priority
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: model:ir.model.fields,field_description:l10n_ar_account_payment_order.field_account_journal__priority
 msgid "Priority"
 msgstr "Prioridad"
@@ -783,6 +874,10 @@ msgid "Search Vouchers"
 msgstr "Buscar Comprobantes"
 
 #. module: l10n_ar_account_payment_order
+<<<<<<< HEAD
+=======
+#: model:ir.model.fields,help:l10n_ar_account_payment_order.field_account_bank_statement_import_journal_creation__type
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: model:ir.model.fields,help:l10n_ar_account_payment_order.field_account_journal__type
 msgid "Select 'Sale' for customer invoices journals.\n"
 "              Select 'Purchase' for supplier invoices journals.\n"
@@ -841,6 +936,10 @@ msgid "Tax Amount"
 msgstr "Importe impuesto"
 
 #. module: l10n_ar_account_payment_order
+<<<<<<< HEAD
+=======
+#: model:ir.model.fields,help:l10n_ar_account_payment_order.field_account_bank_statement_import_journal_creation__code
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: model:ir.model.fields,help:l10n_ar_account_payment_order.field_account_journal__code
 msgid "The code will be displayed on reports."
 msgstr ""
@@ -872,6 +971,14 @@ msgid "This field is used for payable and receivable journal entries. You can pu
 msgstr "Este campo se utiliza en asientos pendientes de pago y de cobro. Puede establecer la fecha límite para el pago de esta entrada."
 
 #. module: l10n_ar_account_payment_order
+<<<<<<< HEAD
+=======
+#: model_terms:ir.ui.view,arch_db:l10n_ar_account_payment_order.account_payment_order_view_filter_vendor_pay
+msgid "Today"
+msgstr "Hoy"
+
+#. module: l10n_ar_account_payment_order
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_payment_order.account_payment_order_view_form_receipt
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_payment_order.account_payment_order_view_form_vendor
 msgid "Total"
@@ -890,6 +997,10 @@ msgid "Total Unreconciled"
 msgstr "Total Desconciliado"
 
 #. module: l10n_ar_account_payment_order
+<<<<<<< HEAD
+=======
+#: model:ir.model.fields,field_description:l10n_ar_account_payment_order.field_account_bank_statement_import_journal_creation__type
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: model:ir.model.fields,field_description:l10n_ar_account_payment_order.field_account_journal__type
 msgid "Type"
 msgstr "Tipo"
@@ -922,7 +1033,11 @@ msgid "Validate"
 msgstr "Validar"
 
 #. module: l10n_ar_account_payment_order
+<<<<<<< HEAD
 #: code:addons/l10n_ar_account_payment_order/models/account_payment_order.py:554
+=======
+#: code:addons/l10n_ar_account_payment_order/models/account_payment_order.py:672
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #, python-format
 msgid "Validate Error!\n"
 ""
@@ -935,7 +1050,11 @@ msgid "Voucher"
 msgstr "Comprobante"
 
 #. module: l10n_ar_account_payment_order
+<<<<<<< HEAD
 #: code:addons/l10n_ar_account_payment_order/models/account_payment_order.py:743
+=======
+#: code:addons/l10n_ar_account_payment_order/models/account_payment_order.py:852
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #, python-format
 msgid "Voucher Error!\n"
 "                    Voucher Paid Amount and sum of different payment                         mode must be equal"
@@ -958,7 +1077,11 @@ msgid "Website communication history"
 msgstr "Historial de comunicaciones del sitio web"
 
 #. module: l10n_ar_account_payment_order
+<<<<<<< HEAD
 #: code:addons/l10n_ar_account_payment_order/models/account_payment_order.py:83
+=======
+#: code:addons/l10n_ar_account_payment_order/models/account_payment_order.py:103
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #, python-format
 msgid "Write-Off"
 msgstr "Cancelación de diferencia."
@@ -969,7 +1092,11 @@ msgid "Write-Off Analytic Account"
 msgstr "Cuenta Analítica de la Cancelación de diferencia."
 
 #. module: l10n_ar_account_payment_order
+<<<<<<< HEAD
 #: code:addons/l10n_ar_account_payment_order/models/account_payment_order.py:891
+=======
+#: code:addons/l10n_ar_account_payment_order/models/account_payment_order.py:1001
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #, python-format
 msgid "Wrong voucher line\n"
 "                        The invoice you are willing to                         pay is not valid anymore."
@@ -977,19 +1104,31 @@ msgstr "Línea de pago incorrecta.\n"
 "                        La factura que está intentando                          pagar ya no acepta este tipo de operación."
 
 #. module: l10n_ar_account_payment_order
+<<<<<<< HEAD
 #: code:addons/l10n_ar_account_payment_order/models/account_payment_order.py:556
+=======
+#: code:addons/l10n_ar_account_payment_order/models/account_payment_order.py:674
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #, python-format
 msgid "You cannot validate a voucher with amount of 0.0"
 msgstr "No puede validar un comprobante con el monto en 0.0"
 
 #. module: l10n_ar_account_payment_order
+<<<<<<< HEAD
 #: code:addons/l10n_ar_account_payment_order/models/account_payment_order.py:824
+=======
+#: code:addons/l10n_ar_account_payment_order/models/account_payment_order.py:934
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #, python-format
 msgid "You should configure the 'Gain Exchange Rate Account' to manage automatically the booking of accounting entries related to differences between exchange rates."
 msgstr "Debe configurar la cuenta de 'Ganancia por diferencia de cambio' para manejar automáticamente la contabilización de apuntes contables relacionados con diferencias de cambio."
 
 #. module: l10n_ar_account_payment_order
+<<<<<<< HEAD
 #: code:addons/l10n_ar_account_payment_order/models/account_payment_order.py:813
+=======
+#: code:addons/l10n_ar_account_payment_order/models/account_payment_order.py:923
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #, python-format
 msgid "You should configure the 'Loss Exchange Rate Account' to manage automatically the booking of accounting entries related to differences between exchange rates."
 msgstr "Debe configurar la cuenta de 'Pérdidas por diferencia de cambio' para manejar automáticamente la contabilización de apuntes contables relacionados con diferencias de cambio."
@@ -1000,9 +1139,19 @@ msgid "account.payment.order"
 msgstr "Orden de Pago"
 
 #. module: l10n_ar_account_payment_order
+<<<<<<< HEAD
 #: code:addons/l10n_ar_account_payment_order/models/account_payment_order.py:839
 #: code:addons/l10n_ar_account_payment_order/models/account_payment_order.py:852
 #: code:addons/l10n_ar_account_payment_order/models/account_payment_order.py:970
+=======
+#: model:ir.model.fields,field_description:l10n_ar_account_payment_order.field_account_payment_order_line__amount
+msgid "amount"
+msgstr ""
+
+#. module: l10n_ar_account_payment_order
+#: code:addons/l10n_ar_account_payment_order/models/account_payment_order.py:949
+#: code:addons/l10n_ar_account_payment_order/models/account_payment_order.py:962
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #, python-format
 msgid "change"
 msgstr "cambio"
@@ -1019,3 +1168,17 @@ msgstr "Ej. 003/10"
 msgid "e.g. Invoice SAJ/0042"
 msgstr "Ej. Factura SAJ/0042"
 
+<<<<<<< HEAD
+=======
+#. module: account_financial_report
+#: model_terms:ir.ui.view,arch_db:account_financial_report.report_general_ledger_lines
+#, python-format
+msgid "Debit"
+msgstr "Debe"
+
+#. module: account_financial_report
+#: model_terms:ir.ui.view,arch_db:account_financial_report.report_general_ledger_lines
+#, python-format
+msgid "Credit"
+msgstr "Haber"
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4

@@ -32,14 +32,28 @@
     "data": [
         "security/ir.model.access.csv",
         "data/wsfe_data.xml",
+<<<<<<< HEAD
+=======
+        "data/ir_cron.xml",
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         "wizard/wsfe_sinchronize_voucher_view.xml",
         "wizard/wsfe_massive_sinchronize_view.xml",
         "views/wsfe_view.xml",
         "views/account_invoice_view.xml",
+<<<<<<< HEAD
+=======
+        "views/res_company_view.xml",
+        "views/res_partner_view.xml",
+        "views/pos_ar_view.xml",
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
     ],
     "installable": True,
     "application": True,
     "external_dependencies": {
         "python": ["easywsy", "suds"]
+<<<<<<< HEAD
         }
+=======
+    }
+>>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 }
