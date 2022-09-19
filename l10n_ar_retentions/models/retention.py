@@ -19,6 +19,7 @@ class FO:
     """
     Fake Object ( ͡º ͜ʖ ͡º)
     """
+
     id = False
 
     def address_get():
@@ -40,65 +41,79 @@ class retention_retention(models.Model):
     _name = "retention.retention"
     _inherit = "retention.retention"
 
-    code = fields.Char('AFIP Code', required=False, size=32)
-    general_resolution = fields.Char('GR Number', required=False, size=64)
-    notes = fields.Text('Notes')
+    code = fields.Char("AFIP Code", required=False, size=32)
+    general_resolution = fields.Char("GR Number", required=False, size=64)
+    notes = fields.Text("Notes")
     vat_application_ids = fields.One2many(
-        'retention.tax.application', 'retention_id', 'VAT Tax Application',
-        domain=[('type', '=', 'vat')])
+        "retention.tax.application",
+        "retention_id",
+        "VAT Tax Application",
+        domain=[("type", "=", "vat")],
+    )
     profit_application_ids = fields.One2many(
-        'retention.tax.application', 'retention_id', 'Profit Tax Application',
-        domain=[('type', '=', 'profit')])
+        "retention.tax.application",
+        "retention_id",
+        "Profit Tax Application",
+        domain=[("type", "=", "profit")],
+    )
     gi_application_ids = fields.One2many(
-        'retention.tax.application', 'retention_id',
-        'Gross Income Tax Application', domain=[('type', '=', 'gross_income')])
-    applicable_state = fields.Selection([
-        ('dest', 'Destination'),
-        ('source', 'Source'),
-        ('always', 'Always')], 'Applicable State', default='dest',
+        "retention.tax.application",
+        "retention_id",
+        "Gross Income Tax Application",
+        domain=[("type", "=", "gross_income")],
+    )
+    applicable_state = fields.Selection(
+        [("dest", "Destination"), ("source", "Source"), ("always", "Always")],
+        "Applicable State",
+        default="dest",
         help="Indicates if this Perception is applicable when:\n"
         "* State/Province is equals to source address\n"
         "* State/Province is equals to destination address\n"
-        "* Always")
+        "* Always",
+    )
     check_sit_iibb = fields.Boolean(
-        'Check IIBB Situation', default=False,
-        help="If checked, when IIBB situation is Multilateral, " +
-        "this retention is always applicable")
+        "Check IIBB Situation",
+        default=False,
+        help="If checked, when IIBB situation is Multilateral, "
+        + "this retention is always applicable",
+    )
     always_apply_padron = fields.Boolean(
-        'Always Apply from Padron', default=False,
-        help="If checked, when the partner has a perception exception " +
-        "and it was generated from a padron, this perception will be applied")
+        "Always Apply from Padron",
+        default=False,
+        help="If checked, when the partner has a perception exception "
+        + "and it was generated from a padron, this perception will be applied",
+    )
 
     @api.model
     def _get_concepts_from_account(self, retention, account):
-<<<<<<< HEAD
-        concepts = account.retention_concept_ids.filtered(
-            lambda c: c.type == retention.type)
-=======
-        company = self._get_company()
         concepts = account.retention_concept_ids.filtered(
             lambda c: c.type == retention.type
-            and (c.company_id.id == company.id or not c.company_id)
         )
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         if not concepts:
             raise ValidationError(
-                _("Retention Error\n") +
-                _("Accont %s[%s] must have an associated concept for %s. " +
-                  "Please configure it!") % (account.name, account.code,
-                                             retention.name))
+                _("Retention Error\n")
+                + _(
+                    "Accont %s[%s] must have an associated concept for %s. "
+                    + "Please configure it!"
+                )
+                % (account.name, account.code, retention.name)
+            )
         return concepts
 
     @api.multi
     def check_applicable(
-            self, sit_iibb=False, from_padron=False,
-            source_shipping_id=FO(), destination_shipping_id=FO()):
+        self,
+        sit_iibb=False,
+        from_padron=False,
+        source_shipping_id=FO(),
+        destination_shipping_id=FO(),
+    ):
         self.ensure_one()
-        partner_model = self.env['res.partner']
+        partner_model = self.env["res.partner"]
         if not self.state_id:
             return True
 
-        if self.applicable_state == 'always':
+        if self.applicable_state == "always":
             return True
 
         if self.always_apply_padron and from_padron:
@@ -109,52 +124,57 @@ class retention_retention(models.Model):
         if self.check_sit_iibb:
             _logger.info("Chequeo de situacion IIBB activado")
             multilateral = self.env.ref(
-                "l10n_ar_point_of_sale.iibb_situation_multilateral")
+                "l10n_ar_point_of_sale.iibb_situation_multilateral"
+            )
             if sit_iibb == multilateral:
-                _logger.info("Partner es Convenio Multilateral, " +
-                             "aplica Retencion %s", self.name)
+                _logger.info(
+                    "Partner es Convenio Multilateral, " + "aplica Retencion %s",
+                    self.name,
+                )
                 return True
 
         partner_state = False
         retention_state = self.state_id.id
 
-        if self.applicable_state == 'dest':
+        if self.applicable_state == "dest":
             partner_state = partner_model.browse(
-                destination_shipping_id.address_get(
-                    ['delivery']).get('delivery')).id
+                destination_shipping_id.address_get(["delivery"]).get("delivery")
+            ).id
 
             if not partner_state:
                 raise RetentionError(
-                    _('There is no State/Province configured for ' +
-                      'the Supplier while computing Retention: %s') %
-                    (self.name))
+                    _(
+                        "There is no State/Province configured for "
+                        + "the Supplier while computing Retention: %s"
+                    )
+                    % (self.name)
+                )
 
-        elif self.applicable_state == 'source':
+        elif self.applicable_state == "source":
             user = self.env.user
             partner = user.company_id.partner_id
             partner_state = partner_model.browse(
-                source_shipping_id.address_get(
-                    ['delivery']).get('delivery') or
-                partner.address_get(['delivery']).get(
-                    'delivery')).id
+                source_shipping_id.address_get(["delivery"]).get("delivery")
+                or partner.address_get(["delivery"]).get("delivery")
+            ).id
 
             if not partner_state:
                 raise RetentionError(
-                    _('There is no State/Province configured for ' +
-                      'this Company'))
+                    _("There is no State/Province configured for " + "this Company")
+                )
 
         # Hacemos el chequeo de los states
         return retention_state == partner_state
 
     def _parse_move_lines(self, move):
         not_payable_moves = move.line_ids.filtered(
-            lambda ml: ml.account_id.internal_type != 'payable')
-        tax_mls = not_payable_moves.filtered(
-            lambda ml: ml.tax_line_id)
-        taxed_mls = not_payable_moves.filtered(
-            lambda ml: ml.tax_ids)
+            lambda ml: ml.account_id.internal_type != "payable"
+        )
+        tax_mls = not_payable_moves.filtered(lambda ml: ml.tax_line_id)
+        taxed_mls = not_payable_moves.filtered(lambda ml: ml.tax_ids)
         untaxed_mls = not_payable_moves.filtered(
-            lambda ml: not (ml.tax_line_id + ml.tax_ids))
+            lambda ml: not (ml.tax_line_id + ml.tax_ids)
+        )
 
         amount_tax = sum([ml.credit or ml.debit for ml in tax_mls])
         amount_untaxed = sum([ml.credit or ml.debit for ml in taxed_mls])
@@ -162,32 +182,36 @@ class retention_retention(models.Model):
         amount_total = sum([ml.credit or ml.debit for ml in not_payable_moves])
 
         tax_lines = {
-            at: tax_mls.filtered(lambda ml: ml.tax_line_id == at) for at
-            in [at for at in tax_mls.mapped('tax_line_id')]
+            at: tax_mls.filtered(lambda ml: ml.tax_line_id == at)
+            for at in [at for at in tax_mls.mapped("tax_line_id")]
         }
         concept_lines = {
-            at: taxed_mls.filtered(lambda ml: at in ml.tax_ids) for at
-            in [at for at in taxed_mls.mapped('tax_ids')]
+            at: taxed_mls.filtered(lambda ml: at in ml.tax_ids)
+            for at in [at for at in taxed_mls.mapped("tax_ids")]
         }
 
         result = {
-            'amount_untaxed': amount_untaxed,
-            'amount_tax': amount_tax,
-            'amount_no_taxed': amount_no_taxed,
-            'amount_total': amount_total,
-            'concept_lines': concept_lines,
-            'tax_lines': tax_lines,
+            "amount_untaxed": amount_untaxed,
+            "amount_tax": amount_tax,
+            "amount_no_taxed": amount_no_taxed,
+            "amount_total": amount_total,
+            "concept_lines": concept_lines,
+            "tax_lines": tax_lines,
         }
         return result
 
     def _compute_base_retention(
-            self, move_line, factor_to_pay, factor_unrec, prev_ret_ids,
-<<<<<<< HEAD
-            line_type, sit_iibb, logging_messages=[], activity=FO()):
-=======
-            line_type, sit_iibb, logging_messages=[], activity=None):
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
-        tax_app_obj = self.env['retention.tax.application']
+        self,
+        move_line,
+        factor_to_pay,
+        factor_unrec,
+        prev_ret_ids,
+        line_type,
+        sit_iibb,
+        logging_messages=[],
+        activity=FO(),
+    ):
+        tax_app_obj = self.env["retention.tax.application"]
         retention = self
 
         # Por cada linea, nos fijamos la configuracion del producto
@@ -197,76 +221,84 @@ class retention_retention(models.Model):
         parsed_move = self._parse_move_lines(move)
 
         # Obtenemos el concepto desde la cuenta contable
-        logging_messages.append("Parseando lineas del asiento: %s [%s]" %
-                                (move.name, move.ref))
-        for tax_id, mls in parsed_move['concept_lines'].items():
+        logging_messages.append(
+            "Parseando lineas del asiento: %s [%s]" % (move.name, move.ref)
+        )
+        for tax_id, mls in parsed_move["concept_lines"].items():
             for ml in mls:
 
                 # Evitamos la linea de la deuda
-                concepts = self._get_concepts_from_account(
-                    retention, ml.account_id)
+                concepts = self._get_concepts_from_account(retention, ml.account_id)
 
-                logging_messages.append("Linea: %s [%s]" %
-                                        (ml.name, ml.account_id.name))
+                logging_messages.append(
+                    "Linea: %s [%s]" % (ml.name, ml.account_id.name)
+                )
 
                 # Si el concepto no esta sujeto a retencion, continuamos
                 no_subject = False
                 for concept in concepts:
                     if concept and concept.no_subject:
                         logging_messages.append(
-                            "Concepto no sujeto a Retencion: %s" %
-                            concept.name)
+                            "Concepto no sujeto a Retencion: %s" % concept.name
+                        )
                         no_subject = True
 
                 if no_subject:
                     continue
 
                 concept_name = (" ").join([c.name for c in concepts])
-                activity_name = activity and activity.name or ''
+                activity_name = activity and activity.name or ""
 
                 # Buscamos las taxapps que concuerden
                 tapp_domain = [
-                    ('retention_id', '=', retention.id),
-<<<<<<< HEAD
-                    ('concept_id', 'in', concepts.ids),
-                    ('activity_id', '=', activity and activity.id)]
-=======
-                    ('concept_id', 'in', concepts.ids),]
-
-                if activity:
-                    tapp_domain.append(
-                    ('activity_id', '=', activity and activity.id))
-
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
+                    ("retention_id", "=", retention.id),
+                    ("concept_id", "in", concepts.ids),
+                    ("activity_id", "=", activity and activity.id),
+                ]
                 iibb_domain = []
-                if retention.type == 'gross_income':
+                if retention.type == "gross_income":
                     iibb_domain.append(
-                        ('sit_iibb', '=', sit_iibb.id if sit_iibb else False))
-                taxapps = tax_app_obj.search(tapp_domain+iibb_domain)
+                        ("sit_iibb", "=", sit_iibb.id if sit_iibb else False)
+                    )
+                taxapps = tax_app_obj.search(tapp_domain + iibb_domain)
 
                 # Si no se encuentra con la situacion de iibb,
                 # buscamos normalmente, aplica regla general
                 if not taxapps:
-                    tapp_domain.append(('sit_iibb', '=', False))
+                    tapp_domain.append(("sit_iibb", "=", False))
                     taxapps = tax_app_obj.search(tapp_domain)
 
                 if not taxapps:
                     raise ValidationError(
-                        _("Retention Error!\n") +
-                        _("There is no configured a Retention Application " +
-                          "(%s) that corresponds to\nActivity: %s \n" +
-                          "Concept: %s\n for the Account %s") % (
-                              retention.name, activity_name, concept_name,
-                              ml.account_id.name))
+                        _("Retention Error!\n")
+                        + _(
+                            "There is no configured a Retention Application "
+                            + "(%s) that corresponds to\nActivity: %s \n"
+                            + "Concept: %s\n for the Account %s"
+                        )
+                        % (
+                            retention.name,
+                            activity_name,
+                            concept_name,
+                            ml.account_id.name,
+                        )
+                    )
 
                 if len(taxapps) > 1:
                     raise ValidationError(
-                        _("Retention Error!\n") +
-                        _("There is more than one Retention Application " +
-                          "(%s) configured that corresponds to\n" +
-                          "Activity: %s \nConcept: %s\n for the Account %s") %
-                        (retention.name, activity_name, concept_name,
-                         ml.account_id.name))
+                        _("Retention Error!\n")
+                        + _(
+                            "There is more than one Retention Application "
+                            + "(%s) configured that corresponds to\n"
+                            + "Activity: %s \nConcept: %s\n for the Account %s"
+                        )
+                        % (
+                            retention.name,
+                            activity_name,
+                            concept_name,
+                            ml.account_id.name,
+                        )
+                    )
 
                 # Si ya retuvimos y esta calculado sobre
                 # el montos de la factura, continuamos,
@@ -276,11 +308,13 @@ class retention_retention(models.Model):
                 # facturas con pagos parciales
                 taxapp = taxapps
                 logging_messages.append(
-                    "Tax Application: [id: %s ; reg_code: %s] %s" %
-                    (taxapp.id, taxapp.reg_code, taxapp.concept_id.name))
+                    "Tax Application: [id: %s ; reg_code: %s] %s"
+                    % (taxapp.id, taxapp.reg_code, taxapp.concept_id.name)
+                )
                 if taxapp.calculation_base not in [
-                        'payment_amount', 'payment_amount_untaxed'] \
-                        and len(prev_ret_ids):
+                    "payment_amount",
+                    "payment_amount_untaxed",
+                ] and len(prev_ret_ids):
                     continue
 
                 # Obtenemos toda la info contable de la linea de factura
@@ -292,7 +326,7 @@ class retention_retention(models.Model):
                 # Hacemos el computo de la Retencion por linea de factura
                 base = ml.credit or ml.debit
                 logging_messages.append("Base tomada: %f" % (base))
-                if line_type == 'income':
+                if line_type == "income":
                     base *= -1
 
                 # Luego vamos agrupando por Concepto y
@@ -303,35 +337,46 @@ class retention_retention(models.Model):
 
                 concept = taxapp.concept_id
                 if taxapp.calculation_base in [
-                        'payment_amount', 'payment_amount_untaxed']:
+                    "payment_amount",
+                    "payment_amount_untaxed",
+                ]:
                     key = (concept, False)
                 else:
                     key = (concept, invoice)
 
                 base_to_pay = round(base / factor_to_pay, 2)
                 base_unrec = round(base / factor_unrec, 2)
-                retentions.setdefault(key, {
-                    'base': 0.0,
-                    'base_to_pay': 0.0,
-                    'base_unrec': 0.0,
-                    'taxapp': taxapp,
-                    'lines': self.env['account.move.line'],
-                })
-                retentions[key]['base'] += base
-                retentions[key]['base_to_pay'] += base_to_pay
-                retentions[key]['base_unrec'] += base_unrec
-                retentions[key]['lines'] += ml
+                retentions.setdefault(
+                    key,
+                    {
+                        "base": 0.0,
+                        "base_to_pay": 0.0,
+                        "base_unrec": 0.0,
+                        "taxapp": taxapp,
+                        "lines": self.env["account.move.line"],
+                    },
+                )
+                retentions[key]["base"] += base
+                retentions[key]["base_to_pay"] += base_to_pay
+                retentions[key]["base_unrec"] += base_unrec
+                retentions[key]["lines"] += ml
                 logging_messages.append(
-                    ("Agregando a la key %s ==> Base: %f Base " +
-                     "To Pay: %f Base Unrec: %f") %
-                    (key, base, base_to_pay, base_unrec))
+                    (
+                        "Agregando a la key %s ==> Base: %f Base "
+                        + "To Pay: %f Base Unrec: %f"
+                    )
+                    % (key, base, base_to_pay, base_unrec)
+                )
 
                 logging_messages.append(
-                    ("Subtotales %s ==> Base: %f Base To Pay: " +
-                     "%f Base Unrec: %f") %
-                    (key, retentions[key]['base'],
-                     retentions[key]['base_to_pay'],
-                     retentions[key]['base_unrec']))
+                    ("Subtotales %s ==> Base: %f Base To Pay: " + "%f Base Unrec: %f")
+                    % (
+                        key,
+                        retentions[key]["base"],
+                        retentions[key]["base_to_pay"],
+                        retentions[key]["base_unrec"],
+                    )
+                )
 
         # Mensajes de logging
         _logger.debug("\n\nLogging messages: ")
@@ -343,170 +388,171 @@ class retention_retention(models.Model):
 class RetentionVatTax(models.Model):
     _name = "retention.vat.tax"
     _description = "VAT Taxes for Retention Calculation"
-    _rec_name = 'tax_id'
+    _rec_name = "tax_id"
 
-    tax_id = fields.Many2one('account.tax', 'VAT Tax', required=True)
-    application_id = fields.Many2one('retention.tax.application',
-                                     'Application', required=True)
+    tax_id = fields.Many2one("account.tax", "VAT Tax", required=True)
+    application_id = fields.Many2one(
+        "retention.tax.application", "Application", required=True
+    )
     rate = fields.Float(
-        'Rate',
-        help="Rate from 1.0 to 0.0. This is the proportion of percent " +
-        "applied to base amount of this tax.")
+        "Rate",
+        help="Rate from 1.0 to 0.0. This is the proportion of percent "
+        + "applied to base amount of this tax.",
+    )
 
 
 class RetentionScale(models.Model):
     _name = "retention.scale"
     _description = "Scale for Retention Calculation"
 
-    name = fields.Char('Name', required=True, size=64)
-    line_ids = fields.One2many('retention.scale.line', 'scale_id',
-                               'Scale Lines')
+    name = fields.Char("Name", required=True, size=64)
+    line_ids = fields.One2many("retention.scale.line", "scale_id", "Scale Lines")
 
 
 class RetentionScaleLine(models.Model):
     _name = "retention.scale.line"
     _description = "Scale Line for Retention Calculation"
 
-    name = fields.Char('Name', required=True, size=64)
-    limit = fields.Float('Limit', required=True)
-    percent = fields.Float('Percent', required=True)
-    scale_id = fields.Many2one('retention.scale', 'Scale', required=True)
+    name = fields.Char("Name", required=True, size=64)
+    limit = fields.Float("Limit", required=True)
+    percent = fields.Float("Percent", required=True)
+    scale_id = fields.Many2one("retention.scale", "Scale", required=True)
 
 
 class RetentionConcept(models.Model):
     _name = "retention.concept"
     _description = "Retention Profit Concepts"
 
-<<<<<<< HEAD
-=======
-    @api.model
-    def _get_company(self):
-        return self.env.user.company_id
-
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
-    name = fields.Char('Description', size=256, required=True)
-    code = fields.Char('Code', size=32)
-    type = fields.Selection([('vat', 'VAT'),
-                             ('gross_income', 'Gross Income'),
-                             ('profit', 'Profit'),
-                             ('other', 'Other')], 'Type', required=True)
-    no_subject = fields.Boolean(
-        'No Subject',
-        help="Check this if Retention should not be applied for this Concept")
-    account_ids = fields.Many2many(
-        comodel_name='account.account',
-        relation='account_retention_concept_rel',
-        column1='concept_id', column2='account_id',
-        string='Accounts')
-    notes = fields.Text('Notes')
-<<<<<<< HEAD
-=======
-    company_id = fields.Many2one(
-        comodel_name='res.company',
-        string='Company',
-        default=lambda self: self._get_company(),
-        readonly=True,
+    name = fields.Char("Description", size=256, required=True)
+    code = fields.Char("Code", size=32)
+    type = fields.Selection(
+        [
+            ("vat", "VAT"),
+            ("gross_income", "Gross Income"),
+            ("profit", "Profit"),
+            ("other", "Other"),
+        ],
+        "Type",
+        required=True,
     )
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
+    no_subject = fields.Boolean(
+        "No Subject",
+        help="Check this if Retention should not be applied for this Concept",
+    )
+    account_ids = fields.Many2many(
+        comodel_name="account.account",
+        relation="account_retention_concept_rel",
+        column1="concept_id",
+        column2="account_id",
+        string="Accounts",
+    )
+    notes = fields.Text("Notes")
 
 
 class AccountAccount(models.Model):
-    _name = 'account.account'
-    _inherit = 'account.account'
+    _name = "account.account"
+    _inherit = "account.account"
 
     retention_concept_ids = fields.Many2many(
-        comodel_name='retention.concept',
-        relation='account_retention_concept_rel',
-        column1='account_id', column2='concept_id',
-        string='Concepts')
+        comodel_name="retention.concept",
+        relation="account_retention_concept_rel",
+        column1="account_id",
+        column2="concept_id",
+        string="Concepts",
+    )
 
 
 class RetentionActivity(models.Model):
     _name = "retention.activity"
     _description = "Retention Gross Income Activity"
 
-<<<<<<< HEAD
-=======
-    @api.model
-    def _get_company(self):
-        return self.env.user.company_id
-
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
-    name = fields.Char('Description', size=256, required=True)
-    code = fields.Char('Code', size=32)
-    type = fields.Selection([('vat', 'VAT'),
-                             ('gross_income', 'Gross Income'),
-                             ('profit', 'Profit'),
-                             ('other', 'Other')], 'Type', required=True)
-    notes = fields.Text('Notes')
-<<<<<<< HEAD
-=======
-    company_id = fields.Many2one(
-        comodel_name='res.company',
-        string='Company',
-        default=lambda self: self._get_company(),
-        readonly=True,
+    name = fields.Char("Description", size=256, required=True)
+    code = fields.Char("Code", size=32)
+    type = fields.Selection(
+        [
+            ("vat", "VAT"),
+            ("gross_income", "Gross Income"),
+            ("profit", "Profit"),
+            ("other", "Other"),
+        ],
+        "Type",
+        required=True,
     )
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
+    notes = fields.Text("Notes")
 
 
 class RetentionTaxApplication(models.Model):
     _name = "retention.tax.application"
-<<<<<<< HEAD
-=======
-    _description = "Retention configuration for activity or concept"
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
-    name = fields.Char('Description', size=128)
-    reg_code = fields.Integer('Reg. Code')
-    concept_id = fields.Many2one('retention.concept', 'Concept')
-    activity_id = fields.Many2one('retention.activity', 'Activity')
-    retention_id = fields.Many2one('retention.retention')
+    name = fields.Char("Description", size=128)
+    reg_code = fields.Integer("Reg. Code")
+    concept_id = fields.Many2one("retention.concept", "Concept")
+    activity_id = fields.Many2one("retention.activity", "Activity")
+    retention_id = fields.Many2one("retention.retention")
     # Minimo No Imponible
     tax_allowance = fields.Float(
-        'Tax Allowance', digits=dp.get_precision('Account'),
-        help="Retention will be calculated over this amount.")
+        "Tax Allowance",
+        digits=dp.get_precision("Account"),
+        help="Retention will be calculated over this amount.",
+    )
     exclude_tax_allowance = fields.Boolean(
-        'Exclude Tax Allowance', default=False,
-        help="Check this if Tax Allowance should be excluded " +
-        "from calculated Base")
-    calculation_base = fields.Selection([
-        ('amount_untaxed', 'Invoice Subtotal'),
-        # Alicuota proporcional al IVA
-        ('proportional_vat', 'Rate Proportional VAT'),
-        ('payment_amount_untaxed', 'Payment Amount Untaxed'),
-        # ('amount_taxed', 'Invoice Net Taxed'),
-        # ('amount_no_taxed', 'Invoice Net Untaxed'),
-        # ('amount_total', 'Invoice Total'),
-        # ('payment_amount', 'Payment Amount'),
-    ], 'Calculation Base', required=True)
+        "Exclude Tax Allowance",
+        default=False,
+        help="Check this if Tax Allowance should be excluded " + "from calculated Base",
+    )
+    calculation_base = fields.Selection(
+        [
+            ("amount_untaxed", "Invoice Subtotal"),
+            # Alicuota proporcional al IVA
+            ("proportional_vat", "Rate Proportional VAT"),
+            ("payment_amount_untaxed", "Payment Amount Untaxed"),
+            # ('amount_taxed', 'Invoice Net Taxed'),
+            # ('amount_no_taxed', 'Invoice Net Untaxed'),
+            # ('amount_total', 'Invoice Total'),
+            # ('payment_amount', 'Payment Amount'),
+        ],
+        "Calculation Base",
+        required=True,
+    )
     vat_tax_ids = fields.One2many(
-        'retention.vat.tax', 'application_id', 'VAT Taxes for Calculation')
+        "retention.vat.tax", "application_id", "VAT Taxes for Calculation"
+    )
     # Monto Minimo
     tax_minimum = fields.Float(
-        'Tax Minimum', digits=dp.get_precision('Account'),
-        help="Retention is performed when the amount thereof " +
-        "exceeds this value.")
-    aliq_type = fields.Selection([
-        ('percent', 'Percent'),
-        ('scale', 'Scale')], 'Aliquot Type', required=True)
+        "Tax Minimum",
+        digits=dp.get_precision("Account"),
+        help="Retention is performed when the amount thereof " + "exceeds this value.",
+    )
+    aliq_type = fields.Selection(
+        [("percent", "Percent"), ("scale", "Scale")], "Aliquot Type", required=True
+    )
     percent = fields.Float(
-        'Percent', digits=dp.get_precision('Account'),
-        help="Percent to Apply if the Partner is inscripted in the Tax")
-    scale_id = fields.Many2one('retention.scale', 'Scale')
-    type = fields.Selection([('vat', 'VAT'),
-                             ('gross_income', 'Gross Income'),
-                             ('profit', 'Profit')], 'Type', required=True)
-    sit_iibb = fields.Selection([
-        ('1', 'Local'),
-        ('2', 'Convenio Multilateral'),
-        ('4', 'No Inscripto'),
-        ('5', 'Regimen Simplificado')], 'Situation of IIBB')
+        "Percent",
+        digits=dp.get_precision("Account"),
+        help="Percent to Apply if the Partner is inscripted in the Tax",
+    )
+    scale_id = fields.Many2one("retention.scale", "Scale")
+    type = fields.Selection(
+        [("vat", "VAT"), ("gross_income", "Gross Income"), ("profit", "Profit")],
+        "Type",
+        required=True,
+    )
+    sit_iibb = fields.Selection(
+        [
+            ("1", "Local"),
+            ("2", "Convenio Multilateral"),
+            ("4", "No Inscripto"),
+            ("5", "Regimen Simplificado"),
+        ],
+        "Situation of IIBB",
+    )
 
     _sql_constraints = [
-        ('concept_activity_uniq',
-         'unique (concept_id, activity_id, retention_id)',
-         'The tuple of Concept, Activity must be unique per Retention !'),
+        (
+            "concept_activity_uniq",
+            "unique (concept_id, activity_id, retention_id)",
+            "The tuple of Concept, Activity must be unique per Retention !",
+        ),
     ]
 
     @api.multi
@@ -517,9 +563,9 @@ class RetentionTaxApplication(models.Model):
         for t in self.vat_tax_ids:
             vat_tax[t.tax_id.id] = t.rate
 
-        for tax_id, vals in line_vals['vat_taxes'].iteritems():
+        for tax_id, vals in line_vals["vat_taxes"].iteritems():
             if tax_id in vat_tax:
-                base += vals['base_amount'] * vat_tax[tax_id]
+                base += vals["base_amount"] * vat_tax[tax_id]
 
         amount = round(base * (percent / 100.0), 2)
         return amount
@@ -552,69 +598,72 @@ class RetentionTaxApplication(models.Model):
         # Obtenemos las fechas de mes calendario
         # al que corresponde este voucher
 
-<<<<<<< HEAD
         dt = datetime.strptime(date, DSDF)
-=======
-        # dt = datetime.strptime(date, DSDF)
-        dt = datetime.strptime(str(date),DSDF)
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         date_start = (dt + relatived(day=1)).strftime(DSDF)
         date_finish = (dt + relatived(day=31)).strftime(DSDF)
         return date_start, date_finish
 
     @api.multi
-    def get_period_partner_payments(self, partner, concept,
-                                    po_date=False):
+    def get_period_partner_payments(self, partner, concept, po_date=False):
         date_start, date_finish = self._get_month_date_span_from_date(po_date)
-        payment_order_model = self.env['account.payment.order']
-        payment_order_line_model = self.env['account.payment.order.line']
-        prev_pos = payment_order_model.search([
-            ('partner_id', '=', partner.id),
-            ('state', '=', 'posted'),
-            ('date', '>=', date_start),
-            ('date', '<=', date_finish)])
-        debt_moves = prev_pos.mapped('debt_line_ids.move_line_id.move_id')
-        debt_untax_mls = debt_moves.mapped('line_ids').filtered(
-            lambda ml: ml.account_id in concept.account_ids and
-            ml.tax_ids and not ml.tax_line_id)
-        income_moves = prev_pos.mapped('income_line_ids.move_line_id.move_id')
-        income_untax_mls = income_moves.mapped('line_ids').filtered(
-            lambda ml: ml.account_id in concept.account_ids and
-            ml.tax_ids and not ml.tax_line_id)
+        payment_order_model = self.env["account.payment.order"]
+        payment_order_line_model = self.env["account.payment.order.line"]
+        prev_pos = payment_order_model.search(
+            [
+                ("partner_id", "=", partner.id),
+                ("state", "=", "posted"),
+                ("date", ">=", date_start),
+                ("date", "<=", date_finish),
+            ]
+        )
+        debt_moves = prev_pos.mapped("debt_line_ids.move_line_id.move_id")
+        debt_untax_mls = debt_moves.mapped("line_ids").filtered(
+            lambda ml: ml.account_id in concept.account_ids
+            and ml.tax_ids
+            and not ml.tax_line_id
+        )
+        income_moves = prev_pos.mapped("income_line_ids.move_line_id.move_id")
+        income_untax_mls = income_moves.mapped("line_ids").filtered(
+            lambda ml: ml.account_id in concept.account_ids
+            and ml.tax_ids
+            and not ml.tax_line_id
+        )
         # Use the proportional amount of line being paid, searching in
         # the old apo's and gathering the apol related to the untaxed ones
         debt_untax_mls_ok = []
         for ml in debt_untax_mls:
-            amls_w_tax = ml.move_id.mapped('line_ids').filtered(
-                lambda ml: ml.account_id.internal_type in ['payable'])
+            amls_w_tax = ml.move_id.mapped("line_ids").filtered(
+                lambda ml: ml.account_id.internal_type in ["payable"]
+            )
             domain = [
-                ('payment_order_id', 'in', prev_pos.ids),
-                ('move_line_id', 'in', amls_w_tax.ids),
+                ("payment_order_id", "in", prev_pos.ids),
+                ("move_line_id", "in", amls_w_tax.ids),
             ]
             pol_todo = payment_order_line_model.search(domain)
-            amount = (ml.credit or ml.debit)
+            amount = ml.credit or ml.debit
             factor = 0.0
             for pol in pol_todo:
                 factor += pol.amount / pol.amount_original
 
             if factor:
                 amount = amount * round(factor, 3)
-#            if pol_todo:
-#                factor = pol_todo.amount / pol_todo.amount_original
-#                amount = amount * factor
+            #            if pol_todo:
+            #                factor = pol_todo.amount / pol_todo.amount_original
+            #                amount = amount * factor
             debt_untax_mls_ok.append(amount)
         # Use the proportional amount of line being paid, searching in
         # the old apo's and gathering the apol related to the untaxed ones
         income_untax_mls_ok = []
         for ml in income_untax_mls:
-            amls_w_tax = ml.move_id.mapped('line_ids').filtered(
-                lambda ml: ml.account_id.internal_type in ['payable'])
+            amls_w_tax = ml.move_id.mapped("line_ids").filtered(
+                lambda ml: ml.account_id.internal_type in ["payable"]
+            )
             domain = [
-                ('payment_order_id', 'in', prev_pos.ids),
-                ('move_line_id', 'in', amls_w_tax.ids),
+                ("payment_order_id", "in", prev_pos.ids),
+                ("move_line_id", "in", amls_w_tax.ids),
             ]
             pol_todo = payment_order_line_model.search(domain)
-            amount = (ml.credit or ml.debit)
+            amount = ml.credit or ml.debit
             factor = 0.0
             for pol in pol_todo:
                 factor += pol.amount / pol.amount_original
@@ -632,39 +681,40 @@ class RetentionTaxApplication(models.Model):
     def get_period_partner_advance_payments(self, prev_pos):
         extra_untaxed_amount = 0.0
         for po in prev_pos:
-            if any(po.debt_line_ids.mapped('amount') +
-                   po.income_line_ids.mapped('amount')) or not po.amount \
-                   or not po.retention_ids:
+            if (
+                any(
+                    po.debt_line_ids.mapped("amount")
+                    + po.income_line_ids.mapped("amount")
+                )
+                or not po.amount
+                or not po.retention_ids
+            ):
                 continue
-            extra_untaxed_amount += po.amount - sum(
-                po.retention_ids.mapped('amount'))
+            extra_untaxed_amount += po.amount - sum(po.retention_ids.mapped("amount"))
         return extra_untaxed_amount
 
-    def get_period_base_amount(self, partner, concept,
-                               po_date=False):
-        retention_line_model = self.env['retention.tax.line']
+    def get_period_base_amount(self, partner, concept, po_date=False):
+        retention_line_model = self.env["retention.tax.line"]
 
         date_start, date_finish = self._get_month_date_span_from_date(po_date)
 
         # Buscamos las retenciones
         domain = [
-            ('partner_id', '=', partner.id),
-            ('retention_id.type', '=', 'profit'),
-            ('concept_id', '=', concept.id),
-            ('date', '>=', date_start),
-            ('date', '<=', date_finish),
-            ('payment_order_id.state', 'in', ['posted']),
+            ("partner_id", "=", partner.id),
+            ("retention_id.type", "=", "profit"),
+            ("concept_id", "=", concept.id),
+            ("date", ">=", date_start),
+            ("date", "<=", date_finish),
+            ("payment_order_id.state", "in", ["posted"]),
         ]
 
-        ret_lines = retention_line_model.search(
-            domain, order="date desc, id desc")
+        ret_lines = retention_line_model.search(domain, order="date desc, id desc")
 
         base = sum([ret.base for ret in ret_lines])
         amount = sum([ret.amount for ret in ret_lines])
         return base, amount
 
-    def apply_retention(self, partner, percent, excluded_percent,
-                        vals, po_date):
+    def apply_retention(self, partner, percent, excluded_percent, vals, po_date):
         # Si la alicuota que esta en la ficha del partner es negativa,
         # se toma la de la regla que se aplica.
         # Si es 0.0, se toma ese valor, 0.0.
@@ -676,17 +726,18 @@ class RetentionTaxApplication(models.Model):
         period_base = 0.0
         period_amount = 0.0
         period_payment_amount = 0.0
-        base = vals['base']
-        to_pay = vals['to_pay']
-        if self.calculation_base in [
-                'payment_amount', 'payment_amount_untaxed']:
+        base = vals["base"]
+        to_pay = vals["to_pay"]
+        if self.calculation_base in ["payment_amount", "payment_amount_untaxed"]:
             base = to_pay
 
-        if self.retention_id.type == 'profit':
+        if self.retention_id.type == "profit":
             period_base, period_amount = self.get_period_base_amount(
-                partner, self.concept_id, po_date)
+                partner, self.concept_id, po_date
+            )
             period_payment_amount = self.get_period_partner_payments(
-                partner, self.concept_id, po_date)
+                partner, self.concept_id, po_date
+            )
 
             # Si tenemos pagos anteriores de este concepto,
             # los sumamos a la base y al ser de ganancias,
@@ -708,11 +759,11 @@ class RetentionTaxApplication(models.Model):
         if self.exclude_tax_allowance:
             base -= self.tax_allowance
 
-        if self.calculation_base == 'proportional_vat':
+        if self.calculation_base == "proportional_vat":
             # TODO: Chequear que esta funcion funcione correctamente
             amount = self._compute_proportional_vat(percent, base)
         else:
-            if self.aliq_type == 'percent':
+            if self.aliq_type == "percent":
                 amount = round(base * (percent / 100.0), 2)
             else:
                 amount = self._compute_amount_via_scale(base)
@@ -720,7 +771,7 @@ class RetentionTaxApplication(models.Model):
         # Si es de ganancias, le detraemos las retenciones de ganancias
         # ya practicadas para este concepto
         # en el mes calendario en pagos previos a este proveedor
-        if self.retention_id.type == 'profit':
+        if self.retention_id.type == "profit":
             amount -= period_amount
 
         # Chequeamos contra el minimo a percibir
@@ -730,13 +781,17 @@ class RetentionTaxApplication(models.Model):
         # Chequeamos que la cantidad a retener no sea negativa
         if amount < 0:
             raise ValidationError(
-                _('Retention Error!\n') +
-                _('There is an error in retention configuration because ' +
-                  'amount of %s is negative') % self.retention_id.name)
+                _("Retention Error!\n")
+                + _(
+                    "There is an error in retention configuration because "
+                    + "amount of %s is negative"
+                )
+                % self.retention_id.name
+            )
         elif amount == 0.0:
             return 0.0, 0.0
 
         # Aplicamos el porcentaje de eximision si es que lo hay
-        amount *= (1 - excluded_percent)
+        amount *= 1 - excluded_percent
 
-        return base*sign_base, amount*sign_base
+        return base * sign_base, amount * sign_base

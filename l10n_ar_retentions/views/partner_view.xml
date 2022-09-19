@@ -7,32 +7,21 @@
             <field name="model">res.partner</field>
             <field name="type">form</field>
             <field name="priority">2</field>
-<<<<<<< HEAD
             <field name="inherit_id" ref="account.view_partner_property_form" />
-=======
-            <field name="inherit_id" ref="account.view_partner_property_form"/>
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
             <field name="arch" type="xml">
                 <page name="accounting" position="after">
                     <page string="Retentions" name="retentions" groups="l10n_ar_retentions_perceptions_common.group_retentions_perceptions_common">
                         <group string="Partner Retentions">
                             <field name="retention_ids" nolabel="1">
                                 <tree string="Retentions to Apply" editable="bottom">
-<<<<<<< HEAD
                                     <field name="retention_id" domain="[('type_tax_use','=','purchase')]" />
                                     <field name="activity_id" />
                                     <field name="percent" />
-=======
-                                    <field name="retention_id" domain="[('type_tax_use','=','purchase')]"/>
-                                    <field name="activity_id" />
-                                    <field name="percent"/>
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
                                     <field name="excluded_percent" />
                                     <field name="ex_date_from" />
                                     <field name="ex_date_to" />
                                     <field name="exclusion_certificate" />
                                     <field name="exclusion_date_certificate" />
-<<<<<<< HEAD
                                     <field name="sit_iibb" />
                                 </tree>
                             </field>
@@ -42,20 +31,6 @@
                                 <tree string="Retentions to Apply" editable="bottom">
                                     <field name="retention_id" />
                                     <field name="concept_id" />
-=======
-                                    <field name="sit_iibb"/>
-                                    <field name="company_id" invisible="1"/>
-                                </tree>
-                            </field>
-                        </group>
-                        <group string="Advance Payment Retentions"
-                            attrs="{'invisible': [('supplier', '=', False)]}">
-                            <field name="advance_retention_ids" nolabel="1">
-                                <tree string="Retentions to Apply" editable="bottom">
-                                    <field name="retention_id"/>
-                                    <field name="concept_id"/>
-                                    <field name="company_id" invisible="1"/>
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
                                 </tree>
                             </field>
                         </group>
@@ -67,11 +42,7 @@
         <record id="view_account_position_retention_form" model="ir.ui.view">
             <field name="name">account.fiscal.position.retention.form</field>
             <field name="model">account.fiscal.position</field>
-<<<<<<< HEAD
             <field name="inherit_id" ref="account.view_account_position_form" />
-=======
-            <field name="inherit_id" ref="account.view_account_position_form"/>
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
             <field name="arch" type="xml">
                 <page name="tax_mapping" position="after">
                     <page name="applied_retentions" string="Applied Retentions">
