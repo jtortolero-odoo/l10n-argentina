@@ -21,7 +21,7 @@ from odoo.exceptions import ValidationError, Warning
 from odoo.tools import config
 
 _logger = logging.getLogger(__name__)
-
+# rar file
 # try:
 #    from rarfile import RarFile, is_rarfile
 # except (ImportError, IOError) as err:
@@ -120,9 +120,8 @@ class PadronImport(models.TransientModel):
     def extract_file(self, out_path, file_like):
         files_extracted = []
 
-        # Soportamos zip y rar
-        #       if is_rarfile(file_like):
-        #           z = RarFile(file_like)
+        # Soportamos zip y rarfile
+
         if is_zipfile(file_like):
             z = ZipFile(file_like)
         else:
