@@ -6,18 +6,14 @@
         <record id="account_invoice_view_form" model="ir.ui.view">
             <field name="name">account.invoice.select.inherit</field>
             <field name="model">account.invoice</field>
-            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="inherit_id" ref="account.invoice_form" />
             <field name="arch" type="xml">
                 <field name="date_invoice" position="replace">
-                    <label for="date_invoice" string="Date"/>
+                    <label for="date_invoice" string="Date" />
                     <div>
-<<<<<<< HEAD
-                        <field name="date_invoice" class="oe_inline" nolabel="1"/><span attrs="{'invisible': [('period_id', '=', False)]}" > - </span>
-=======
-                        <field name="date_invoice" class="oe_inline" nolabel="1"/>
-                        <span attrs="{'invisible': [('period_id', '=', False)]}">-</span>
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
-                        <field name="period_id" nolabel="1" class="oe_inline"/>
+                        <field name="date_invoice" class="oe_inline" nolabel="1" />
+                        <span attrs="{'invisible': [('period_id', '=', False)]}"> - </span>
+                        <field name="period_id" nolabel="1" class="oe_inline" />
                     </div>
                 </field>
             </field>
@@ -26,42 +22,29 @@
         <record id="account_invoice_view_form_supplier" model="ir.ui.view">
             <field name="name">account.invoice.select.inherit</field>
             <field name="model">account.invoice</field>
-            <field name="inherit_id" ref="account.invoice_supplier_form"/>
+            <field name="inherit_id" ref="account.invoice_supplier_form" />
             <field name="arch" type="xml">
                 <field name="date_invoice" position="replace">
-                    <label for="date_invoice" string="Date"/>
+                    <label for="date_invoice" string="Date" />
                     <div>
-<<<<<<< HEAD
-                        <field name="date_invoice" class="oe_inline" nolabel="1"/><span attrs="{'invisible': [('period_id', '=', False)]}" > - </span>
-                        <field name="period_id" nolabel="1" class="oe_inline"/>
+                        <field name="date_invoice" class="oe_inline" nolabel="1" />
+                        <span attrs="{'invisible': [('period_id', '=', False)]}"> - </span>
+                        <field name="period_id" nolabel="1" class="oe_inline" />
                     </div>
                 </field>
-=======
-                        <field name="date_invoice" class="oe_inline" nolabel="1"/>
-                        <span attrs="{'invisible': [('period_id', '=', False)]}">-</span>
-                        <field name="period_id" nolabel="1" class="oe_inline"/>
-                    </div>
-                </field>
-                <xpath expr="//field[@name='date']" position="attributes">
-                    <attribute name="invisible">True</attribute>
-                </xpath>
-                <xpath expr="//field[@name='date_due']" position="before">
-                    <field name="date"/>
-                </xpath>
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
             </field>
         </record>
 
         <record id="account_invoice_view_search" model="ir.ui.view">
             <field name="name">account.invoice.select.add_base_period</field>
             <field name="model">account.invoice</field>
-            <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+            <field name="inherit_id" ref="account.view_account_invoice_filter" />
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='date']" position="after">
-                    <field name="period_id" string="Month Period"/>
+                    <field name="period_id" string="Month Period" />
                 </xpath>
                 <xpath expr="//filter[@name='group_by_partner_id']" position="after">
-                    <filter string="Period" context="{'group_by': 'period_id'}" name="group_by_period_id"/>
+                    <filter string="Period" context="{'group_by': 'period_id'}" name="group_by_period_id" />
                 </xpath>
             </field>
         </record>

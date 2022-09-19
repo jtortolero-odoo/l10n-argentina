@@ -8,35 +8,27 @@
             <field name="arch" type="xml">
                 <form string="Period">
                     <header>
-                        <button name="%(close_date_period_wizard_action)d" class="btn-primary"
-                            string="Close" type="action"
-                            attrs="{'invisible': [('period_state', 'in', 'closed')]}"
-                            groups='account.group_account_manager'
-                            />
-                        <button name="%(reopen_date_period_wizard_action)d" class="btn-secondary"
-                            string="Reopen" type="action"
-                            attrs="{'invisible': [('period_state', 'in', 'open')]}"
-                            groups='account.group_account_manager'
-                            />
-                        <field name="period_state" widget="statusbar" statusbar_visible="open,partial,closed"/>
+                        <button name="%(close_date_period_wizard_action)d" class="btn-primary" string="Close" type="action" attrs="{'invisible': [('period_state', 'in', 'closed')]}" groups='account.group_account_manager' />
+                        <button name="%(reopen_date_period_wizard_action)d" class="btn-secondary" string="Reopen" type="action" attrs="{'invisible': [('period_state', 'in', 'open')]}" groups='account.group_account_manager' />
+                        <field name="period_state" widget="statusbar" statusbar_visible="open,partial,closed" />
                     </header>
                     <sheet>
                         <group>
                             <group>
-                                <field name="name"/>
-                                <field name="code"/>
-                                <field name="company_id"/>
+                                <field name="name" />
+                                <field name="code" />
+                                <field name="company_id" />
                             </group>
                             <group>
-                                <field name="date_from"/>
-                                <field name="date_to"/>
-                                <field name="fiscalyear_id"/>
-                                <field name="special"/>
+                                <field name="date_from" />
+                                <field name="date_to" />
+                                <field name="fiscalyear_id" />
+                                <field name="special" />
                             </group>
                         </group>
                         <notebook>
                             <page name="closed_journals" string="Closed Journals">
-                                <field name="journal_ids" readonly="True"/>
+                                <field name="journal_ids" readonly="True" />
                             </page>
                         </notebook>
                     </sheet>
@@ -47,18 +39,14 @@
         <record id="date_period_view_tree" model="ir.ui.view">
             <field name="name">date.period.tree</field>
             <field name="model">date.period</field>
-<<<<<<< HEAD
-=======
-<!--            <field name="domain_force">[('company_id', '=', 'company_id.id' )] </field>-->
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
             <field name="arch" type="xml">
                 <tree string="Period">
-                    <field name="name"/>
-                    <field name="code"/>
-                    <field name="date_from"/>
-                    <field name="date_to"/>
-                    <field name="special"/>
-                    <field name="company_id" groups="base.group_multi_company"/>
+                    <field name="name" />
+                    <field name="code" />
+                    <field name="date_from" />
+                    <field name="date_to" />
+                    <field name="special" />
+                    <field name="company_id" groups="base.group_multi_company" />
                 </tree>
             </field>
         </record>
@@ -68,9 +56,9 @@
             <field name="model">date.period</field>
             <field name="arch" type="xml">
                 <search string="Search Period">
-                    <field name="name" filter_domain="[('name', 'ilike', self)]" string="Period"/>
+                    <field name="name" filter_domain="[('name', 'ilike', self)]" string="Period" />
                     <group expand="0" string="Group By">
-                        <filter string="Partner" context="{'group_by':'code'}" name="group_by_code"/>
+                        <filter string="Partner" context="{'group_by':'code'}" name="group_by_code" />
                     </group>
                 </search>
             </field>

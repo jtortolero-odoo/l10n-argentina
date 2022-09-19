@@ -27,11 +27,6 @@
         "views/stock_inventory_view.xml",
         "views/menuitems.xml",
         "security/ir.model.access.csv",
-<<<<<<< HEAD
-=======
-        "data/ir_rules_data.xml",
-
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
     ],
     "installable": True,
     "application": True,
