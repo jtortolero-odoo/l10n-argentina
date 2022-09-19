@@ -16,75 +16,61 @@ class RetentionRetention(models.Model):
     This object also provides the configuration to generate retention.tax
     objects with data like amount, certificate number, etc.
     """
+
     _name = "retention.retention"
     _description = "Retention Configuration"
 
-<<<<<<< HEAD
-=======
-    @api.model
-    def _get_company(self):
-        return self.env.user.company_id
-
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
     # TODO: Maybe it would be better to erase this object
     # and add fields "jurisdiccion" and "state_id" to account.tax
     name = fields.Char(
-        string='Retention',
+        string="Retention",
         required=True,
         size=64,
     )
     tax_id = fields.Many2one(
-        comodel_name='account.tax',
-        string='Tax',
+        comodel_name="account.tax",
+        string="Tax",
         required=True,
         help="Tax configuration for this retention",
     )
     type_tax_use = fields.Selection(
-        string='Tax Application',
-        related='tax_id.type_tax_use',
+        string="Tax Application",
+        related="tax_id.type_tax_use",
         readonly=True,
     )
     state_id = fields.Many2one(
-        comodel_name='res.country.state',
-        string='State/Province',
+        comodel_name="res.country.state",
+        string="State/Province",
         domain="[('country_id','=','Argentina')]",
     )
-    type = fields.Selection([
-            ('vat', 'VAT'),
-            ('gross_income', 'Gross Income'),
-            ('profit', 'Profit'),
-            ('other', 'Other'),
+    type = fields.Selection(
+        [
+            ("vat", "VAT"),
+            ("gross_income", "Gross Income"),
+            ("profit", "Profit"),
+            ("other", "Other"),
         ],
         required=True,
     )
-    jurisdiccion = fields.Selection([
-            ('nacional', 'Nacional'),
-            ('provincial', 'Provincial'),
-            ('municipal', 'Municipal'),
+    jurisdiccion = fields.Selection(
+        [
+            ("nacional", "Nacional"),
+            ("provincial", "Provincial"),
+            ("municipal", "Municipal"),
         ],
-        default='nacional',
+        default="nacional",
     )
-    active = fields.Boolean('Active', default=True)
-<<<<<<< HEAD
-=======
-    company_id = fields.Many2one(
-        comodel_name='res.company',
-        string='Company',
-        default=lambda self: self._get_company(),
-        readonly=True,
-    )
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
+    active = fields.Boolean("Active", default=True)
 
     @api.multi
     def unlink(self):
         affected_models = [
-            'res.partner',
-            'res.partner.retention',
-            'res.partner.advance.retention'
-            'retention.tax.application',
-            'retention.tax.line',
-            'account.payment.order',
-            'account.fiscal.position',
+            "res.partner",
+            "res.partner.retention",
+            "res.partner.advance.retention" "retention.tax.application",
+            "retention.tax.line",
+            "account.payment.order",
+            "account.fiscal.position",
         ]
         affected_models = self._hook_affected_models(affected_models)
         self._check_affected_models(affected_models)
@@ -112,36 +98,37 @@ class RetentionRetention(models.Model):
                 model_obj = self.env[model]
                 try:
                     model_obj.retention_id
-                    name = 'retention_id'
+                    name = "retention_id"
                 except AttributeError:
                     try:
                         model_obj.retention_ids
-                        name = 'retention_ids'
+                        name = "retention_ids"
                     except AttributeError:
                         continue
-                searched = self.env[model].search([
-                    (name, '=', record.id)
-                ])
+                searched = self.env[model].search([(name, "=", record.id)])
                 if searched:
                     search_dict[model] = {
-                        'description': searched._description,
-                        'field_name': name,
-                        'field_desc': searched._fields.get(name).string,
+                        "description": searched._description,
+                        "field_name": name,
+                        "field_desc": searched._fields.get(name).string,
                     }
 
             if search_dict:
-                msg = _('The operation cannot be completed:')
-                msg += '\n'
+                msg = _("The operation cannot be completed:")
+                msg += "\n"
                 msg += _(
-                    '- Create/update: a mandatory field is not set.\n'
-                    '- Delete: another model requires the record being '
-                    'deleted. If possible, archive it instead.'
+                    "- Create/update: a mandatory field is not set.\n"
+                    "- Delete: another model requires the record being "
+                    "deleted. If possible, archive it instead."
                 )
-                msg += '\n\n'
+                msg += "\n\n"
                 for key in search_dict.keys():
-                    msg += '{} {} ({}), {} {} ({})\n'.format(
-                        _('Model:'), search_dict[key]['description'], key,
-                        _('Field:'), search_dict[key]['field_desc'],
-                        search_dict[key]['field_name'],
+                    msg += "{} {} ({}), {} {} ({})\n".format(
+                        _("Model:"),
+                        search_dict[key]["description"],
+                        key,
+                        _("Field:"),
+                        search_dict[key]["field_desc"],
+                        search_dict[key]["field_name"],
                     )
                 raise ValidationError(msg)
