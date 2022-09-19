@@ -23,91 +23,69 @@ from odoo import models, fields, api
 class ResPartnerPerception(models.Model):
     _name = "res.partner.perception"
     _description = "Perception Defined in Partner"
-    _rec_name = 'perception_id'
+    _rec_name = "perception_id"
 
-    perception_id = fields.Many2one('perception.perception', 'Perception',
-                                    required=True)
+    perception_id = fields.Many2one(
+        "perception.perception", "Perception", required=True
+    )
     # FIXME: Old definition was related(char).
     # perception_type = fields.Selection(string='Perception Type',
     #                                    related='perception_id.type')
-    activity_id = fields.Many2one('perception.activity', 'Activity')
-    percent = fields.Float('Percent', required=True)
-    excluded_percent = fields.Float('Percentage of Exclusion')
-    ex_date_from = fields.Date('From date')
-    ex_date_to = fields.Date('To date')
-    exclusion_certificate = fields.Binary(string='Exclusion Certificate')
-    partner_id = fields.Many2one('res.partner', 'Partner')
-    sit_iibb = fields.Many2one(comodel_name='iibb.situation',
-                               string='Situation of IIBB')
-<<<<<<< HEAD
-=======
-    company_id = fields.Many2one(
-        comodel_name='res.company',
-        related='perception_id.company_id',
-        string='Company',
-        store=True,
+    activity_id = fields.Many2one("perception.activity", "Activity")
+    percent = fields.Float("Percent", required=True)
+    excluded_percent = fields.Float("Percentage of Exclusion")
+    ex_date_from = fields.Date("From date")
+    ex_date_to = fields.Date("To date")
+    exclusion_certificate = fields.Binary(string="Exclusion Certificate")
+    partner_id = fields.Many2one("res.partner", "Partner")
+    sit_iibb = fields.Many2one(
+        comodel_name="iibb.situation", string="Situation of IIBB"
     )
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
-    _sql_constraints = [('perception_partner_unique',
-                         'unique(partner_id, perception_id)',
-                         'There must be only one perception of this ' +
-                         'type configured for the partner')]
+    _sql_constraints = [
+        (
+            "perception_partner_unique",
+            "unique(partner_id, perception_id)",
+            "There must be only one perception of this "
+            + "type configured for the partner",
+        )
+    ]
 
-    @api.onchange('perception_id')
+    @api.onchange("perception_id")
     def perception_id_change(self):
         perception_type = self.perception_id.type
-        domain = [('type', '=', perception_type)]
-        return {'domain': {'activity_id': domain}}
+        domain = [("type", "=", perception_type)]
+        return {"domain": {"activity_id": domain}}
 
 
 class ResPartner(models.Model):
     _name = "res.partner"
     _inherit = "res.partner"
 
-<<<<<<< HEAD
     perception_ids = fields.One2many(
-        'res.partner.perception', 'partner_id', 'Defined Perceptions',
-        help="Here you have to configure perception exceptions for this " +
-        "partner with this Fiscal Position")
-=======
-    @api.model
-    def _get_perceptions_domain(self):
-        company = self.env.user.company_id
-        return [
-            '|',
-            ('company_id', '=', False),
-            ('company_id', '=', company.id),
-        ]
-
-    perception_ids = fields.One2many(
-        'res.partner.perception', 'partner_id', 'Defined Perceptions',
-        domain=lambda self: self._get_perceptions_domain(),
-        help="Here you have to configure perception exceptions for this " +
-        "partner with this Fiscal Position",
+        "res.partner.perception",
+        "partner_id",
+        "Defined Perceptions",
+        help="Here you have to configure perception exceptions for this "
+        + "partner with this Fiscal Position",
     )
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
-    nro_insc_iibb = fields.Char('Number of IIBB Registration', size=15)
+    nro_insc_iibb = fields.Char("Number of IIBB Registration", size=15)
 
     def _get_perceptions_to_apply(self):
 
         # Buscamos las percepciones a aplicar segun la posicion fiscal
         # partner = self.browse(cr, uid, partner_id, context)
         perceptions = {}
-<<<<<<< HEAD
         for perc in self.property_account_position.perception_ids:
-=======
-        for perc in self.property_account_position_id.perception_ids:
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
             perception = {
-                'perception': perc,
-                'activity_id': False,
-                'excluded_percent': False,
-                'percent': -1.0,
-                'ex_date_to': False,
-                'ex_date_from': False,
-                'sit_iibb': False,
-                'from_padron': False,
+                "perception": perc,
+                "activity_id": False,
+                "excluded_percent": False,
+                "percent": -1.0,
+                "ex_date_to": False,
+                "ex_date_from": False,
+                "sit_iibb": False,
+                "from_padron": False,
             }
 
             perceptions[perc.id] = perception
@@ -117,14 +95,14 @@ class ResPartner(models.Model):
         for p_perc in self.perception_ids:
 
             perception = {
-                'perception': p_perc.perception_id,
-                'activity_id': p_perc.activity_id.id,
-                'excluded_percent': p_perc.excluded_percent,
-                'percent': p_perc.percent,
-                'ex_date_to': p_perc.ex_date_to,
-                'ex_date_from': p_perc.ex_date_from,
-                'sit_iibb': p_perc.sit_iibb,
-                'from_padron': p_perc.from_padron,
+                "perception": p_perc.perception_id,
+                "activity_id": p_perc.activity_id.id,
+                "excluded_percent": p_perc.excluded_percent,
+                "percent": p_perc.percent,
+                "ex_date_to": p_perc.ex_date_to,
+                "ex_date_from": p_perc.ex_date_from,
+                "sit_iibb": p_perc.sit_iibb,
+                "from_padron": p_perc.from_padron,
             }
 
             partner_perceptions[p_perc.perception_id.id] = perception
@@ -135,27 +113,15 @@ class ResPartner(models.Model):
 
 
 class AccountFiscalPosition(models.Model):
-    _inherit = 'account.fiscal.position'
-
-<<<<<<< HEAD
-    perception_ids = fields.Many2many(
-        'perception.perception', 'fiscal_position_perception_rel',
-        'position_id', 'perception_id', 'Perceptions',
-=======
-    @api.model
-    def _get_perceptions_domain(self):
-        company = self.env.user.company_id
-        return [
-            '|',
-            ('company_id', '=', False),
-            ('company_id', '=', company.id),
-        ]
+    _inherit = "account.fiscal.position"
 
     perception_ids = fields.Many2many(
-        'perception.perception', 'fiscal_position_perception_rel',
-        'position_id', 'perception_id', 'Perceptions',
-        domain=lambda self: self._get_perceptions_domain(),
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
-        help="These are the perceptions that will be applied to Suppliers " +
-        "belonging to this Fiscal Position. Exceptions to this have to be " +
-        "loaded at partner form.")
+        "perception.perception",
+        "fiscal_position_perception_rel",
+        "position_id",
+        "perception_id",
+        "Perceptions",
+        help="These are the perceptions that will be applied to Suppliers "
+        + "belonging to this Fiscal Position. Exceptions to this have to be "
+        + "loaded at partner form.",
+    )
