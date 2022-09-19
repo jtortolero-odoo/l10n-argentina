@@ -30,11 +30,7 @@
         "base_address_city",
     ],
     "data": [
-<<<<<<< HEAD
         "data/country_state_data.xml",
-=======
-        # "data/country_state_data.xml",
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         "wizard/wizard_install_argentinean_cities_view.xml",
         "views/res_city_view.xml",
     ],
