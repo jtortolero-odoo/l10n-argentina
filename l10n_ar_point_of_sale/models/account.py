@@ -14,22 +14,22 @@ class AccountTax(models.Model):
     _inherit = "account.tax"
     _description = "Tax"
 
-    other_group = fields.Char(string='Other Group', size=64)
+    other_group = fields.Char(string="Other Group", size=64)
     is_exempt = fields.Boolean(
-        string='Exempt',
+        string="Exempt",
         default=False,
         help="Check this if this Tax represent Tax Exempts",
     )
     tax_group = fields.Selection(
         [
-            ('vat', 'VAT'),
-            ('perception', 'Perception'),
-            ('retention', 'Retention'),
-            ('internal', 'Internal Tax'),
-            ('other', 'Other'),
+            ("vat", "VAT"),
+            ("perception", "Perception"),
+            ("retention", "Retention"),
+            ("internal", "Internal Tax"),
+            ("other", "Other"),
         ],
-        string='Tax Group',
-        default='vat',
+        string="Tax Group",
+        default="vat",
         required=True,
         help="This is tax categorization.",
     )
@@ -37,58 +37,37 @@ class AccountTax(models.Model):
 
 @api.multi
 def post(self, invoice=False):
-<<<<<<< HEAD
-    invoice = self._context.get('invoice', False)
-=======
-    if self._context.get('invoice'):
-        invoice = self._context.get('invoice', False)
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
+    invoice = self._context.get("invoice", False)
     self._post_validate()
     for move in self:
         move.line_ids.create_analytic_lines()
-        if move.name == '/':
-<<<<<<< HEAD
+        if move.name == "/":
             new_name = False
             journal = move.journal_id
             if journal.sequence_id:
                 # If invoice is actually refund and journal has a
                 # refund_sequence then use that one or use the regular one
                 sequence = journal.sequence_id
-                refund_list = ['out_refund', 'in_refund']
-                if invoice and invoice.type in \
-                        refund_list and journal.refund_sequence:
+                refund_list = ["out_refund", "in_refund"]
+                if invoice and invoice.type in refund_list and journal.refund_sequence:
 
                     if not journal.refund_sequence_id:
-                        err = _('Please define a sequence for the credit notes')
+                        err = _("Please define a sequence for the credit notes")
                         raise UserError(err)
 
                     sequence = journal.refund_sequence_id
 
                 new_name = sequence.with_context(
-                    ir_sequence_date=move.date).next_by_id()
+                    ir_sequence_date=move.date
+                ).next_by_id()
             else:
-                err = _('Please define a sequence on the journal.')
+                err = _("Please define a sequence on the journal.")
                 raise UserError(err)
 
             if new_name:
                 move.name = new_name
 
-=======
-            if invoice:
-                new_name = invoice.internal_number
-            else:
-                journal = move.journal_id
-                if journal.sequence_id:
-                    sequence = journal.sequence_id
-                    new_name = sequence.with_context(
-                        ir_sequence_date=move.date).next_by_id()
-                else:
-                    err = _('Please define a sequence on the journal.')
-                    raise UserError(err)
-            if new_name:
-                move.name = new_name
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
-    return self.write({'state': 'posted'})
+    return self.write({"state": "posted"})
 
 
 class AccountMove(models.Model):
@@ -100,5 +79,5 @@ class AccountMove(models.Model):
         res = super()._register_hook()
         # Heredamos para que no ponga el nombre del internal_number
         # al asiento contable, sino que siempre siga la secuencia
-        AccountMoveOriginal._patch_method('post', post)
+        AccountMoveOriginal._patch_method("post", post)
         return res

@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-<<<<<<< HEAD
         <!--vista Heredada de Sale_Shop-->
         <!--para agregar los shops_ids que contiene esa sucursal-->
         <record id="sale_shop_view_form" model="ir.ui.view">
             <field name="name">sale.shop.view.form.pos</field>
             <field name="model">sale.shop</field>
             <field name="type">form</field>
-            <field name="inherit_id" ref="sale.view_shop_form"/>
+            <field name="inherit_id" ref="sale.view_shop_form" />
             <field name="arch" type="xml">
                 <group name="shop" position="after">
                     <group name="pos_ar">
@@ -22,27 +21,6 @@
                         </field>
                     </group>
                 </group>
-=======
-
-        <record id="sale_order_view_form" model="ir.ui.view">
-            <field name="name">sale.order.inherit.attrs</field>
-            <field name="model">sale.order</field>
-            <field name="inherit_id" ref="sale.view_order_form"/>
-            <field name="arch" type="xml">
-                <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="attributes">
-                    <attribute name="context">
-                        {
-                            'partner_id':parent.partner_id,
-                            'quantity':product_uom_qty,
-                            'pricelist': parent.pricelist_id,
-                            'uom':product_uom,
-                            'company_id': parent.company_id,
-                            'default_purchase_ok': False,
-                            'default_sale_ok': True,
-                        }
-                    </attribute>
-                </xpath>
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
             </field>
         </record>
     </data>

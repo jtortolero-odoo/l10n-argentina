@@ -2,185 +2,41 @@
 <odoo>
 
     <!-- Reordenamiento de Menues Account/Customer -->
-    <menuitem id="account.menu_action_invoice_tree1"
-        action="account.action_invoice_tree1"
-        sequence="5"
-        parent="account.menu_finance_receivables"/>
-<<<<<<< HEAD
-=======
-        
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
-    <menuitem id="action_invoice_menu_tree3"
-        action="account.action_invoice_out_refund"
-        sequence="6"
-        parent="account.menu_finance_receivables"/>
-<<<<<<< HEAD
-=======
-        
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
-    <menuitem id="account_invoice_menu_debit_note"
-        action="account_invoice_action_debit_note"
-        sequence="7"
-        parent="account.menu_finance_receivables"/>
-<<<<<<< HEAD
-=======
-        
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
-    <menuitem id="taxes_receivables_menu"
-        name="Taxes"
-        sequence="20"
-        parent="account.menu_finance_receivables"/>
+    <menuitem id="account.menu_action_invoice_tree1" action="account.action_invoice_tree1" sequence="5" parent="account.menu_finance_receivables" />
+    <menuitem id="action_invoice_menu_tree3" action="account.action_invoice_out_refund" sequence="6" parent="account.menu_finance_receivables" />
+    <menuitem id="account_invoice_menu_debit_note" action="account_invoice_action_debit_note" sequence="7" parent="account.menu_finance_receivables" />
+    <menuitem id="taxes_receivables_menu" name="Taxes" sequence="20" parent="account.menu_finance_receivables" />
 
     <!-- Reordenamiento de Menues Account/Supplier -->
-    <menuitem id="account.menu_action_invoice_tree2"
-<<<<<<< HEAD
-        action="account.action_invoice_tree2"
-        sequence="5"
-        parent="account.menu_finance_payables"/>
-=======
-        action="account.action_vendor_bill_template"
-        sequence="5"
-        parent="account.menu_finance_payables"/>
-        
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
-    <menuitem id="account_invoice_menu_tree4"
-        action="account.action_invoice_in_refund"
-        sequence="6"
-        parent="account.menu_finance_payables"/>
-<<<<<<< HEAD
-=======
-        
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
-    <menuitem id="account_invoice_menu_dn_supp"
-        action="account_invoice_action_debit_note_supp"
-        sequence="7"
-        parent="account.menu_finance_payables"/>
-<<<<<<< HEAD
-=======
-        
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
-    <menuitem id="taxes_payables_menu"
-        name="Taxes"
-        sequence="20"
-        parent="account.menu_finance_payables"/>
+    <menuitem id="account.menu_action_invoice_tree2" action="account.action_invoice_tree2" sequence="5" parent="account.menu_finance_payables" />
+    <menuitem id="account_invoice_menu_tree4" action="account.action_invoice_in_refund" sequence="6" parent="account.menu_finance_payables" />
+    <menuitem id="account_invoice_menu_dn_supp" action="account_invoice_action_debit_note_supp" sequence="7" parent="account.menu_finance_payables" />
+    <menuitem id="taxes_payables_menu" name="Taxes" sequence="20" parent="account.menu_finance_payables" />
 
-    <menuitem id="account_journal_menu_subroot"
-        name="Journals"
-        parent="account.account_account_menu"
-        sequence="1"/>
-<<<<<<< HEAD
-    <menuitem id="account.menu_action_account_journal_form"
-        parent="account_journal_menu_subroot" name="Journals" sequence="1"/>
-=======
-        
-    <menuitem id="account.menu_action_account_journal_form"
-        parent="account_journal_menu_subroot" name="Journals" sequence="1"/>
-        
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
-    <menuitem id="account.menu_action_account_bank_journal_form"
-        parent="account_journal_menu_subroot" name="Bank Accounts" sequence="3"/>
+    <menuitem id="account_journal_menu_subroot" name="Journals" parent="account.account_account_menu" sequence="1" />
+    <menuitem id="account.menu_action_account_journal_form" parent="account_journal_menu_subroot" name="Journals" sequence="1" />
+    <menuitem id="account.menu_action_account_bank_journal_form" parent="account_journal_menu_subroot" name="Bank Accounts" sequence="3" />
 
 
-    <menuitem id="account_tax_menu_subroot"
-        name="Taxes"
-        parent="account.account_account_menu"
-        sequence="2"/>
-<<<<<<< HEAD
-    <menuitem id="account.menu_action_tax_form"
-        parent="account_tax_menu_subroot" name="Taxes" sequence="1"/>
-    <menuitem id="account.menu_action_account_fiscal_position_form"
-        parent="account_tax_menu_subroot" name="Fiscal Positions" sequence="3"/>
-=======
-        
-    <menuitem id="account.menu_action_tax_form"
-        parent="account_tax_menu_subroot" name="Taxes" sequence="1"/>
-        
-    <menuitem id="account.menu_action_account_fiscal_position_form"
-        parent="account_tax_menu_subroot" name="Fiscal Positions" sequence="3"/>
-        
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
-    <menuitem id="iibb_situation_menu"
-        name="IIBB Situations"
-        parent="account_tax_menu_subroot"
-        sequence="120"
-        action="iibb_situation_action"/>
+    <menuitem id="account_tax_menu_subroot" name="Taxes" parent="account.account_account_menu" sequence="2" />
+    <menuitem id="account.menu_action_tax_form" parent="account_tax_menu_subroot" name="Taxes" sequence="1" />
+    <menuitem id="account.menu_action_account_fiscal_position_form" parent="account_tax_menu_subroot" name="Fiscal Positions" sequence="3" />
+    <menuitem id="iibb_situation_menu" name="IIBB Situations" parent="account_tax_menu_subroot" sequence="120" action="iibb_situation_action" />
 
-    <menuitem id="account_invoice_menu_subroot"
-        name="Invoicing"
-        parent="account.menu_finance_configuration"
-        sequence="3"
-        />
-<<<<<<< HEAD
-=======
-        
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
-    <menuitem id="pos_ar_menu_root"
-        name="Point of Sale AR"
-        parent="account_invoice_menu_subroot"
-        action="pos_ar_action_tree"
-        sequence="10"
-        />
-<<<<<<< HEAD
-=======
-        
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
-    <menuitem id="invoice_denomination_menu"
-        action="invoice_denomination_action"
-        name="Denominations"
-        parent="account_invoice_menu_subroot"
-        sequence="20"
-        />
-<<<<<<< HEAD
-=======
-        
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
-    <menuitem id="base_vat_ar.menu_document_type"
-        parent="account_invoice_menu_subroot" name="Document Types"
-        />
+    <menuitem id="account_invoice_menu_subroot" name="Invoicing" parent="account.menu_finance_configuration" sequence="3" />
+    <menuitem id="pos_ar_menu_root" name="Point of Sale AR" parent="account_invoice_menu_subroot" action="pos_ar_action_tree" sequence="10" />
+    <menuitem id="invoice_denomination_menu" action="invoice_denomination_action" name="Denominations" parent="account_invoice_menu_subroot" sequence="20" />
+    <menuitem id="base_vat_ar.menu_document_type" parent="account_invoice_menu_subroot" name="Document Types" />
 
 
-    <menuitem id="not_used_native_menues_finance_receivables"
-        name="Old Menues"
-        groups="base.group_no_one"
-        parent="account.menu_finance_receivables"
-        sequence="999"/>
-<<<<<<< HEAD
-    <menuitem id="account_voucher.menu_action_sale_receipt"
-        parent="not_used_native_menues_finance_receivables"/>
-    <menuitem id="account.menu_action_account_payments_receivable"
-        parent="not_used_native_menues_finance_receivables"/>
-=======
-        
-    <menuitem id="account_voucher.menu_action_sale_receipt"
-        parent="not_used_native_menues_finance_receivables"/>
-        
-    <menuitem id="account.menu_action_account_payments_receivable"
-        parent="not_used_native_menues_finance_receivables"/>
-        
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
-    <menuitem id="account.menu_action_invoice_out_refund"
-        parent="not_used_native_menues_finance_receivables"/>
+    <menuitem id="not_used_native_menues_finance_receivables" name="Old Menues" groups="base.group_no_one" parent="account.menu_finance_receivables" sequence="999" />
+    <menuitem id="account_voucher.menu_action_sale_receipt" parent="not_used_native_menues_finance_receivables" />
+    <menuitem id="account.menu_action_account_payments_receivable" parent="not_used_native_menues_finance_receivables" />
+    <menuitem id="account.menu_action_invoice_out_refund" parent="not_used_native_menues_finance_receivables" />
 
-    <menuitem id="not_used_native_menues_finance_payables"
-        name="Old Menues"
-        groups="base.group_no_one"
-        parent="account.menu_finance_payables"
-        sequence="999"/>
-<<<<<<< HEAD
-    <menuitem id="account_voucher.menu_action_purchase_receipt"
-        parent="not_used_native_menues_finance_payables"/>
-    <menuitem id="account.menu_action_account_payments_payable"
-        parent="not_used_native_menues_finance_payables"/>
-=======
-        
-    <menuitem id="account_voucher.menu_action_purchase_receipt"
-        parent="not_used_native_menues_finance_payables"/>
-        
-    <menuitem id="account.menu_action_account_payments_payable"
-        parent="not_used_native_menues_finance_payables"/>
-        
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
-    <menuitem id="account.menu_action_invoice_in_refund"
-        parent="not_used_native_menues_finance_payables"/>
+    <menuitem id="not_used_native_menues_finance_payables" name="Old Menues" groups="base.group_no_one" parent="account.menu_finance_payables" sequence="999" />
+    <menuitem id="account_voucher.menu_action_purchase_receipt" parent="not_used_native_menues_finance_payables" />
+    <menuitem id="account.menu_action_account_payments_payable" parent="not_used_native_menues_finance_payables" />
+    <menuitem id="account.menu_action_invoice_in_refund" parent="not_used_native_menues_finance_payables" />
 
 </odoo>

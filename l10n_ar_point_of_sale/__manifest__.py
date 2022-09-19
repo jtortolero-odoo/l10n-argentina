@@ -24,11 +24,6 @@
         "views/account_view.xml",
         "views/iibb_situation_view.xml",
         "views/res_users_view.xml",
-<<<<<<< HEAD
-=======
-        "views/purchase_view.xml",
-        "views/sale_view.xml",
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         "views/menuitems.xml",
         "security/pos_ar_rule.xml",
         "security/ir.model.access.csv",
