@@ -21,19 +21,11 @@ from odoo.exceptions import ValidationError, Warning
 from odoo.tools import config
 
 _logger = logging.getLogger(__name__)
-<<<<<<< HEAD
 # rar file
 # try:
 #    from rarfile import RarFile, is_rarfile
 # except (ImportError, IOError) as err:
 #    _logger.warning(err)
-=======
-
-try:
-    from rarfile import RarFile, is_rarfile
-except (ImportError, IOError) as err:
-    _logger.warning(err)
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
 
 def get_dsn_pg(cr):
@@ -43,7 +35,6 @@ def get_dsn_pg(cr):
     Also it ensures that PGPASSWORD is an Environmental Variable,
     if this is not ensured psql command fails.
     """
-<<<<<<< HEAD
     env_db_pass = os.environ.get("PGPASSWORD")  # Ensure PGPASSWORD
     if not env_db_pass:  # PGPASSWORD is not an environmental variable, set it
         db_password = config.get("db_password")
@@ -62,31 +53,11 @@ def get_dsn_pg(cr):
     res_string = "--dbname={0} --host={1} --username={2} --port={3}".format(
         db_name, db_host, db_user, db_port
     )
-=======
-    env_db_pass = os.environ.get('PGPASSWORD')  # Ensure PGPASSWORD
-    if not env_db_pass:  # PGPASSWORD is not an environmental variable, set it
-        db_password = config.get('db_password')
-        os.environ['PGPASSWORD'] = db_password
-    db_name = config.get('db_name', cr.dbname)
-    if not db_name:
-        db_name = cr.dbname
-    db_port = config.get('db_port')
-    if not db_port:
-        db_port = 5432
-    db_user = config.get('db_user')
-    assert db_user is not None, 'db_user must be set in config file'
-    db_host = config.get('db_host')
-    if not db_host:
-        db_host = 'localhost'
-    res_string = "--dbname={0} --host={1} --username={2} --port={3}".format(
-        db_name, db_host, db_user, db_port)
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
     res_list = shlex.split(res_string)
     return res_list
 
 
 class PadronImport(models.TransientModel):
-<<<<<<< HEAD
     _name = "padron.import"
     _description = "Importer of padron file"
 
@@ -94,15 +65,6 @@ class PadronImport(models.TransientModel):
     filename_agip = fields.Char("Filename AGIP")
     datas_arba = fields.Binary("Data ARBA")
     filename_arba = fields.Char("Filename ARBA")
-=======
-    _name = 'padron.import'
-    _description = 'Importer of padron file'
-
-    datas_agip = fields.Binary('Data AGIP')
-    filename_agip = fields.Char('Filename AGIP')
-    datas_arba = fields.Binary('Data ARBA')
-    filename_arba = fields.Char('Filename ARBA')
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
     @api.model
     def create_temporary_table(self):
@@ -128,12 +90,8 @@ class PadronImport(models.TransientModel):
         except Exception:
             cursor.rollback()
             raise ValidationError(
-<<<<<<< HEAD
                 _("Could not create the temporary table with the file data")
             )
-=======
-                _("Could not create the temporary table with the file data"))
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         else:
             cursor.commit()
         return True
@@ -142,13 +100,8 @@ class PadronImport(models.TransientModel):
         regex = re.compile("^((\d+;){4}(\w;){3}([\d,]+;){4})(.*)$")
         temp = tempfile.mkstemp()[1]
 
-<<<<<<< HEAD
         f = open(filename, "r", encoding="latin1")
         f2 = open(temp, "w", encoding="latin1")
-=======
-        f = open(filename, 'r', encoding='latin1')
-        f2 = open(temp, 'w', encoding='latin1')
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
         for l in f.readlines():
             r = regex.match(l)
@@ -157,11 +110,7 @@ class PadronImport(models.TransientModel):
             # Los mostros de AGIP mandan caracteres raros o csv mal formado
             newline = r and r.groups()[0]
             f2.write(newline)
-<<<<<<< HEAD
             f2.write("\n")
-=======
-            f2.write('\n')
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
         f.close()
         f2.close()
@@ -171,7 +120,6 @@ class PadronImport(models.TransientModel):
     def extract_file(self, out_path, file_like):
         files_extracted = []
 
-<<<<<<< HEAD
         # Soportamos zip y rarfile
 
         if is_zipfile(file_like):
@@ -187,50 +135,23 @@ class PadronImport(models.TransientModel):
         for name in z.namelist():
             z.extract(name, out_path)
             files_extracted.append(out_path + "/" + name)
-=======
-        # Soportamos zip y rar
-        if is_rarfile(file_like):
-            z = RarFile(file_like)
-        elif is_zipfile(file_like):
-            z = ZipFile(file_like)
-        else:
-            raise ValidationError(
-                _('Format of compressed file not recognized, ' +
-                  'please check if it is the correct file.'))
-
-        for name in z.namelist():
-            z.extract(name, out_path)
-            files_extracted.append(out_path + '/' + name)
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
         return files_extracted
 
     @api.model
     def import_agip_file(self, rar_file_agip):
-<<<<<<< HEAD
         _logger.info("[AGIP] Inicio de importacion")
-=======
-        _logger.info('[AGIP] Inicio de importacion')
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         dsn_pg_splitted = get_dsn_pg(self.env.cr)
         decoded = b64decode(rar_file_agip)
         file_like = BytesIO(decoded)
         out_path = mkdtemp()
         files_extracted = self.extract_file(out_path, file_like)
 
-<<<<<<< HEAD
         _logger.info("[AGIP] Files extracted: " + str(len(files_extracted)))
         if len(files_extracted) != 1:
             raise ValidationError(
                 _("Expected only one file compressed, got: %d") % len(files_extracted)
             )
-=======
-        _logger.info('[AGIP] Files extracted: ' + str(len(files_extracted)))
-        if len(files_extracted) != 1:
-            raise ValidationError(
-                _("Expected only one file compressed, got: %d") %
-                len(files_extracted))
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
         # Corregimos porque los craneos de AGIP hacen mal el arhivo,
         # metiendo ; donde no deberian ir
@@ -238,11 +159,7 @@ class PadronImport(models.TransientModel):
         dbname = self.env.cr.dbname
         cursor = registry(dbname).cursor()  # Get a new cursor
         try:
-<<<<<<< HEAD
             _logger.info("[AGIP] Creando tabla temporal")
-=======
-            _logger.info('[AGIP] Creando tabla temporal')
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
             create_q = """
             CREATE TABLE temp_import(
             create_date varchar(8),
@@ -264,7 +181,6 @@ class PadronImport(models.TransientModel):
         except Exception:
             cursor.rollback()
             raise ValidationError(
-<<<<<<< HEAD
                 _("Could not create the temporary table with the file data")
             )
         else:
@@ -288,27 +204,6 @@ class PadronImport(models.TransientModel):
             _logger.info("[AGIP] Verificando grupos")
 
             _logger.info("[AGIP] Copiando de tabla temporal a definitiva")
-=======
-                _("Could not create the temporary table with the file data"))
-        else:
-            cursor.commit()
-
-        _logger.info('[AGIP] Copiando del csv a tabla temporal')
-        psql_args_list = [
-            "psql",
-            "--command=\copy temp_import(create_date,from_date,to_date,vat,multilateral,u1,u2,percentage_perception,percentage_retention,group_per,group_ret,name_partner) FROM " + txt_path + " WITH DELIMITER ';' NULL '' CSV QUOTE E'\b' ENCODING 'latin1'"  # noqa
-        ]
-        psql_args_list[1:1] = dsn_pg_splitted
-        retcode = call(psql_args_list, stderr=STDOUT)
-        assert retcode == 0, \
-            "Call to psql subprocess copy command returned: " + str(retcode)
-
-        try:
-            # TODO: Creacion de los grupos de retenciones y percepciones
-            _logger.info('[AGIP] Verificando grupos')
-
-            _logger.info('[AGIP] Copiando de tabla temporal a definitiva')
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
             query = """
             INSERT INTO padron_agip_percentages
             (create_uid, create_date, write_date, write_uid,
@@ -334,7 +229,6 @@ class PadronImport(models.TransientModel):
             cursor.execute("DROP TABLE IF EXISTS temp_import")
         except Exception:
             cursor.rollback()
-<<<<<<< HEAD
             _logger.warning("[AGIP] ERROR: Rollback")
         else:
             # Mass Update
@@ -345,25 +239,11 @@ class PadronImport(models.TransientModel):
                     "agip": True,
                 }
             )
-=======
-            _logger.warning('[AGIP] ERROR: Rollback')
-        else:
-            # Mass Update
-            mass_wiz_obj = self.env['padron.mass.update']
-            wiz = mass_wiz_obj.create({
-                'arba': False,
-                'agip': True,
-            })
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
             # TODO
             wiz.action_update()
 
             cursor.commit()
-<<<<<<< HEAD
             _logger.info("[AGIP] SUCCESS: Fin de carga de padron de agip")
-=======
-            _logger.info('[AGIP] SUCCESS: Fin de carga de padron de agip')
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
         finally:
             rmtree(out_path)  # Delete temp folder
@@ -372,36 +252,23 @@ class PadronImport(models.TransientModel):
 
     @api.model
     def import_arba_file(self, zip_file_arba):
-<<<<<<< HEAD
         _logger.info("[ARBA] Inicio de importacion")
-=======
-        _logger.info('[ARBA] Inicio de importacion')
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         dsn_pg_splitted = get_dsn_pg(self.env.cr)
         decoded = b64decode(zip_file_arba)
         file_like = BytesIO(decoded)
         out_path = mkdtemp()
         files_extracted = self.extract_file(out_path, file_like)
 
-<<<<<<< HEAD
         _logger.info("[ARBA] Files extracted: " + str(len(files_extracted)))
         if len(files_extracted) != 2:
             raise ValidationError(
                 _("Expected two files compressed, got: %d") % len(files_extracted)
             )
-=======
-        _logger.info('[ARBA] Files extracted: ' + str(len(files_extracted)))
-        if len(files_extracted) != 2:
-            raise ValidationError(
-                _('Expected two files compressed, got: %d') %
-                len(files_extracted))
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
         dbname = self.env.cr.dbname
         cursor = registry(dbname).cursor()  # Get a new cursor
         for file_name in files_extracted:
             txt_path = "'" + file_name + "'"
-<<<<<<< HEAD
             if "Ret" in file_name:
                 _logger.info("[ARBA] Ret - Inicio de carga ")
                 # copiar a postgresql padron_arba_retention
@@ -416,20 +283,6 @@ class PadronImport(models.TransientModel):
                 psql_args_list[1:1] = dsn_pg_splitted
                 retcode = call(psql_args_list, stderr=STDOUT)
                 assert retcode == 0, "Call expected return 0"
-=======
-            if 'Ret' in file_name:
-                _logger.info('[ARBA] Ret - Inicio de carga ')
-                # copiar a postgresql padron_arba_retention
-                self.create_temporary_table()
-                _logger.info('[ARBA] Ret - Copiando a tabla temporal')
-                psql_args_list = [
-                    "psql",
-                    "--command=\copy temp_import(regimen,create_date,from_date,to_date,vat,multilateral,u1,u2,percentage,u3,u4) FROM " + txt_path + " WITH DELIMITER ';' NULL '' "  # noqa
-                ]
-                psql_args_list[1:1] = dsn_pg_splitted
-                retcode = call(psql_args_list, stderr=STDOUT)
-                assert retcode == 0, 'Call expected return 0'
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
                 try:
                     query = """
                     INSERT INTO padron_arba_retention
@@ -450,16 +303,11 @@ class PadronImport(models.TransientModel):
                     FROM temp_import
                     """
                     cursor.execute("DELETE FROM padron_arba_retention")
-<<<<<<< HEAD
                     _logger.info("[ARBA] Ret - Copiando a tabla definitiva")
-=======
-                    _logger.info('[ARBA] Ret - Copiando a tabla definitiva')
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
                     cursor.execute(query)
                     cursor.execute("DROP TABLE IF EXISTS temp_import")
                 except Exception:
                     cursor.rollback()
-<<<<<<< HEAD
                     _logger.warning("[ARBA]ERROR: Rollback")
                 else:
                     cursor.commit()
@@ -476,22 +324,6 @@ class PadronImport(models.TransientModel):
                 psql_args_list[1:1] = dsn_pg_splitted
                 retcode = call(psql_args_list, stderr=STDOUT)
                 assert retcode == 0, "Call expected return 0"
-=======
-                    _logger.warning('[ARBA]ERROR: Rollback')
-                else:
-                    cursor.commit()
-                    _logger.info('[ARBA]SUCCESS: Fin de carga de retenciones')
-            if 'Per' in file_name:
-                self.create_temporary_table()
-                _logger.info('[ARBA] Per - Copiando a tabla temporal')
-                psql_args_list = [
-                    "psql",
-                    "--command=\copy temp_import(regimen,create_date,from_date,to_date,vat,multilateral,u1,u2,percentage,u3,u4) FROM " + txt_path + " WITH DELIMITER ';' NULL '' "  # noqa
-                ]
-                psql_args_list[1:1] = dsn_pg_splitted
-                retcode = call(psql_args_list, stderr=STDOUT)
-                assert retcode == 0, 'Call expected return 0'
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
                 try:
                     query = """
                     INSERT INTO padron_arba_perception
@@ -512,16 +344,11 @@ class PadronImport(models.TransientModel):
                     FROM temp_import
                     """
                     cursor.execute("DELETE FROM padron_arba_perception")
-<<<<<<< HEAD
                     _logger.info("[ARBA] Per - Copiando a tabla definitiva")
-=======
-                    _logger.info('[ARBA] Per - Copiando a tabla definitiva')
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
                     cursor.execute(query)
                     cursor.execute("DROP TABLE IF EXISTS temp_import")
                 except Exception:
                     cursor.rollback()
-<<<<<<< HEAD
                     _logger.warning("[ARBA]ERROR: Rollback")
                 else:
                     # Mass Update
@@ -532,25 +359,11 @@ class PadronImport(models.TransientModel):
                             "agip": False,
                         }
                     )
-=======
-                    _logger.warning('[ARBA]ERROR: Rollback')
-                else:
-                    # Mass Update
-                    mass_wiz_obj = self.env['padron.mass.update']
-                    wiz = mass_wiz_obj.create({
-                        'arba': True,
-                        'agip': False,
-                    })
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
                     # TODO
                     wiz.action_update()
 
                     cursor.commit()
-<<<<<<< HEAD
                     _logger.info("[ARBA]SUCCESS: Fin de carga de percepciones")
-=======
-                    _logger.info('[ARBA]SUCCESS: Fin de carga de percepciones')
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         rmtree(out_path)  # Delete temp folder
         cursor.close()
         return True
@@ -559,17 +372,10 @@ class PadronImport(models.TransientModel):
     def import_zip_file(self):
         self.ensure_one()
         if self.datas_agip:
-<<<<<<< HEAD
             _logger.info("[AGIP] Zip file from AGIP is loaded: START")
             self.import_agip_file(self.datas_agip)
         if self.datas_arba:
             _logger.info("[ARBA] Zip file from ARBA is loaded: START")
-=======
-            _logger.info('[AGIP] Zip file from AGIP is loaded: START')
-            self.import_agip_file(self.datas_agip)
-        if self.datas_arba:
-            _logger.info('[ARBA] Zip file from ARBA is loaded: START')
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
             self.import_arba_file(self.datas_arba)
 
         raise Warning(_("Hey!\nThe import ended Successfully"))

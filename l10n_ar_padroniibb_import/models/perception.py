@@ -11,21 +11,20 @@ class PerceptionPerception(models.Model):
     _name = "perception.perception"
     _inherit = "perception.perception"
 
-    from_register_ARBA = fields.Boolean('From ARBA Register')
-    from_register_AGIP = fields.Boolean('From AGIP Register')
+    from_register_ARBA = fields.Boolean("From ARBA Register")
+    from_register_AGIP = fields.Boolean("From AGIP Register")
 
     @api.model
     def _get_perception_from_arba(self):
-<<<<<<< HEAD
-        ret = self.search([('from_register_ARBA', '=', True)])
-=======
-        ret = self.search([('from_register_ARBA', '=', True), ('company_id', '=', self.env.user.company_id.id)])
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
+        ret = self.search([("from_register_ARBA", "=", True)])
         if len(ret) > 1:
             raise ValidationError(
-                _('Perceptions Improperly Configured\n') +
-                _('You can not have more than one perception to update ' +
-                  'from ARBA. Please review configuration'))
+                _("Perceptions Improperly Configured\n")
+                + _(
+                    "You can not have more than one perception to update "
+                    + "from ARBA. Please review configuration"
+                )
+            )
         elif len(ret) == 0:
             return False
         else:
@@ -33,16 +32,15 @@ class PerceptionPerception(models.Model):
 
     @api.model
     def _get_perception_from_agip(self):
-<<<<<<< HEAD
-        ret = self.search([('from_register_AGIP', '=', True)])
-=======
-        ret = self.search([('from_register_AGIP', '=', True), ('company_id', '=', self.env.user.company_id.id)])
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
+        ret = self.search([("from_register_AGIP", "=", True)])
         if len(ret) > 1:
             raise ValidationError(
-                _('Perceptions Improperly Configured\n') +
-                _('You can not have more than one perception to update ' +
-                  'from AGIP. Please review configuration'))
+                _("Perceptions Improperly Configured\n")
+                + _(
+                    "You can not have more than one perception to update "
+                    + "from AGIP. Please review configuration"
+                )
+            )
         elif len(ret) == 0:
             return False
         else:

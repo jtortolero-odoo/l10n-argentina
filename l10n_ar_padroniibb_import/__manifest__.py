@@ -31,27 +31,12 @@
     ],
     "data": [
         "security/ir.model.access.csv",
-<<<<<<< HEAD
         "wizard/padron_import_view.xml",
         "wizard/padron_mass_update_view.xml",
         "views/padron_view.xml",
         "views/perception_view.xml",
         "views/retention_view.xml",
     ],
-=======
-        "views/padron_view.xml",
-        "views/perception_view.xml",
-        "views/retention_view.xml",
-        "wizard/padron_import_view.xml",
-        "wizard/padron_mass_update_view.xml",
-        "wizard/padron_import_padron_view.xml",
-    ],
-    # ~ "external_dependencies": {
-    # ~ "python": [
-    # ~ "rarfile",
-    # ~ ],
-    # ~ },
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
     "installable": True,
     "application": True,
 }
