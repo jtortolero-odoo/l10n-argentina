@@ -37,11 +37,6 @@
         "views/perception_view.xml",
         "views/retention_view.xml",
     ],
-    "external_dependencies": {
-        "python": [
-            "rarfile",
-        ],
-    },
     "installable": True,
     "application": True,
 }
