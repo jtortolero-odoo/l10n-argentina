@@ -1,31 +1,18 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-<<<<<<< HEAD
 # 	* l10n_ar_account_check
-=======
-#	* l10n_ar_account_check
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-<<<<<<< HEAD
 "POT-Creation-Date: 2020-04-09 20:00+0000\n"
 "PO-Revision-Date: 2020-04-13 12:32-0300\n"
-=======
-"POT-Creation-Date: 2022-09-14 14:22+0000\n"
-"PO-Revision-Date: 2022-09-14 14:22+0000\n"
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-<<<<<<< HEAD
 "Content-Transfer-Encoding: 8bit\n"
-=======
-"Content-Transfer-Encoding: \n"
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 "Plural-Forms: \n"
 
 #. module: l10n_ar_account_check
@@ -39,11 +26,7 @@ msgstr "Cheques Emitidos"
 #: selection:account.issued.check,clearing:0
 #: selection:account.third.check,clearing:0
 msgid "24 hs"
-<<<<<<< HEAD
 msgstr "24 hs"
-=======
-msgstr ""
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
 #. module: l10n_ar_account_check
 #: selection:account.add.issued.check,clearing:0
@@ -51,11 +34,7 @@ msgstr ""
 #: selection:account.issued.check,clearing:0
 #: selection:account.third.check,clearing:0
 msgid "48 hs"
-<<<<<<< HEAD
 msgstr "48 hs"
-=======
-msgstr ""
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
 #. module: l10n_ar_account_check
 #: selection:account.add.issued.check,clearing:0
@@ -63,11 +42,7 @@ msgstr ""
 #: selection:account.issued.check,clearing:0
 #: selection:account.third.check,clearing:0
 msgid "72 hs"
-<<<<<<< HEAD
 msgstr "72 hs"
-=======
-msgstr ""
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
 #. module: l10n_ar_account_check
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_setup_bank_manual_config__account_id
@@ -82,7 +57,6 @@ msgstr "Configuración de la cuenta de cheque"
 
 #. module: l10n_ar_account_check
 #: model:ir.model.fields,help:l10n_ar_account_check.field_account_checkbook__account_check_id
-<<<<<<< HEAD
 msgid ""
 "Account used for account moves                                        with "
 "checks. If not set, account in                                        "
@@ -90,10 +64,6 @@ msgid ""
 msgstr ""
 "Cuenta usada para movimientos con cheques. Si no se configura, la cuenta "
 "configurada en Contabilidad."
-=======
-msgid "Account used for account moves                                        with checks. If not set, account in                                        treasury configuration is used."
-msgstr "Cuenta usada para movimientos con cheques. Si no se configura, la cuenta configurada en Contabilidad."
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
 #. module: l10n_ar_account_check
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.account_issued_check_view_form
@@ -155,14 +125,6 @@ msgid "Additional Information..."
 msgstr "Información Adicional..."
 
 #. module: l10n_ar_account_check
-<<<<<<< HEAD
-=======
-#: selection:account.returned.check.report,replaced:0
-msgid "All"
-msgstr "Todos"
-
-#. module: l10n_ar_account_check
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_check_reject_expense__price
 msgid "Amount"
 msgstr "Importe"
@@ -201,10 +163,6 @@ msgstr "Está seguro que desea continuar?"
 
 #. module: l10n_ar_account_check
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_checkbook__check_ids
-<<<<<<< HEAD
-=======
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_checkbook_limit__check_ids
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 msgid "Available Checks"
 msgstr "Cheques Disponibles"
 
@@ -235,11 +193,7 @@ msgstr "Cuenta bancaria"
 #. module: l10n_ar_account_check
 #: model:ir.model,name:l10n_ar_account_check.model_res_partner_bank
 msgid "Bank Accounts"
-<<<<<<< HEAD
 msgstr "Cuentas Bancarias"
-=======
-msgstr "Cuentas bancarias"
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
 #. module: l10n_ar_account_check
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_third_check__bank_branch
@@ -269,44 +223,11 @@ msgid "Calendar By Payment Date"
 msgstr "Calendario por Fecha de Pago"
 
 #. module: l10n_ar_account_check
-<<<<<<< HEAD
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.account_check_deposit_form_view
-=======
-#: code:addons/l10n_ar_account_check/models/checkbook.py:161
-#, python-format
-msgid "Can't annull done checks!"
-msgstr ""
-
-#. module: l10n_ar_account_check
-#: code:addons/l10n_ar_account_check/models/account_check.py:382
-#, python-format
-msgid "Can't break conciliation of a not accredited check!"
-msgstr "No se puede romper la conciliación de un cheque no acreditado!"
-
-#. module: l10n_ar_account_check
-#: code:addons/l10n_ar_account_check/models/account_check.py:379
-#, python-format
-msgid "Can't break conciliation of a not issued check!"
-msgstr "No se puede romper la conciliación de un cheque no emitido!"
-
-#. module: l10n_ar_account_check
-#: code:addons/l10n_ar_account_check/models/checkbook.py:169
-#, python-format
-msgid "Can't restore not Annulled checks!"
-msgstr ""
-
-#. module: l10n_ar_account_check
-#: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.account_check_deposit_form_view
-#: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.account_returned_check_wizard_form
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.add_issued_checks_form_view
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.add_third_checks_form_view
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.check_reject_form_view
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.issued_check_reject_form_view
-<<<<<<< HEAD
-=======
-#: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.returned_check_report_wizard_form
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.view_wizard_accredit_checks_form
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.wizard_annull_checks_view_form
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.wizard_create_check_view_form
@@ -323,35 +244,11 @@ msgid "Cancelled"
 msgstr "Cancelado"
 
 #. module: l10n_ar_account_check
-<<<<<<< HEAD
-=======
-#: code:addons/l10n_ar_account_check/wizard/check_deposit.py:119
-#, python-format
-msgid "Cannot deposit! You cannot deposit check %s                     because Payment Date is greater than                     Deposit Date."
-msgstr "No se puede depositar! No puedes depositar el cheque %s porque la fecha de pago es mayor que la Fecha de Depósito."
-
-#. module: l10n_ar_account_check
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_issued_check__check_id
 msgid "Check"
 msgstr "Cheque"
 
 #. module: l10n_ar_account_check
-<<<<<<< HEAD
-=======
-#: code:addons/l10n_ar_account_check/models/account_check.py:279
-#, python-format
-msgid "Check %s can't be accredited!"
-msgstr "El cheque %s no puede ser acreditado!"
-
-#. module: l10n_ar_account_check
-#: code:addons/l10n_ar_account_check/wizard/check_reject.py:69
-#, python-format
-msgid "Check : %s"
-msgstr "Cheque: %s"
-
-#. module: l10n_ar_account_check
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_checkbook__account_check_id
 msgid "Check Account"
 msgstr "Cuenta de Cheque"
@@ -380,50 +277,14 @@ msgid "Check Date"
 msgstr "Fecha del Cheque"
 
 #. module: l10n_ar_account_check
-<<<<<<< HEAD
-=======
-#: code:addons/l10n_ar_account_check/wizard/check_deposit.py:144
-#: code:addons/l10n_ar_account_check/wizard/check_deposit.py:158
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: model:ir.actions.act_window,name:l10n_ar_account_check.action_check_deposit
 #: model:ir.model,name:l10n_ar_account_check.model_account_check_deposit
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.account_check_deposit_form_view
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.account_third_check_view_form
-<<<<<<< HEAD
-=======
-#, python-format
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 msgid "Check Deposit"
 msgstr "Depósito de Cheque"
 
 #. module: l10n_ar_account_check
-<<<<<<< HEAD
-=======
-#: code:addons/l10n_ar_account_check/models/account_check.py:588
-#, python-format
-msgid "Check Error! Check has to                     be associated with a voucher"
-msgstr "Error! El cheque tiene que estar asociado a un pago"
-
-#. module: l10n_ar_account_check
-#: code:addons/l10n_ar_account_check/models/account_check.py:641
-#, python-format
-msgid "Check Error! You cannot delete a third                     check that is not in Draft state [See %s]."
-msgstr "Error! No puede borrar un cheque de terceros que no esté en estado Borrador [Ver %s]."
-
-#. module: l10n_ar_account_check
-#: code:addons/l10n_ar_account_check/models/account_check.py:268
-#, python-format
-msgid "Check Error! You cannot delete an issued check that is not in Draft state [See %s]."
-msgstr ""
-
-#. module: l10n_ar_account_check
-#: code:addons/l10n_ar_account_check/models/checkbook.py:256
-#, python-format
-msgid "Check Limit"
-msgstr "Límite de cheques"
-
-#. module: l10n_ar_account_check
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_add_issued_check__number
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_add_third_check__number
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_checkbook_check__name
@@ -443,7 +304,6 @@ msgid "Check Reject"
 msgstr "Rechazar Cheques"
 
 #. module: l10n_ar_account_check
-<<<<<<< HEAD
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_issued_check__type
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_third_check__type
 msgid "Check Type"
@@ -451,29 +311,6 @@ msgstr "Tipo de Cheque"
 
 #. module: l10n_ar_account_check
 #: model:ir.model,name:l10n_ar_account_check.model_account_checkbook
-=======
-#: code:addons/l10n_ar_account_check/wizard/check_reject.py:94
-#, python-format
-msgid "Check Rejected %s %s"
-msgstr "Cheque rechazado %s %s"
-
-#. module: l10n_ar_account_check
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_issued_check__type
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_third_check__type
-msgid "Check Type"
-msgstr "Tipo de cheque"
-
-#. module: l10n_ar_account_check
-#: code:addons/l10n_ar_account_check/models/account_payment_order.py:182
-#, python-format
-msgid "Check number %s is postdated and has                         already been accredited!\n"
-"Please break the                         conciliation of that check first."
-msgstr ""
-
-#. module: l10n_ar_account_check
-#: model:ir.model,name:l10n_ar_account_check.model_account_checkbook
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_checkbook_limit__checkbook_id
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_issued_check__checkbook_id
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_wizard_annull_checks__checkbook_id
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.account_checkbook_view_form
@@ -483,29 +320,7 @@ msgstr "Chequera"
 #. module: l10n_ar_account_check
 #: model:ir.model,name:l10n_ar_account_check.model_account_checkbook_check
 msgid "Checkbook Check"
-<<<<<<< HEAD
 msgstr "Chequera Cheque"
-=======
-msgstr ""
-
-#. module: l10n_ar_account_check
-#: model:ir.model,name:l10n_ar_account_check.model_account_checkbook_limit
-msgid "Checkbook Check Limit"
-msgstr "Límites de chequeras"
-
-#. module: l10n_ar_account_check
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_checkbook__checkbook_type
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_wizard_create_check__checkbook_type
-msgid "Checkbook Class"
-msgstr ""
-
-#. module: l10n_ar_account_check
-#: model:ir.actions.act_window,name:l10n_ar_account_check.account_checkbook_limit_action
-#: model:ir.ui.menu,name:l10n_ar_account_check.menu_checkbook_limit
-#: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.account_checkbook_limit_view_tree
-msgid "Checkbook Limit"
-msgstr "Límite de chequera"
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
 #. module: l10n_ar_account_check
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_checkbook__name
@@ -513,15 +328,6 @@ msgid "Checkbook Number"
 msgstr "Número de Chequera"
 
 #. module: l10n_ar_account_check
-<<<<<<< HEAD
-=======
-#: code:addons/l10n_ar_account_check/models/account_check.py:238
-#, python-format
-msgid "Checkbook Number %s"
-msgstr "Número de Chequera %s"
-
-#. module: l10n_ar_account_check
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_checkbook__type
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_wizard_create_check__type
 msgid "Checkbook Type"
@@ -560,15 +366,6 @@ msgid "Checks Config"
 msgstr "Configuración de Cheques"
 
 #. module: l10n_ar_account_check
-<<<<<<< HEAD
-=======
-#: code:addons/l10n_ar_account_check/wizard/check_reject.py:250
-#, python-format
-msgid "Cheque Rechazado"
-msgstr ""
-
-#. module: l10n_ar_account_check
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_issued_check__clearance_move_id
 msgid "Clearance Account Move"
 msgstr "Cuenta de Acreditación"
@@ -587,17 +384,7 @@ msgid "Closed"
 msgstr "Cerrado"
 
 #. module: l10n_ar_account_check
-<<<<<<< HEAD
 #: selection:account.checkbook,type:0 selection:account.issued.check,type:0
-=======
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_reason_rejected_check__code
-msgid "Code"
-msgstr "Código"
-
-#. module: l10n_ar_account_check
-#: selection:account.checkbook,type:0
-#: selection:account.issued.check,type:0
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: selection:account.third.check,type:0
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.account_issued_check_view_search
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.account_third_checks_view_search
@@ -649,21 +436,10 @@ msgstr "Crear Chequeras"
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_check_reject__create_uid
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_checkbook__create_uid
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_checkbook_check__create_uid
-<<<<<<< HEAD
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_issued_check__create_uid
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_third_check__create_uid
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_check_reject_expense__create_uid
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_check_reject_issued_check__create_uid
-=======
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_checkbook_limit__create_uid
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_issued_check__create_uid
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_returned_check__create_uid
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_returned_check_report__create_uid
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_third_check__create_uid
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_check_reject_expense__create_uid
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_check_reject_issued_check__create_uid
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_reason_rejected_check__create_uid
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_wizard_accredit_checks__create_uid
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_wizard_annull_checks__create_uid
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_wizard_create_check__create_uid
@@ -678,21 +454,10 @@ msgstr "Creado por"
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_check_reject__create_date
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_checkbook__create_date
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_checkbook_check__create_date
-<<<<<<< HEAD
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_issued_check__create_date
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_third_check__create_date
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_check_reject_expense__create_date
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_check_reject_issued_check__create_date
-=======
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_checkbook_limit__create_date
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_issued_check__create_date
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_returned_check__create_date
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_returned_check_report__create_date
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_third_check__create_date
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_check_reject_expense__create_date
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_check_reject_issued_check__create_date
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_reason_rejected_check__create_date
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_wizard_accredit_checks__create_date
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_wizard_annull_checks__create_date
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_wizard_create_check__create_date
@@ -737,15 +502,6 @@ msgid "Debit Note"
 msgstr "Nota de Débito"
 
 #. module: l10n_ar_account_check
-<<<<<<< HEAD
-=======
-#: code:addons/l10n_ar_account_check/wizard/check_reject.py:70
-#, python-format
-msgid "Debit Note due to rejected check %s [%s]"
-msgstr "Nota de Débito asociada al cheque rechazado %s [%s]"
-
-#. module: l10n_ar_account_check
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_check_config__deferred_account_id
 msgid "Deferred Check Account"
 msgstr "Cuenta de Cheques Diferidos"
@@ -778,28 +534,6 @@ msgid "Deposit Check"
 msgstr "Depositar Cheque"
 
 #. module: l10n_ar_account_check
-<<<<<<< HEAD
-=======
-#: code:addons/l10n_ar_account_check/wizard/check_deposit.py:132
-#: code:addons/l10n_ar_account_check/wizard/check_deposit.py:167
-#, python-format
-msgid "Deposit Check %s"
-msgstr "Depósito de Cheque %s"
-
-#. module: l10n_ar_account_check
-#: code:addons/l10n_ar_account_check/wizard/check_deposit.py:129
-#, python-format
-msgid "Deposit Check %s [%s]"
-msgstr "Depósito de Cheque %s [%s]"
-
-#. module: l10n_ar_account_check
-#: code:addons/l10n_ar_account_check/wizard/check_deposit.py:153
-#, python-format
-msgid "Deposit Check %s on %s"
-msgstr "Depósito Cheque %s en %s"
-
-#. module: l10n_ar_account_check
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_check_deposit__date
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_third_check__deposit_date
 msgid "Deposit Date"
@@ -829,14 +563,6 @@ msgid "Deposited"
 msgstr "Depositado"
 
 #. module: l10n_ar_account_check
-<<<<<<< HEAD
-=======
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_reason_rejected_check__description
-msgid "Description"
-msgstr "Descripción"
-
-#. module: l10n_ar_account_check
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_third_check__dest
 msgid "Destiny"
 msgstr "Destino"
@@ -862,73 +588,28 @@ msgstr "Partner Destino"
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_check_reject__display_name
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_checkbook__display_name
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_checkbook_check__display_name
-<<<<<<< HEAD
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_issued_check__display_name
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_third_check__display_name
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_check_reject_expense__display_name
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_check_reject_issued_check__display_name
-=======
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_checkbook_limit__display_name
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_issued_check__display_name
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_returned_check__display_name
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_returned_check_report__display_name
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_third_check__display_name
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_check_reject_expense__display_name
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_check_reject_issued_check__display_name
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_reason_rejected_check__display_name
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_report_report_xlsx_report_returned_check__display_name
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_wizard_accredit_checks__display_name
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_wizard_annull_checks__display_name
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_wizard_create_check__display_name
 msgid "Display Name"
-<<<<<<< HEAD
 msgstr "Nombre mostrado"
-=======
-msgstr "Nombre a mostrar"
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
 #. module: l10n_ar_account_check
 #: selection:account.add.third.check,state:0
 #: selection:account.checkbook.check,state:0
-<<<<<<< HEAD
 #: selection:account.issued.check,state:0 selection:account.third.check,state:0
-=======
-#: selection:account.issued.check,state:0
-#: selection:account.third.check,state:0
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.account_issued_check_view_search
 msgid "Draft"
 msgstr "Borrador"
 
 #. module: l10n_ar_account_check
-<<<<<<< HEAD
 #: selection:account.add.third.check,state:0
 msgid "En Cartera"
 msgstr "En Cartera"
-=======
-#: code:addons/l10n_ar_account_check/wizard/check_reject.py:61
-#, python-format
-msgid "ERROR! There is no check                     configuration for this Company!"
-msgstr "ERROR! No hay configuración de cheques para esta empresa!"
-
-#. module: l10n_ar_account_check
-#: code:addons/l10n_ar_account_check/models/account_check.py:539
-#, python-format
-msgid "ERROR! There is no check configuration for this Company!"
-msgstr "ERROR! No hay configuración de cheques para esta empresa!"
-
-#. module: l10n_ar_account_check
-#: selection:account.checkbook,checkbook_type:0
-#: selection:wizard.create.check,checkbook_type:0
-msgid "Echeq"
-msgstr ""
-
-#. module: l10n_ar_account_check
-#: selection:account.add.third.check,state:0
-msgid "En Cartera"
-msgstr ""
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
 #. module: l10n_ar_account_check
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_wizard_create_check__end_num
@@ -942,70 +623,6 @@ msgid "Endorsement Date"
 msgstr "Fecha de Endoso"
 
 #. module: l10n_ar_account_check
-<<<<<<< HEAD
-=======
-#: code:addons/l10n_ar_account_check/wizard/create_checkbook.py:46
-#, python-format
-msgid "Error creating Checkbook!\n"
-"End number cannot be lower than Start number"
-msgstr ""
-
-#. module: l10n_ar_account_check
-#: code:addons/l10n_ar_account_check/models/checkbook.py:106
-#, python-format
-msgid "Error!\n"
-"You cannot delete this checkbook                         because it has Issued Checks"
-msgstr "Error!\n"
-"No puede eliminar esta chequera                         porque tiene cheques emitidos"
-
-#. module: l10n_ar_account_check
-#: code:addons/l10n_ar_account_check/wizard/check_deposit.py:76
-#, python-format
-msgid "Error! Bad Treasury             configuration for this Company!"
-msgstr "Error! Configuración de Tesoreria errónea para esta empresa!"
-
-#. module: l10n_ar_account_check
-#: code:addons/l10n_ar_account_check/models/account_check.py:210
-#, python-format
-msgid "Error! Bank Account has no accountconfigured. Please, configure an account for the bank account used for checks!"
-msgstr "Error! El banco no tiene una cuenta configurada. Por favor, configure una cuenta para el Banco utilizado en cheques!"
-
-#. module: l10n_ar_account_check
-#: code:addons/l10n_ar_account_check/wizard/check_deposit.py:56
-#, python-format
-msgid "Error! The selected checks must be                     in wallet.\n"
-"Check %s is not in wallet"
-msgstr "Error! Los Cheques seleccionados deben estar en cartera.\n"
-"El Cheque %s no está en cartera"
-
-#. module: l10n_ar_account_check
-#: code:addons/l10n_ar_account_check/wizard/check_deposit.py:115
-#, python-format
-msgid "Error! The selected checks must to be in                     cartera.\n"
-"Check %s is not in wallet"
-msgstr "Error! Los Cheques seleccionados deben estar en cartera.\n"
-"El Cheque %s no está en cartera"
-
-#. module: l10n_ar_account_check
-#: code:addons/l10n_ar_account_check/models/account_check.py:290
-#, python-format
-msgid "Error! There is no Journal                     configured for deferred checks."
-msgstr "Error! No hay Diario configurado para Cheques Diferidos ."
-
-#. module: l10n_ar_account_check
-#: code:addons/l10n_ar_account_check/wizard/check_deposit.py:70
-#, python-format
-msgid "Error! There is no check                 configuration for this Company!"
-msgstr "Error! No hay Configuración de Cheques para esta empresa!"
-
-#. module: l10n_ar_account_check
-#: code:addons/l10n_ar_account_check/wizard/check_deposit.py:103
-#, python-format
-msgid "Error! You have to configure an account on                 Bank Account %s: %s"
-msgstr "Error! Debe configurar una cuenta en el Banco %s: %s"
-
-#. module: l10n_ar_account_check
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_check_reject__expense_line_ids
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.check_reject_form_view
 msgid "Expenses"
@@ -1017,27 +634,10 @@ msgid "Extended Filters"
 msgstr "Filtro avanzado"
 
 #. module: l10n_ar_account_check
-<<<<<<< HEAD
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.account_issued_check_view_search
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.account_third_checks_view_search
 msgid "Group By..."
 msgstr "Agrupar por..."
-=======
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_returned_check_report__check_qty
-msgid "Found Checks"
-msgstr "Cheques encontrados"
-
-#. module: l10n_ar_account_check
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_check_reject_issued_check__generate_rejection_journal_entry
-msgid "Generate Rejection Journal Entry"
-msgstr "Generar Asiento de Rechazo"
-
-#. module: l10n_ar_account_check
-#: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.account_issued_check_view_search
-#: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.account_third_checks_view_search
-msgid "Group By..."
-msgstr ""
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
 #. module: l10n_ar_account_check
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_add_issued_check__id
@@ -1047,27 +647,14 @@ msgstr ""
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_check_reject__id
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_checkbook__id
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_checkbook_check__id
-<<<<<<< HEAD
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_issued_check__id
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_third_check__id
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_check_reject_expense__id
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_check_reject_issued_check__id
-=======
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_checkbook_limit__id
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_issued_check__id
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_returned_check__id
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_returned_check_report__id
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_third_check__id
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_check_reject_expense__id
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_check_reject_issued_check__id
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_reason_rejected_check__id
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_report_report_xlsx_report_returned_check__id
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_wizard_accredit_checks__id
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_wizard_annull_checks__id
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_wizard_create_check__id
 msgid "ID"
-<<<<<<< HEAD
 msgstr "ID"
 
 #. module: l10n_ar_account_check
@@ -1089,26 +676,11 @@ msgid ""
 msgstr ""
 "Si un cheque es común, solo tendrá fecha de emisión. Si es diferido, también "
 "tendrá fecha de pago"
-=======
-msgstr ""
-
-#. module: l10n_ar_account_check
-#: model:ir.model.fields,help:l10n_ar_account_check.field_account_checkbook__type
-#: model:ir.model.fields,help:l10n_ar_account_check.field_account_issued_check__type
-#: model:ir.model.fields,help:l10n_ar_account_check.field_account_third_check__type
-#: model:ir.model.fields,help:l10n_ar_account_check.field_wizard_create_check__type
-msgid "If common, checks only have issued_date. If post-dated they also have payment date"
-msgstr "Si un cheque es común, solo tendrá fecha de emisión. Si es diferido, también tendrá fecha de pago"
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
 #. module: l10n_ar_account_check
 #: model:ir.model.fields,help:l10n_ar_account_check.field_account_check_config__account_id
 msgid "In Argentina, Valores a Depositar is used, for example"
-<<<<<<< HEAD
 msgstr "En Argentina, Valores a Depositar es usado, como ejemplo"
-=======
-msgstr "En Argentina, Valores a Depositar es usado, por ejemplo"
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
 #. module: l10n_ar_account_check
 #: selection:account.third.check,state:0
@@ -1122,17 +694,6 @@ msgid "In case of rejection of the third check"
 msgstr "En caso de rechazo del cheque de tercero"
 
 #. module: l10n_ar_account_check
-<<<<<<< HEAD
-=======
-#: code:addons/l10n_ar_account_check/wizard/check_reject.py:157
-#: model:ir.model,name:l10n_ar_account_check.model_account_invoice
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_issued_check__invoice_id
-#, python-format
-msgid "Invoice"
-msgstr "Factura"
-
-#. module: l10n_ar_account_check
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_issued_check__issue_date
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_third_check__issue_date
 msgid "Issue Date"
@@ -1152,15 +713,6 @@ msgid "Issued Check"
 msgstr "Cheque Propio"
 
 #. module: l10n_ar_account_check
-<<<<<<< HEAD
-=======
-#: code:addons/l10n_ar_account_check/models/account_check.py:236
-#, python-format
-msgid "Issued Check %s"
-msgstr "Cheque Propio %s"
-
-#. module: l10n_ar_account_check
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: model:ir.actions.act_window,name:l10n_ar_account_check.account_issued_check_action
 #: model:ir.model,name:l10n_ar_account_check.model_account_issued_check
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_checkbook__issued_check_ids
@@ -1196,11 +748,7 @@ msgstr "Diario"
 #. module: l10n_ar_account_check
 #: model:ir.model,name:l10n_ar_account_check.model_account_move_line
 msgid "Journal Item"
-<<<<<<< HEAD
 msgstr "Apunte Contable"
-=======
-msgstr "Elemento del Diario"
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
 #. module: l10n_ar_account_check
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_add_issued_check____last_update
@@ -1210,22 +758,10 @@ msgstr "Elemento del Diario"
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_check_reject____last_update
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_checkbook____last_update
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_checkbook_check____last_update
-<<<<<<< HEAD
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_issued_check____last_update
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_third_check____last_update
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_check_reject_expense____last_update
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_check_reject_issued_check____last_update
-=======
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_checkbook_limit____last_update
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_issued_check____last_update
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_returned_check____last_update
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_returned_check_report____last_update
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_third_check____last_update
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_check_reject_expense____last_update
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_check_reject_issued_check____last_update
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_reason_rejected_check____last_update
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_report_report_xlsx_report_returned_check____last_update
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_wizard_accredit_checks____last_update
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_wizard_annull_checks____last_update
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_wizard_create_check____last_update
@@ -1240,21 +776,10 @@ msgstr "Última modificación en"
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_check_reject__write_uid
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_checkbook__write_uid
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_checkbook_check__write_uid
-<<<<<<< HEAD
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_issued_check__write_uid
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_third_check__write_uid
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_check_reject_expense__write_uid
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_check_reject_issued_check__write_uid
-=======
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_checkbook_limit__write_uid
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_issued_check__write_uid
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_returned_check__write_uid
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_returned_check_report__write_uid
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_third_check__write_uid
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_check_reject_expense__write_uid
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_check_reject_issued_check__write_uid
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_reason_rejected_check__write_uid
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_wizard_accredit_checks__write_uid
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_wizard_annull_checks__write_uid
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_wizard_create_check__write_uid
@@ -1269,35 +794,15 @@ msgstr "Última actualización por"
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_check_reject__write_date
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_checkbook__write_date
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_checkbook_check__write_date
-<<<<<<< HEAD
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_issued_check__write_date
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_third_check__write_date
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_check_reject_expense__write_date
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_check_reject_issued_check__write_date
-=======
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_checkbook_limit__write_date
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_issued_check__write_date
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_returned_check__write_date
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_returned_check_report__write_date
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_third_check__write_date
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_check_reject_expense__write_date
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_check_reject_issued_check__write_date
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_reason_rejected_check__write_date
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_wizard_accredit_checks__write_date
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_wizard_annull_checks__write_date
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_wizard_create_check__write_date
 msgid "Last Updated on"
-<<<<<<< HEAD
 msgstr "Última actualización el"
-=======
-msgstr ""
-
-#. module: l10n_ar_account_check
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_checkbook_limit__limit
-msgid "Limit"
-msgstr "Límite"
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
 #. module: l10n_ar_account_check
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_check_config__account_id
@@ -1322,14 +827,6 @@ msgid "Note"
 msgstr "Nota"
 
 #. module: l10n_ar_account_check
-<<<<<<< HEAD
-=======
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_returned_check__note
-msgid "Observations"
-msgstr "Observaciones"
-
-#. module: l10n_ar_account_check
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_add_issued_check__on_order
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_add_third_check__on_order
 msgid "On Order"
@@ -1348,11 +845,7 @@ msgstr "Abrir"
 #. module: l10n_ar_account_check
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_add_third_check__origin
 msgid "Origen"
-<<<<<<< HEAD
 msgstr "Origen"
-=======
-msgstr ""
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
 #. module: l10n_ar_account_check
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_add_issued_check__origin
@@ -1369,19 +862,10 @@ msgstr "Otra información"
 #. module: l10n_ar_account_check
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_checkbook__partner_id
 msgid "Partner"
-<<<<<<< HEAD
 msgstr "Empresa"
 
 #. module: l10n_ar_account_check
 #: model:ir.model.fields,help:l10n_ar_account_check.field_account_check_config__receivable_rejected_account_id
-=======
-msgstr "Cliente"
-
-#. module: l10n_ar_account_check
-#: code:addons/l10n_ar_account_check/models/account_check.py:43
-#: model:ir.model.fields,help:l10n_ar_account_check.field_account_check_config__receivable_rejected_account_id
-#, python-format
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 msgid "Partner's account in debit note generation."
 msgstr "Cuenta contable del cliente en la generación de la nota de débito."
 
@@ -1399,39 +883,12 @@ msgid "Payment Date"
 msgstr "Fecha de pago"
 
 #. module: l10n_ar_account_check
-<<<<<<< HEAD
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.account_third_check_view_form
 msgid "Payments, Receipts and Debits"
 msgstr "Pagos, Recibos y Débitos"
 
 #. module: l10n_ar_account_check
 #: selection:account.checkbook,type:0 selection:account.issued.check,type:0
-=======
-#: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.account_payment_order_view_form_voucher_check
-msgid "Payment Method"
-msgstr "Método de pago"
-
-#. module: l10n_ar_account_check
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_issued_check__journal_id
-msgid "Payment journal"
-msgstr "Diario de pago"
-
-#. module: l10n_ar_account_check
-#: selection:account.checkbook,checkbook_type:0
-#: selection:wizard.create.check,checkbook_type:0
-msgid "Physical"
-msgstr "Normal"
-
-#. module: l10n_ar_account_check
-#: code:addons/l10n_ar_account_check/wizard/check_reject.py:115
-#, python-format
-msgid "Please, fill the expense account in the product."
-msgstr "Por favor, llene la cuenta de gastos en el producto."
-
-#. module: l10n_ar_account_check
-#: selection:account.checkbook,type:0
-#: selection:account.issued.check,type:0
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: selection:account.third.check,type:0
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.account_issued_check_view_search
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.account_third_checks_view_search
@@ -1440,42 +897,11 @@ msgid "Post-dated"
 msgstr "Diferido"
 
 #. module: l10n_ar_account_check
-<<<<<<< HEAD
-=======
-#: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.returned_check_report_wizard_form
-msgid "Print report"
-msgstr "Descargar reporte"
-
-#. module: l10n_ar_account_check
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_check_reject_expense__product_id
 msgid "Product"
 msgstr "Producto"
 
 #. module: l10n_ar_account_check
-<<<<<<< HEAD
-=======
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_issued_check__reason_id
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_returned_check__reason_id
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_returned_check_report__reason_id
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_check_reject_issued_check__reason_id
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_reason_rejected_check__name
-msgid "Reason"
-msgstr "Motivo"
-
-#. module: l10n_ar_account_check
-#: model:ir.actions.act_window,name:l10n_ar_account_check.reason_rejected_check_action
-msgid "Reasons"
-msgstr "Motivos"
-
-#. module: l10n_ar_account_check
-#: model:ir.model,name:l10n_ar_account_check.model_reason_rejected_check
-#: model:ir.ui.menu,name:l10n_ar_account_check.menu_treasury_reason_rejected_check
-msgid "Reasons for rejected checks"
-msgstr "Motivos para cheques rechazados"
-
-#. module: l10n_ar_account_check
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_third_check__receipt_date
 msgid "Receipt Date"
 msgstr "Fecha de Recepción"
@@ -1497,16 +923,6 @@ msgid "Receiving Partner"
 msgstr "Receptor"
 
 #. module: l10n_ar_account_check
-<<<<<<< HEAD
-=======
-#: code:addons/l10n_ar_account_check/wizard/check_reject.py:244
-#: code:addons/l10n_ar_account_check/wizard/check_reject.py:262
-#, python-format
-msgid "Rechazado Cheque"
-msgstr ""
-
-#. module: l10n_ar_account_check
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_check_reject_expense__reject_id
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.check_reject_form_view
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.issued_check_reject_form_view
@@ -1538,15 +954,8 @@ msgstr "Rechazar Cheques Propios"
 
 #. module: l10n_ar_account_check
 #: selection:account.add.third.check,state:0
-<<<<<<< HEAD
 #: selection:account.issued.check,state:0 selection:account.third.check,state:0
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.account_third_checks_view_search
-=======
-#: selection:account.issued.check,state:0
-#: selection:account.third.check,state:0
-#: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.account_third_checks_view_search
-#: selection:reason.rejected.check,type:0
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 msgid "Rejected"
 msgstr "Rechazado"
 
@@ -1556,26 +965,6 @@ msgid "Rejected Check Account"
 msgstr "Cuenta de Cheques Rechazados"
 
 #. module: l10n_ar_account_check
-<<<<<<< HEAD
-=======
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_issued_check__replaced
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_returned_check_report__replaced
-msgid "Replaced"
-msgstr "Reemplazado"
-
-#. module: l10n_ar_account_check
-#: model:ir.actions.act_window,name:l10n_ar_account_check.returned_check_report_wizard_action
-#: model:ir.ui.menu,name:l10n_ar_account_check.menu_report_returned_check_wizard
-msgid "Report Returned Check"
-msgstr "Reporte Cheques Devueltos"
-
-#. module: l10n_ar_account_check
-#: model:ir.actions.report,name:l10n_ar_account_check.action_returned_report_xls
-msgid "Report returned checks"
-msgstr "Reporte Cheques Devueltos"
-
-#. module: l10n_ar_account_check
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.wizard_restore_checks_view_form
 msgid "Restore Check"
 msgstr "Restaurar Cheque"
@@ -1586,53 +975,6 @@ msgid "Restore Checks"
 msgstr "Restaurar Cheques"
 
 #. module: l10n_ar_account_check
-<<<<<<< HEAD
-=======
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_issued_check__return_date
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_returned_check__return_date
-msgid "Return Date"
-msgstr "Fecha de devolución"
-
-#. module: l10n_ar_account_check
-#: selection:account.issued.check,state:0
-#: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.account_issued_check_view_form
-#: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.account_issued_check_view_search
-#: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.account_returned_check_wizard_form
-#: selection:reason.rejected.check,type:0
-msgid "Returned"
-msgstr "Devuelto"
-
-#. module: l10n_ar_account_check
-#: model:ir.actions.act_window,name:l10n_ar_account_check.action_check_returned
-#: model:ir.model,name:l10n_ar_account_check.model_account_returned_check
-#: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.account_returned_check_wizard_form
-msgid "Returned Check"
-msgstr "Cheque devuelto"
-
-#. module: l10n_ar_account_check
-#: model:ir.model,name:l10n_ar_account_check.model_account_returned_check_report
-msgid "Returned Check Report"
-msgstr "Reporte Cheques devueltos"
-
-#. module: l10n_ar_account_check
-#: selection:account.returned.check.report,filter_by:0
-msgid "Returned Date"
-msgstr "Fecha de devolución"
-
-#. module: l10n_ar_account_check
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_invoice__reverse_widget
-msgid "Reverse Widget"
-msgstr ""
-
-#. module: l10n_ar_account_check
-#. openerp-web
-#: code:addons/l10n_ar_account_check/static/src/xml/reverse_payment.xml:13
-#, python-format
-msgid "Reverse on"
-msgstr "Revertido el"
-
-#. module: l10n_ar_account_check
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.account_issued_check_view_search
 msgid "Search Issued Checks"
 msgstr "Buscar Cheques Propios"
@@ -1647,10 +989,6 @@ msgstr "Seleccionar el Cheque a Cancelar"
 msgid "Select check to Restore"
 msgstr "Seleccionar el Cheque a Restaurar"
 
-<<<<<<< HEAD
-=======
-#. module: l10n_ar_account_check
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.wizard_annull_checks_view_form
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.wizard_restore_checks_view_form
 msgid "Select checks"
@@ -1658,17 +996,12 @@ msgstr "Seleccionar Cheque"
 
 #. module: l10n_ar_account_check
 #: model:ir.model,name:l10n_ar_account_check.model_wizard_accredit_checks
-<<<<<<< HEAD
 msgid ""
 "Select several checks which are Waiting Accreditation so you can accredit "
 "them"
 msgstr ""
 "Seleccione múltiples cheques en estado 'Esperando Acreditación' para "
 "acreditarlos en un paso"
-=======
-msgid "Select several checks which are Waiting Accreditation so you can accredit them"
-msgstr "Seleccione múltiples cheques en estado 'Esperando Acreditación' para acreditarlos en un paso"
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
 #. module: l10n_ar_account_check
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_add_issued_check__signatory
@@ -1689,14 +1022,6 @@ msgid "Signatory account"
 msgstr "Cuenta del Firmante"
 
 #. module: l10n_ar_account_check
-<<<<<<< HEAD
-=======
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_returned_check_report__date_since
-msgid "Since"
-msgstr "Desde"
-
-#. module: l10n_ar_account_check
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_add_third_check__source_partner_id
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_third_check__source_partner_id
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.account_third_checks_view_search
@@ -1725,53 +1050,11 @@ msgid "State"
 msgstr "Estado"
 
 #. module: l10n_ar_account_check
-<<<<<<< HEAD
-=======
-#: code:addons/l10n_ar_account_check/models/account_check.py:667
-#, python-format
-msgid "There are more than one voucher referenced to check %s."
-msgstr "Existen más de una orden de pago referenciada al cheque %s."
-
-#. module: l10n_ar_account_check
-#: code:addons/l10n_ar_account_check/models/account_check.py:199
-#, python-format
-msgid "There is no check configuration for this Company!"
-msgstr "No hay configuraciones de cheque para esta compañía!"
-
-#. module: l10n_ar_account_check
-#: code:addons/l10n_ar_account_check/models/account_check.py:617
-#, python-format
-msgid "There is no reference for account move. Imposible to go back to wallet."
-msgstr "No existe la referencia del asiento contable. Imposible devolver a cartera."
-
-#. module: l10n_ar_account_check
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.account_third_check_view_form
 msgid "Third Check"
 msgstr "Cheque de Tercero"
 
 #. module: l10n_ar_account_check
-<<<<<<< HEAD
-=======
-#: code:addons/l10n_ar_account_check/models/account_check.py:565
-#, python-format
-msgid "Third Check "
-msgstr "Cheque de Tercero "
-
-#. module: l10n_ar_account_check
-#: code:addons/l10n_ar_account_check/models/account_check.py:651
-#, python-format
-msgid "Third Check Error! You cannot cancel                     check if it is not in Draft or in Wallet"
-msgstr "Error! No puede cancelar el cheque si no es está en Borrador o en Cartera"
-
-#. module: l10n_ar_account_check
-#: code:addons/l10n_ar_account_check/models/account_check.py:625
-#, python-format
-msgid "Third Check Error! You cannot return to                     wallet a check if it is not in Delivered state"
-msgstr "Error! No puede devolver a la cartera un cheque si no está en estado Entregado"
-
-#. module: l10n_ar_account_check
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: model:ir.actions.act_window,name:l10n_ar_account_check.account_third_check_action
 #: model:ir.model,name:l10n_ar_account_check.model_account_third_check
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_payment_order__third_check_ids
@@ -1814,32 +1097,16 @@ msgid "Third Checks..."
 msgstr "Cheques de Terceros..."
 
 #. module: l10n_ar_account_check
-<<<<<<< HEAD
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.account_payment_order_view_form_voucher_check
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.vendor_receipt_check_view_form
 msgid "Total"
 msgstr "Total"
-=======
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_returned_check_report__date_to
-msgid "To"
-msgstr "Hasta"
-
-#. module: l10n_ar_account_check
-#: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.account_payment_order_view_form_voucher_check
-#: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.vendor_receipt_check_view_form
-msgid "Total"
-msgstr ""
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
 #. module: l10n_ar_account_check
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.account_checkbook_view_form
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.account_issued_check_view_tree
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.account_payment_order_view_form_voucher_check
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.account_third_check_view_tree
-<<<<<<< HEAD
-=======
-#: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.vendor_receipt_check_view_form
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 msgid "Total Amount"
 msgstr "Importe total"
 
@@ -1850,14 +1117,6 @@ msgid "Treasury"
 msgstr "Tesorería"
 
 #. module: l10n_ar_account_check
-<<<<<<< HEAD
-=======
-#: model:ir.model.fields,field_description:l10n_ar_account_check.field_reason_rejected_check__type
-msgid "Type"
-msgstr "Tipo"
-
-#. module: l10n_ar_account_check
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 #: selection:account.checkbook.check,state:0
 msgid "Used"
 msgstr "Usado"
@@ -1882,20 +1141,12 @@ msgstr "VAT"
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_add_third_check__payment_order_id
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_issued_check__payment_order_id
 msgid "Voucher"
-<<<<<<< HEAD
 msgstr "Comprobante"
-=======
-msgstr "Orden de pago"
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
 #. module: l10n_ar_account_check
 #: model:ir.model.fields,field_description:l10n_ar_account_check.field_account_check_deposit__voucher_number
 msgid "Voucher Number"
-<<<<<<< HEAD
 msgstr "Número de Comprobante"
-=======
-msgstr "Número de Orden de pago"
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
 #. module: l10n_ar_account_check
 #: selection:account.issued.check,state:0
@@ -1914,15 +1165,9 @@ msgid "Wizard to annull checks related to one Checkbook"
 msgstr "Menu para anular cheques relacionados a una Chequera"
 
 #. module: l10n_ar_account_check
-<<<<<<< HEAD
 #: model:ir.model,name:l10n_ar_account_check.model_wizard_restore_checks
 msgid "Wizard to restore checks related to one Checkbook"
 msgstr "Menu para restaurar cheques relacionados con una Chequera"
-=======
-#: selection:account.returned.check.report,replaced:0
-msgid "Yes"
-msgstr "Sí"
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
 #. module: l10n_ar_account_check
 #: model_terms:ir.ui.view,arch_db:l10n_ar_account_check.account_third_check_view_form
@@ -1946,7 +1191,6 @@ msgstr "Orden de Pago"
 msgid "or"
 msgstr "o"
 
-<<<<<<< HEAD
 #. module: l10n_ar_account_check
 #: code:addons/l10n_ar_account_check/wizard/check_reject.py:69
 #, python-format
@@ -2215,5 +1459,3 @@ msgstr ""
 #, python-format
 msgid "Check Rejected %s %s"
 msgstr "Cheque Rechazado %s %s"
-=======
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4

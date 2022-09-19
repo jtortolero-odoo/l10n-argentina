@@ -4,71 +4,70 @@
 ##############################################################################
 
 from odoo import _, api, fields, models
-<<<<<<< HEAD
 from odoo.exceptions import ValidationError
-=======
-from odoo.exceptions import ValidationError, UserError
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
 
 class AccountPaymentOrder(models.Model):
-    _name = 'account.payment.order'
-    _inherit = 'account.payment.order'
+    _name = "account.payment.order"
+    _inherit = "account.payment.order"
 
     issued_check_ids = fields.One2many(
-        comodel_name='account.issued.check',
-        inverse_name='payment_order_id',
-        string='Issued Checks',
-        readonly=True, required=False,
-        states={'draft': [('readonly', False)]})
+        comodel_name="account.issued.check",
+        inverse_name="payment_order_id",
+        string="Issued Checks",
+        readonly=True,
+        required=False,
+        states={"draft": [("readonly", False)]},
+    )
     third_check_receipt_ids = fields.One2many(
-        comodel_name='account.third.check',
-        inverse_name='source_payment_order_id',
-        string='Third Checks Receipt',
-        readonly=True, required=False,
-        states={'draft': [('readonly', False)]})
+        comodel_name="account.third.check",
+        inverse_name="source_payment_order_id",
+        string="Third Checks Receipt",
+        readonly=True,
+        required=False,
+        states={"draft": [("readonly", False)]},
+    )
     third_check_ids = fields.Many2many(
-       comodel_name='account.third.check',
-       relation='third_check_voucher_rel',
-       column1='dest_payment_order_id',
-       column2='third_check_id',
-       string='Third Checks', readonly=True,
-       states={'draft': [('readonly', False)]})
+        comodel_name="account.third.check",
+        relation="third_check_voucher_rel",
+        column1="dest_payment_order_id",
+        column2="third_check_id",
+        string="Third Checks",
+        readonly=True,
+        states={"draft": [("readonly", False)]},
+    )
 
     @api.multi
     def _amount_checks(self):
         self.ensure_one()
         res = {}
-        res['issued_check_amount'] = 0.00
-        res['third_check_amount'] = 0.00
-        res['third_check_receipt_amount'] = 0.00
+        res["issued_check_amount"] = 0.00
+        res["third_check_amount"] = 0.00
+        res["third_check_receipt_amount"] = 0.00
         if self.issued_check_ids:
             for issued_check in self.issued_check_ids:
-                res['issued_check_amount'] += issued_check.amount
+                res["issued_check_amount"] += issued_check.amount
         if self.third_check_ids:
             for third_check in self.third_check_ids:
-                res['third_check_amount'] += third_check.amount
+                res["third_check_amount"] += third_check.amount
         if self.third_check_receipt_ids:
             for third_rec_check in self.third_check_receipt_ids:
-                res['third_check_receipt_amount'] += third_rec_check.amount
+                res["third_check_receipt_amount"] += third_rec_check.amount
         return res
 
     @api.multi
     def get_issued_checks_amount(self):
-        return sum(self.issued_check_ids.mapped('amount'))
+        return sum(self.issued_check_ids.mapped("amount"))
 
     @api.multi
     def get_third_checks_amount(self):
-        return sum(self.third_check_ids.mapped('amount'))
+        return sum(self.third_check_ids.mapped("amount"))
 
     @api.multi
     def get_third_check_receipts_amount(self):
-        return sum(self.third_check_receipt_ids.mapped('amount'))
+        return sum(self.third_check_receipt_ids.mapped("amount"))
 
-    @api.onchange(
-        'third_check_ids',
-        'issued_check_ids',
-        'third_check_receipt_ids')
+    @api.onchange("third_check_ids", "issued_check_ids", "third_check_receipt_ids")
     def onchange_checks(self):
         amount = self.payment_order_amount_hook()
         self.amount = amount
@@ -84,56 +83,35 @@ class AccountPaymentOrder(models.Model):
     @api.multi
     def unlink(self):
         for voucher in self:
-            if voucher.type == 'receipt':
+            if voucher.type == "receipt":
                 voucher.third_check_ids.unlink()
             voucher.issued_check_ids.unlink()
             super(AccountPaymentOrder, voucher).unlink()
 
-<<<<<<< HEAD
-=======
-    def _update_returned_check(self):
-        debt_lines = self.debt_line_ids.filtered('amount')
-        checks = debt_lines.mapped('move_line_id').mapped('issued_check_id')
-        returned_checks = checks.filtered(lambda x: x.state == 'returned')
-        if not debt_lines or not returned_checks:
-            return
-
-        replacement = 0
-        for dline in debt_lines:
-            for check in returned_checks:
-                if dline.amount == check.amount:
-                    check.replaced = True
-                    check.replacement_payment_order_id = self.id
-                    replacement += 1
-
-        if replacement == 0:
-            raise UserError('To replace returned checks, please create a new check for each returned check'
-                            ' in the same amounts.')
-
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
     @api.multi
     def create_move_line_hook(self, move_id, move_lines):
-        move_lines = super(AccountPaymentOrder, self).\
-            create_move_line_hook(move_id, move_lines)
+        move_lines = super(AccountPaymentOrder, self).create_move_line_hook(
+            move_id, move_lines
+        )
 
-        if self.type in ('sale', 'receipt'):
+        if self.type in ("sale", "receipt"):
             for check in self.third_check_receipt_ids:
                 if check.amount == 0.0:
                     continue
 
                 res = check.create_voucher_move_line(self)
-                res['move_id'] = move_id
+                res["move_id"] = move_id
                 move_lines.append(res)
                 check.to_wallet()
 
-        elif self.type in ('purchase', 'payment'):
+        elif self.type in ("purchase", "payment"):
             # Cheques recibidos de terceros que los damos a un proveedor
             for check in self.third_check_ids:
                 if check.amount == 0.0:
                     continue
 
                 res = check.create_voucher_move_line(self)
-                res['move_id'] = move_id
+                res["move_id"] = move_id
                 move_lines.append(res)
                 check.check_delivered()
 
@@ -143,34 +121,28 @@ class AccountPaymentOrder(models.Model):
                     continue
 
                 res = check.create_voucher_move_line()
-                res['move_id'] = move_id
-                res['issued_check_id'] = check.id
+                res["move_id"] = move_id
+                res["issued_check_id"] = check.id
                 move_lines.append(res)
 
-                if check.type == 'postdated':
-                    state = 'waiting'
+                if check.type == "postdated":
+                    state = "waiting"
                 else:
-                    state = 'issued'
+                    state = "issued"
 
                 vals = {
-                    'state': state,
-                    'payment_move_id': move_id,
-                    'receiving_partner_id': self.partner_id.id
+                    "state": state,
+                    "payment_move_id": move_id,
+                    "receiving_partner_id": self.partner_id.id,
                 }
 
                 if not check.origin:
-                    vals['origin'] = self.reference
+                    vals["origin"] = self.reference
 
                 if not check.issue_date:
-                    vals['issue_date'] = self.date
+                    vals["issue_date"] = self.date
                 check.write(vals)
 
-<<<<<<< HEAD
-=======
-                # if the payment is by check, check if it's a replacement for a returned check
-                self._update_returned_check()
-
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         return move_lines
 
     @api.multi
@@ -189,10 +161,15 @@ class AccountPaymentOrder(models.Model):
             # Cancelamos los cheques emitidos
             issued_checks = voucher.issued_check_ids
             for check in issued_checks:
-                if check.type == 'postdated' and check.accredited:
-                    err = _('Check number %s is postdated and has \
+                if check.type == "postdated" and check.accredited:
+                    err = (
+                        _(
+                            "Check number %s is postdated and has \
                         already been accredited!\nPlease break the \
-                        conciliation of that check first.') % check.number
+                        conciliation of that check first."
+                        )
+                        % check.number
+                    )
                     raise ValidationError(err)
 
             issued_checks.cancel_check()
@@ -205,10 +182,10 @@ class AccountPaymentOrder(models.Model):
         for voucher in self:
             # A draft los cheques emitidos
             issued_checks = voucher.issued_check_ids
-            issued_checks.write({'state': 'draft'})
+            issued_checks.write({"state": "draft"})
 
             # A draft los cheques de tercero en cobros
             third_checks = voucher.third_check_receipt_ids
-            third_checks.write({'state': 'draft'})
+            third_checks.write({"state": "draft"})
 
         return res

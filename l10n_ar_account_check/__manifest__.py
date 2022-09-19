@@ -28,26 +28,13 @@
         "account",
         "l10n_ar_account_payment_order",
         "l10n_ar_point_of_sale",
-<<<<<<< HEAD
-=======
-        'report_xlsx',
-        'web_notify',
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
     ],
     "data": [
         "security/account_check_security.xml",
         "security/ir.model.access.csv",
-<<<<<<< HEAD
         "wizard/annull_checks_view.xml",
         "wizard/view_check_deposit.xml",
         "wizard/view_check_reject.xml",
-=======
-        "security/ir_rule.xml",
-        "wizard/annull_checks_view.xml",
-        "wizard/view_check_deposit.xml",
-        "wizard/view_check_reject.xml",
-        "wizard/check_returned_view.xml",
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         "wizard/add_checks_view.xml",
         "wizard/accredit_checks_view.xml",
         "views/account_check_view.xml",
@@ -56,16 +43,6 @@
         "views/account_payment_order_view.xml",
         "views/account_voucher_view.xml",
         "views/partner_view.xml",
-<<<<<<< HEAD
-=======
-        'views/reason_rejected_check_view.xml',
-        'views/account_invoice_view.xml',
-        'wizard/report_returned_view.xml',
-        'report/report_returned_check_view.xml',
-    ],
-    'qweb': [
-        'static/src/xml/reverse_payment.xml',
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
     ],
     "installable": True,
     "application": True,
