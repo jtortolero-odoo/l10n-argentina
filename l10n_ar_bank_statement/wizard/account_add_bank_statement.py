@@ -8,31 +8,29 @@ from odoo import api, fields, models
 
 class WizardAddAccountBankStatementLine(models.TransientModel):
     _name = "wizard.add.account.bank.statement.line"
-    _description = "Wizard to link Account Bank " + \
-        "Statement Lines with an Statement"
+    _description = "Wizard to link Account Bank " + "Statement Lines with an Statement"
 
-    do_confirm = fields.Boolean(
-        string='Confirm all lines', default=False)
+    do_confirm = fields.Boolean(string="Confirm all lines", default=False)
     statement_id = fields.Many2one(
-        'account.bank.statement',
-        string='Bank Statement',
+        "account.bank.statement",
+        string="Bank Statement",
         required=True,
-        ondelete='cascade',
-        default=lambda w: w._get_default_statement_id()
+        ondelete="cascade",
+        default=lambda w: w._get_default_statement_id(),
     )
     journal_id = fields.Many2one(
-        'account.journal',
-        string='Journal',
+        "account.journal",
+        string="Journal",
         required=True,
-        ondelete='cascade',
+        ondelete="cascade",
         default=lambda w: w._get_default_journal_id(),
     )
     statement_line_ids = fields.Many2many(
-        comodel_name='account.bank.statement.line',
-        relation='st_line_add_wiz_rel',
-        column1='wiz_id',
-        column2='line_id',
-        string='Lines',
+        comodel_name="account.bank.statement.line",
+        relation="st_line_add_wiz_rel",
+        column1="wiz_id",
+        column2="line_id",
+        string="Lines",
         default=lambda w: w._get_default_line_ids(),
     )
 
@@ -54,10 +52,6 @@ class WizardAddAccountBankStatementLine(models.TransientModel):
             ("journal_id", "=", statement.journal_id.id),
             ("statement_id", "=", False),
             ("state", "=", "open"),
-<<<<<<< HEAD
-=======
-            ("line_type", "=", 'payment'),
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
         ]
 
         lines = self.env["account.bank.statement.line"].search(domain)
@@ -66,9 +60,11 @@ class WizardAddAccountBankStatementLine(models.TransientModel):
 
     def add_lines(self):
         statement = self.statement_id
-        ret = statement.write({
-            "line_ids": [(4, line.id) for line in self.statement_line_ids],
-        })
+        ret = statement.write(
+            {
+                "line_ids": [(4, line.id) for line in self.statement_line_ids],
+            }
+        )
 
         if self.do_confirm:
             self.statement_line_ids.confirm()

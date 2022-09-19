@@ -7,9 +7,10 @@ from odoo import _, api, exceptions, fields, models
 
 
 class PoSBoxConcept(models.Model):
-    _name = 'pos.box.concept'
-    _description = 'Concept with an account to be used by ' + \
-        'cash.box.in and cash.box.out'
+    _name = "pos.box.concept"
+    _description = (
+        "Concept with an account to be used by " + "cash.box.in and cash.box.out"
+    )
 
     @api.constrains("code")
     def check_code_not_dup(self):
@@ -17,8 +18,7 @@ class PoSBoxConcept(models.Model):
             code = concept.code
             count = self.search_count([("code", "ilike", code)])
             if count > 1:
-                raise exceptions.ValidationError(
-                    _("Concept duplicated: %s") % code)
+                raise exceptions.ValidationError(_("Concept duplicated: %s") % code)
 
     @api.constrains("name", "concept_type")
     def check_name_not_dup(self):
@@ -32,13 +32,11 @@ class PoSBoxConcept(models.Model):
             )
 
             if count > 1:
-                raise exceptions.ValidationError(
-                    _("Concept duplicated: %s") % name)
+                raise exceptions.ValidationError(_("Concept duplicated: %s") % name)
 
-    code = fields.Char(string='Code', size=16, required=True)
-    name = fields.Char(string='Name', size=128, required=True)
-    account_id = fields.Many2one(
-        'account.account', string='Account', required=True)
+    code = fields.Char(string="Code", size=16, required=True)
+    name = fields.Char(string="Name", size=128, required=True)
+    account_id = fields.Many2one("account.account", string="Account", required=True)
     concept_type = fields.Selection(
         [
             ("in", "Put money in"),
@@ -48,33 +46,23 @@ class PoSBoxConcept(models.Model):
         required=True,
     )
 
-<<<<<<< HEAD
-=======
-    @api.model
-    def create(self, vals):
-        self.env['ir.rule'].clear_cache()
-        return super(PoSBoxConcept, self).create(vals)
->>>>>>> 0a3efb23238b987f350a02bf4cba405f47bc23f4
 
 class PoSBoxConceptAllowed(models.Model):
-    _name = 'pos.box.concept.allowed'
-    _description = 'Allow users to see PosBoxConcepts'
+    _name = "pos.box.concept.allowed"
+    _description = "Allow users to see PosBoxConcepts"
     _sql_constraints = [
-        ('name_unique',
-         'UNIQUE(model, name)',
-         "Field name must be unique per model."),
+        ("name_unique", "UNIQUE(model, name)", "Field name must be unique per model."),
     ]
 
-    name = fields.Char('Name', required=True)
-    user_ids = fields.Many2many(
-        'res.users', string='Users', required=True)
-    concept_ids = fields.Many2many(
-        'pos.box.concept', string='PosBox Concepts')
+    name = fields.Char("Name", required=True)
+    user_ids = fields.Many2many("res.users", string="Users", required=True)
+    concept_ids = fields.Many2many("pos.box.concept", string="PosBox Concepts")
 
-    @api.constrains('user_ids')
+    @api.constrains("user_ids")
     def _check_users(self):
-        recordset = self.search([('id', 'not in', self.ids)])
+        recordset = self.search([("id", "not in", self.ids)])
         for record in recordset:
             if set(self.user_ids.ids) & set(record.user_ids.ids):
                 raise exceptions.ValidationError(
-                    _('Fields users must be unique per model.'))
+                    _("Fields users must be unique per model.")
+                )
