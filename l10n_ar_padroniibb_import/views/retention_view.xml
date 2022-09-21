@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <!--
     <data>
 
         <record model="ir.ui.view" id="view_retention_padron_form">
@@ -27,5 +28,5 @@
             </field>
         </record>
 
-    </data>
+    </data>-->
 </odoo>
