@@ -1,8 +1,3 @@
-##############################################################################
-#   Copyright (c) 2018 Eynes/E-MIPS (www.eynes.com.ar)
-#   License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-##############################################################################
-
 import logging
 import os
 import shlex
@@ -21,11 +16,11 @@ from odoo.exceptions import ValidationError, Warning
 from odoo.tools import config
 
 _logger = logging.getLogger(__name__)
-# rar file
-# try:
-#    from rarfile import RarFile, is_rarfile
-# except (ImportError, IOError) as err:
-#    _logger.warning(err)
+
+try:
+    from rarfile import RarFile, is_rarfile
+except (ImportError, IOError) as err:
+    _logger.warning(err)
 
 
 def get_dsn_pg(cr):
@@ -120,9 +115,10 @@ class PadronImport(models.TransientModel):
     def extract_file(self, out_path, file_like):
         files_extracted = []
 
-        # Soportamos zip y rarfile
-
-        if is_zipfile(file_like):
+        # Soportamos zip y rar
+        if is_rarfile(file_like):
+            z = RarFile(file_like)
+        elif is_zipfile(file_like):
             z = ZipFile(file_like)
         else:
             raise ValidationError(
@@ -131,11 +127,9 @@ class PadronImport(models.TransientModel):
                     + "please check if it is the correct file."
                 )
             )
-
         for name in z.namelist():
             z.extract(name, out_path)
             files_extracted.append(out_path + "/" + name)
-
         return files_extracted
 
     @api.model
