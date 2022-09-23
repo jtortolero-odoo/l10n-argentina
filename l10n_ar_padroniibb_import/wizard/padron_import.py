@@ -1,3 +1,8 @@
+##############################################################################
+#   Copyright (c) 2018 Eynes/E-MIPS (www.eynes.com.ar)
+#   License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+##############################################################################
+
 import logging
 import os
 import shlex
@@ -127,9 +132,11 @@ class PadronImport(models.TransientModel):
                     + "please check if it is the correct file."
                 )
             )
+
         for name in z.namelist():
             z.extract(name, out_path)
             files_extracted.append(out_path + "/" + name)
+
         return files_extracted
 
     @api.model
